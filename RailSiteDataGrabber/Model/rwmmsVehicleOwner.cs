@@ -16,6 +16,7 @@ namespace RailSiteDataGrabber.Model
     {
         public int Id { get; set; }
         public string wCompanyName { get; set; }
+        public string wCompanyId { get; set; }
         public string wRegisterNo { get; set; }
         public string wRegisterCityName { get; set; }
         public string wRegsiterPersianDate { get; set; }
@@ -29,6 +30,5 @@ namespace RailSiteDataGrabber.Model
         public Nullable<System.DateTime> FetchTime { get; set; }
         public Nullable<int> CycleNumber { get; set; }
         public string Source { get; set; }
-        public string wCompanyId { get; set; }
     }
 }

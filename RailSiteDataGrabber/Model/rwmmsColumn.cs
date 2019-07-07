@@ -271,7 +271,7 @@ namespace RailSiteDataGrabber.Model
                 whereCondition = this.fnc_getWhereCondition(items[i]);
                 dic = this.fnc_getColumnsValue(items[i]);
 
-                using (var entity = new Model.logesticEntities())
+                using (var entity = new Model.logisticEntities())
                 {
                     var exists = entity.Database.SqlQuery<int?>("select top 1 1 from " + this.TableName + " where " + whereCondition).FirstOrDefault();
                     if (exists.HasValue)
@@ -314,7 +314,7 @@ namespace RailSiteDataGrabber.Model
                 cmd = cmd.Remove(cmd.Length - 1, 1);
             }
             cmd = " update " + this.TableName + " set " + cmd + " where " + whereCondition;
-            using (var entity = new Model.logesticEntities())
+            using (var entity = new Model.logisticEntities())
             {
                 try
                 {
@@ -354,7 +354,7 @@ namespace RailSiteDataGrabber.Model
                 columnValues = columnValues.Remove(columnValues.Length - 1, 1);
             }
             cmd = " insert into " + this.TableName + "(" + columnNames + ")values(" + columnValues + ")";
-            using (var entity = new Model.logesticEntities())
+            using (var entity = new Model.logisticEntities())
             {
                 try
                 {
@@ -440,7 +440,7 @@ namespace RailSiteDataGrabber.Model
                         }
                         #endregion
 
-                        using (var entity = new Model.logesticEntities())
+                        using (var entity = new Model.logisticEntities())
                         {
                             DataTable dt = new DataTable();
                             Functions.sb_fillDatatable((SqlConnection)entity.Database.Connection

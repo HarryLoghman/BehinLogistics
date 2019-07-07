@@ -132,10 +132,10 @@ namespace RailSiteDataGrabber.rwmms
                             {
                                 introductionFilePath = this.fnc_getIntroductionFile(entry_company.Id, entry_company.wCompanyName, i);
                                 entry_company.wIntroductionFile = introductionFilePath;
-                                using (var entityLogestic = new Model.logesticEntities())
+                                using (var entityLogistic = new Model.logisticEntities())
                                 {
-                                    entityLogestic.Entry(entry_company).State = System.Data.Entity.EntityState.Modified;
-                                    entityLogestic.SaveChanges();
+                                    entityLogistic.Entry(entry_company).State = System.Data.Entity.EntityState.Modified;
+                                    entityLogistic.SaveChanges();
                                 }
                             }
 
@@ -207,12 +207,12 @@ namespace RailSiteDataGrabber.rwmms
                             string mobileNumber = Functions.fnc_getElementValue(htmlEditPage, "ContentPlaceHolder1_txtMobileNumber");
                             string birthDate = Functions.fnc_getElementValue(htmlEditPage, "ContentPlaceHolder1_txtBirthDate");
                             string address = Functions.fnc_getElementValue(htmlEditPage, "ContentPlaceHolder1_txtAgentAddress");
-                            using (var entityLogestic = new Model.logesticEntities())
+                            using (var entityLogistic = new Model.logisticEntities())
                             {
                                 if (!string.IsNullOrEmpty(meliNo))
                                 {
                                     add = false;
-                                    var entryOwnerExtraDetail = entityLogestic.rwmmsVehicleOwnersDetails.FirstOrDefault(o => o.wMeliNo == meliNo);
+                                    var entryOwnerExtraDetail = entityLogistic.rwmmsVehicleOwnersDetails.FirstOrDefault(o => o.wMeliNo == meliNo);
                                     if (entryOwnerExtraDetail == null)
                                     {
                                         entryOwnerExtraDetail = new Model.rwmmsVehicleOwnersDetail();
@@ -235,9 +235,9 @@ namespace RailSiteDataGrabber.rwmms
                                     entryOwnerExtraDetail.wPostalCode = (Functions.IsNull(postalCode) ? null : postalCode);
                                     entryOwnerExtraDetail.wRegisterCity = (Functions.IsNull(registerCity) ? null : registerCity);
                                     if (add)
-                                        entityLogestic.rwmmsVehicleOwnersDetails.Add(entryOwnerExtraDetail);
-                                    else entityLogestic.Entry(entryOwnerExtraDetail).State = System.Data.Entity.EntityState.Modified;
-                                    entityLogestic.SaveChanges();
+                                        entityLogistic.rwmmsVehicleOwnersDetails.Add(entryOwnerExtraDetail);
+                                    else entityLogistic.Entry(entryOwnerExtraDetail).State = System.Data.Entity.EntityState.Modified;
+                                    entityLogistic.SaveChanges();
 
                                 }
                             }
@@ -372,7 +372,7 @@ namespace RailSiteDataGrabber.rwmms
             //Model.rwmmsVehicleOwner entry_company;
             bool add;
             string companyName;
-            using (var entityLogestic = new Model.logesticEntities())
+            using (var entityLogistic = new Model.logisticEntities())
             {
                 for (i = 0; i <= dt.Rows.Count - 1; i++)
                 {
@@ -387,7 +387,7 @@ namespace RailSiteDataGrabber.rwmms
                     }
                     else
                     {
-                        entry_vehicleOwner = entityLogestic.rwmmsVehicleOwners.FirstOrDefault(o => o.Id == ownerId);
+                        entry_vehicleOwner = entityLogistic.rwmmsVehicleOwners.FirstOrDefault(o => o.Id == ownerId);
                     }
 
                     //if (entry_vehicleOwner == null)
@@ -411,9 +411,9 @@ namespace RailSiteDataGrabber.rwmms
                     entry_vehicleOwner.wRegisterNo = Functions.IsNull(dt.Rows[i][vehicleOwnersDataTable.fld_registerNo]) ? null : dt.Rows[i][vehicleOwnersDataTable.fld_registerNo].ToString();
                     entry_vehicleOwner.wRegsiterPersianDate = Functions.IsNull(dt.Rows[i][vehicleOwnersDataTable.fld_registerPersianDate]) ? null : dt.Rows[i][vehicleOwnersDataTable.fld_registerPersianDate].ToString();
                     if (add)
-                        entityLogestic.rwmmsVehicleOwners.Add(entry_vehicleOwner);
-                    else entityLogestic.Entry(entry_vehicleOwner).State = System.Data.Entity.EntityState.Modified;
-                    entityLogestic.SaveChanges();
+                        entityLogistic.rwmmsVehicleOwners.Add(entry_vehicleOwner);
+                    else entityLogistic.Entry(entry_vehicleOwner).State = System.Data.Entity.EntityState.Modified;
+                    entityLogistic.SaveChanges();
                     //companyId = entry_company.Id;
                 }
             }
@@ -423,9 +423,9 @@ namespace RailSiteDataGrabber.rwmms
         public static int? Fnc_getVehicleOwnerId(string ownerName)
         {
             if (string.IsNullOrEmpty(ownerName)) return null;
-            using (var entityLogestic = new Model.logesticEntities())
+            using (var entityLogistic = new Model.logisticEntities())
             {
-                var entry_vehicleOwner = entityLogestic.rwmmsVehicleOwners.FirstOrDefault(o => o.companyName == ownerName
+                var entry_vehicleOwner = entityLogistic.rwmmsVehicleOwners.FirstOrDefault(o => o.companyName == ownerName
                    || o.AlternateNames.Contains(ownerName + ";"));
                 if (entry_vehicleOwner == null) return null;
                 else return entry_vehicleOwner.Id;

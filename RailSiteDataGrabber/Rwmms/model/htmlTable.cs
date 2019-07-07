@@ -297,14 +297,14 @@ namespace RailSiteDataGrabber.rwmms.model
             if (string.IsNullOrEmpty(this.prp_pageIndexColumnName))
                 throw new Exception("prp_columnPageIndexName is not specified");
             string whereCondition = "";
-            using (var entityLogestic = new Model.logesticEntities())
+            using (var entityLogistic = new Model.logisticEntities())
             {
                 if (this.prp_pageIndexIdentifierColumnNames != null && this.prp_pageIndexIdentifierColumnNames.Length > 0)
                 {
                     Dictionary<string, object> dicValues = this.fnc_getValues(null, false, this.prp_pageIndexIdentifierColumnNames);
                     whereCondition = this.fnc_getWhereCondition(dicValues, this.prp_pageIndexIdentifierColumnNames);
                 }
-                startPageIndex = entityLogestic.Database.SqlQuery<int?>("select max(" + this.prp_pageIndexColumnName + ") from " + this.TableName + (string.IsNullOrEmpty(whereCondition) ? "" : " where " + whereCondition)).FirstOrDefault();
+                startPageIndex = entityLogistic.Database.SqlQuery<int?>("select max(" + this.prp_pageIndexColumnName + ") from " + this.TableName + (string.IsNullOrEmpty(whereCondition) ? "" : " where " + whereCondition)).FirstOrDefault();
 
                 if (!startPageIndex.HasValue) return 1;
                 return startPageIndex.Value;
@@ -414,7 +414,7 @@ namespace RailSiteDataGrabber.rwmms.model
             Dictionary<string, object> dic = this.fnc_getValues(element, download);
             string whereCondition = this.fnc_getWhereCondition(dic, this.prp_identifierColumnNames);
 
-            using (var entity = new Model.logesticEntities())
+            using (var entity = new Model.logisticEntities())
             {
                 int? idValue;
                 var exists = entity.Database.SqlQuery<int?>("select top 1 1 from " + this.TableName + (string.IsNullOrEmpty(whereCondition) ? "" : " where " + whereCondition)).FirstOrDefault();
@@ -555,7 +555,7 @@ namespace RailSiteDataGrabber.rwmms.model
             }
             cmd = " update " + this.TableName + " set " + cmd
                 + " output inserted." + this.prp_columnIdName + (string.IsNullOrEmpty(whereCondition) ? "" : " where " + whereCondition);
-            using (var entity = new Model.logesticEntities())
+            using (var entity = new Model.logisticEntities())
             {
                 try
                 {
@@ -602,7 +602,7 @@ namespace RailSiteDataGrabber.rwmms.model
                 columnValues = columnValues.Remove(columnValues.Length - 1, 1);
             }
             cmd = " insert into " + this.TableName + "(" + columnNames + ")" + " OUTPUT inserted." + this.prp_columnIdName + " values(" + columnValues + ")";
-            using (var entity = new Model.logesticEntities())
+            using (var entity = new Model.logisticEntities())
             {
                 try
                 {

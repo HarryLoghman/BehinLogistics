@@ -98,9 +98,9 @@ namespace RailSiteDataGrabber.rwmms
             int pageIndexStart = 1;
             if (getLastItems)
             {
-                using (var entityLogestic = new Model.logesticEntities())
+                using (var entityLogistic = new Model.logisticEntities())
                 {
-                    int? maxPageNo = entityLogestic.rwmmsDeclerationLists.Where(o => o.wOwnerName == ownerName && o.wTypeName == typeName).Max(o => o.PageIndex);
+                    int? maxPageNo = entityLogistic.rwmmsDeclerationLists.Where(o => o.wOwnerName == ownerName && o.wTypeName == typeName).Max(o => o.PageIndex);
                     if (maxPageNo.HasValue) pageIndexStart = maxPageNo.Value;
                     else pageIndexStart = 1;
                 }
@@ -225,7 +225,7 @@ namespace RailSiteDataGrabber.rwmms
             bool add;
             long wagonNo;
             Model.rwmmsDeclerationList entry_declerationList;
-            using (var entityLogestic = new Model.logesticEntities())
+            using (var entityLogistic = new Model.logisticEntities())
             {
                 for (i = 0; i <= dt.Rows.Count - 1; i++)
                 {
@@ -233,7 +233,7 @@ namespace RailSiteDataGrabber.rwmms
                     if (!Functions.IsNull(dt.Rows[i][declerationListDataTable.fld_wagonNo]))
                     {
                         wagonNo = long.Parse(dt.Rows[i][declerationListDataTable.fld_wagonNo].ToString());
-                        entry_declerationList = entityLogestic.rwmmsDeclerationLists.FirstOrDefault(o => o.wWagonNo == wagonNo
+                        entry_declerationList = entityLogistic.rwmmsDeclerationLists.FirstOrDefault(o => o.wWagonNo == wagonNo
                         && o.wOwnerName == ownerName && o.wTypeName == typeName);
                         if (entry_declerationList == null)
                         {
@@ -305,9 +305,9 @@ namespace RailSiteDataGrabber.rwmms
                         entry_declerationList.wAttachmentPath = (Functions.IsNull(dt.Rows[i][declerationListDataTable.fld_attachmentPath]) ? null : dt.Rows[i][declerationListDataTable.fld_attachmentPath].ToString());
                     }
                     if (add)
-                        entityLogestic.rwmmsDeclerationLists.Add(entry_declerationList);
-                    else entityLogestic.Entry(entry_declerationList).State = System.Data.Entity.EntityState.Modified;
-                    entityLogestic.SaveChanges();
+                        entityLogistic.rwmmsDeclerationLists.Add(entry_declerationList);
+                    else entityLogistic.Entry(entry_declerationList).State = System.Data.Entity.EntityState.Modified;
+                    entityLogistic.SaveChanges();
 
                     PWS0.trainBarryWagons.fnc_saveWagonFromRWMMS(dt, i);
                 }

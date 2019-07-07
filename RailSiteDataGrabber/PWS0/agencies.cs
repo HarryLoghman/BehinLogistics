@@ -32,7 +32,7 @@ namespace RailSiteDataGrabber.PWS0
 
                     if (agenciesJson != null && agenciesJson.features != null)
                     {
-                        using (var entityLogestic = new Model.logesticEntities())
+                        using (var entityLogistic = new Model.logisticEntities())
                         {
                             foreach (agency_featureJsonModel feature in agenciesJson.features)
                             {
@@ -69,10 +69,10 @@ namespace RailSiteDataGrabber.PWS0
 
         public void sb_saveToDB()
         {
-            using (var entityLogestic = new Model.logesticEntities())
+            using (var entityLogistic = new Model.logisticEntities())
             {
                 bool add = false;
-                Model.PWS0Agencies entryPWS0Agency = entityLogestic.PWS0Agencies.FirstOrDefault(o => o.AgencyCode == this.properties.AgencyCode
+                Model.PWS0Agencies entryPWS0Agency = entityLogistic.PWS0Agencies.FirstOrDefault(o => o.AgencyCode == this.properties.AgencyCode
                   && o.AgencyName == this.properties.AgencyName
                   && o.CountryCode == this.properties.CountryCode
                   && o.ProvinceCode == this.properties.ProvinceCode
@@ -97,15 +97,15 @@ namespace RailSiteDataGrabber.PWS0
                 entryPWS0Agency.FetchTime = DateTime.Now;
                 if (add)
                 {
-                    entityLogestic.PWS0Agencies.Add(entryPWS0Agency);
+                    entityLogistic.PWS0Agencies.Add(entryPWS0Agency);
                 }
 
-                entityLogestic.SaveChanges();
+                entityLogistic.SaveChanges();
                 //to get id of stationid
                 int AgencyId = entryPWS0Agency.Id;
 
                 add = false;
-                Model.PWS0AgenciesGeos entryPWS0AgenciesGeos = entityLogestic.PWS0AgenciesGeos.FirstOrDefault(o => o.AgencyId == AgencyId
+                Model.PWS0AgenciesGeos entryPWS0AgenciesGeos = entityLogistic.PWS0AgenciesGeos.FirstOrDefault(o => o.AgencyId == AgencyId
                     && o.id == this.id);
                 if (entryPWS0AgenciesGeos == null)
                 {
@@ -125,9 +125,9 @@ namespace RailSiteDataGrabber.PWS0
 
                 if (add)
                 {
-                    entityLogestic.PWS0AgenciesGeos.Add(entryPWS0AgenciesGeos);
+                    entityLogistic.PWS0AgenciesGeos.Add(entryPWS0AgenciesGeos);
                 }
-                entityLogestic.SaveChanges();
+                entityLogistic.SaveChanges();
             }
         }
     }

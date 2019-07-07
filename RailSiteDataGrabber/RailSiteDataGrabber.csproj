@@ -100,79 +100,79 @@
     </Compile>
     <Compile Include="Functions.cs" />
     <Compile Include="Model\Area.cs">
-      <DependentUpon>LogesticModel.tt</DependentUpon>
+      <DependentUpon>logisticsEntities.tt</DependentUpon>
     </Compile>
-    <Compile Include="Model\LogesticModel.Context.cs">
+    <Compile Include="Model\logisticsEntities.Context.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
-      <DependentUpon>LogesticModel.Context.tt</DependentUpon>
+      <DependentUpon>logisticsEntities.Context.tt</DependentUpon>
     </Compile>
-    <Compile Include="Model\LogesticModel.cs">
+    <Compile Include="Model\logisticsEntities.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
-      <DependentUpon>LogesticModel.tt</DependentUpon>
+      <DependentUpon>logisticsEntities.tt</DependentUpon>
     </Compile>
-    <Compile Include="Model\LogesticModel.Designer.cs">
+    <Compile Include="Model\logisticsEntities.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
-      <DependentUpon>LogesticModel.edmx</DependentUpon>
+      <DependentUpon>logisticsEntities.edmx</DependentUpon>
     </Compile>
     <Compile Include="Model\PWS0Agencies.cs">
-      <DependentUpon>LogesticModel.tt</DependentUpon>
+      <DependentUpon>logisticsEntities.tt</DependentUpon>
     </Compile>
     <Compile Include="Model\PWS0AgenciesGeos.cs">
-      <DependentUpon>LogesticModel.tt</DependentUpon>
+      <DependentUpon>logisticsEntities.tt</DependentUpon>
     </Compile>
     <Compile Include="Model\PWS0BillOfLadings.cs">
-      <DependentUpon>LogesticModel.tt</DependentUpon>
+      <DependentUpon>logisticsEntities.tt</DependentUpon>
     </Compile>
     <Compile Include="Model\PWS0Goods.cs">
-      <DependentUpon>LogesticModel.tt</DependentUpon>
+      <DependentUpon>logisticsEntities.tt</DependentUpon>
     </Compile>
     <Compile Include="Model\PWS0StateCities.cs">
-      <DependentUpon>LogesticModel.tt</DependentUpon>
+      <DependentUpon>logisticsEntities.tt</DependentUpon>
     </Compile>
     <Compile Include="Model\PWS0Stations.cs">
-      <DependentUpon>LogesticModel.tt</DependentUpon>
+      <DependentUpon>logisticsEntities.tt</DependentUpon>
     </Compile>
     <Compile Include="Model\PWS0StationsGeos.cs">
-      <DependentUpon>LogesticModel.tt</DependentUpon>
+      <DependentUpon>logisticsEntities.tt</DependentUpon>
     </Compile>
     <Compile Include="Model\PWS0TrainsBarry.cs">
-      <DependentUpon>LogesticModel.tt</DependentUpon>
+      <DependentUpon>logisticsEntities.tt</DependentUpon>
     </Compile>
     <Compile Include="Model\PWS0TrainsPassengers.cs">
-      <DependentUpon>LogesticModel.tt</DependentUpon>
+      <DependentUpon>logisticsEntities.tt</DependentUpon>
     </Compile>
     <Compile Include="Model\raiBillOfLadingsTracking.cs">
-      <DependentUpon>LogesticModel.tt</DependentUpon>
+      <DependentUpon>logisticsEntities.tt</DependentUpon>
     </Compile>
     <Compile Include="Model\raiTrainPassengersLastStatu.cs">
-      <DependentUpon>LogesticModel.tt</DependentUpon>
+      <DependentUpon>logisticsEntities.tt</DependentUpon>
     </Compile>
     <Compile Include="Model\raiWagon_Info_Tracking.cs">
-      <DependentUpon>LogesticModel.tt</DependentUpon>
+      <DependentUpon>logisticsEntities.tt</DependentUpon>
     </Compile>
     <Compile Include="Model\rwmmsDeclerationList.cs">
-      <DependentUpon>LogesticModel.tt</DependentUpon>
+      <DependentUpon>logisticsEntities.tt</DependentUpon>
     </Compile>
     <Compile Include="Model\rwmmsVehicleOwner.cs">
-      <DependentUpon>LogesticModel.tt</DependentUpon>
+      <DependentUpon>logisticsEntities.tt</DependentUpon>
     </Compile>
     <Compile Include="Model\rwmmsVehicleOwnersDetail.cs">
-      <DependentUpon>LogesticModel.tt</DependentUpon>
+      <DependentUpon>logisticsEntities.tt</DependentUpon>
     </Compile>
     <Compile Include="Model\rwmmsWagonPart.cs">
-      <DependentUpon>LogesticModel.tt</DependentUpon>
+      <DependentUpon>logisticsEntities.tt</DependentUpon>
     </Compile>
     <Compile Include="Model\rwmmsWagonPartsGroup.cs">
-      <DependentUpon>LogesticModel.tt</DependentUpon>
+      <DependentUpon>logisticsEntities.tt</DependentUpon>
     </Compile>
     <Compile Include="Model\Wagon.cs">
-      <DependentUpon>LogesticModel.tt</DependentUpon>
+      <DependentUpon>logisticsEntities.tt</DependentUpon>
     </Compile>
     <Compile Include="Model\WagonsType.cs">
-      <DependentUpon>LogesticModel.tt</DependentUpon>
+      <DependentUpon>logisticsEntities.tt</DependentUpon>
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -251,12 +251,12 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
-    <EntityDeploy Include="Model\LogesticModel.edmx">
+    <EntityDeploy Include="Model\logisticsEntities.edmx">
       <Generator>EntityModelCodeGenerator</Generator>
-      <LastGenOutput>LogesticModel.Designer.cs</LastGenOutput>
+      <LastGenOutput>logisticsEntities.Designer.cs</LastGenOutput>
     </EntityDeploy>
-    <None Include="Model\LogesticModel.edmx.diagram">
-      <DependentUpon>LogesticModel.edmx</DependentUpon>
+    <None Include="Model\logisticsEntities.edmx.diagram">
+      <DependentUpon>logisticsEntities.edmx</DependentUpon>
     </None>
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
@@ -278,17 +278,16 @@
     <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Model\LogesticModel.Context.tt">
+    <Content Include="Model\logisticsEntities.Context.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
-      <DependentUpon>LogesticModel.edmx</DependentUpon>
-      <LastGenOutput>LogesticModel.Context.cs</LastGenOutput>
+      <DependentUpon>logisticsEntities.edmx</DependentUpon>
+      <LastGenOutput>logisticsEntities.Context.cs</LastGenOutput>
     </Content>
-    <Content Include="Model\LogesticModel.tt">
+    <Content Include="Model\logisticsEntities.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
-      <DependentUpon>LogesticModel.edmx</DependentUpon>
-      <LastGenOutput>LogesticModel.cs</LastGenOutput>
+      <DependentUpon>logisticsEntities.edmx</DependentUpon>
+      <LastGenOutput>logisticsEntities.cs</LastGenOutput>
     </Content>
   </ItemGroup>
-  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

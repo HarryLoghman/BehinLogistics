@@ -111,7 +111,7 @@ namespace RailSiteDataGrabber.Rai
             int? solarTime;
             DateTime? enteranceDateTime;
             Model.raiTrainPassengersLastStatu entry_raiTrainPassengersLastStatus;
-            using (var entityLogestic = new Model.logesticEntities())
+            using (var entityLogistic = new Model.logisticEntities())
             {
                 for (i = 0; i <= dt.Rows.Count - 1; i++)
                 {
@@ -179,8 +179,8 @@ namespace RailSiteDataGrabber.Rai
                     entry_raiTrainPassengersLastStatus.wTrainNo = (Functions.IsNull(this.v_dt.Rows[i][trainPassengersLastStatusDataTable.fld_trainNo]) ? null : (int?)int.Parse(this.v_dt.Rows[i][trainPassengersLastStatusDataTable.fld_trainNo].ToString()));
                     entry_raiTrainPassengersLastStatus.wTrainType = (Functions.IsNull(this.v_dt.Rows[i][trainPassengersLastStatusDataTable.fld_trainType]) ? null : this.v_dt.Rows[i][trainPassengersLastStatusDataTable.fld_trainType].ToString());
 
-                    entityLogestic.raiTrainPassengersLastStatus.Add(entry_raiTrainPassengersLastStatus);
-                    entityLogestic.SaveChanges();
+                    entityLogistic.raiTrainPassengersLastStatus.Add(entry_raiTrainPassengersLastStatus);
+                    entityLogistic.SaveChanges();
                 }
             }
         }

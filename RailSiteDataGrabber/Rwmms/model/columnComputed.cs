@@ -283,7 +283,7 @@ namespace RailSiteDataGrabber.rwmms.model
 
             string whereCondition = this.fnc_getWhereCondition(dicValues);
 
-            using (var entity = new Model.logesticEntities())
+            using (var entity = new Model.logisticEntities())
             {
                 var value = entity.Database.SqlQuery<int?>("select top 1 " + this.prp_parentIdColumnName + " from " + this.prp_parentTableName + " where " + whereCondition).FirstOrDefault();
                 return value;

@@ -32,7 +32,7 @@ namespace RailSiteDataGrabber.PWS0
 
                     if (stationsJson != null && stationsJson.features != null)
                     {
-                        using (var entityLogestic = new Model.logesticEntities())
+                        using (var entityLogistic = new Model.logisticEntities())
                         {
                             foreach (station_featureJsonModel feature in stationsJson.features)
                             {
@@ -53,19 +53,19 @@ namespace RailSiteDataGrabber.PWS0
         {
             if (!stationCode.HasValue && string.IsNullOrEmpty(stationName)) return null;
 
-            using (var entityLogestic = new Model.logesticEntities())
+            using (var entityLogistic = new Model.logisticEntities())
             {
                 Model.PWS0Stations station;
                 if (stationCode.HasValue)
-                    station = entityLogestic.PWS0Stations.FirstOrDefault(o => o.stcode == stationCode);
+                    station = entityLogistic.PWS0Stations.FirstOrDefault(o => o.stcode == stationCode);
                 else
                 {
-                    station = entityLogestic.PWS0Stations.FirstOrDefault(o => o.name == stationName);
+                    station = entityLogistic.PWS0Stations.FirstOrDefault(o => o.name == stationName);
                     if (station == null)
                     {
-                        station = entityLogestic.PWS0Stations.FirstOrDefault(o => o.name2 == stationName);
+                        station = entityLogistic.PWS0Stations.FirstOrDefault(o => o.name2 == stationName);
                         if (station == null)
-                            station = entityLogestic.PWS0Stations.FirstOrDefault(o => o.alternateNames.Contains(stationName + ";"));
+                            station = entityLogistic.PWS0Stations.FirstOrDefault(o => o.alternateNames.Contains(stationName + ";"));
                     }
                 }
 
@@ -82,8 +82,8 @@ namespace RailSiteDataGrabber.PWS0
                     //{
                     //    entryStation = new Model.PWS0Goods();
                     //    entryStation.name = stationName;
-                    //    entityLogestic.PWS0Stations.Add(entryStation);
-                    //    entityLogestic.SaveChanges();
+                    //    entityLogistic.PWS0Stations.Add(entryStation);
+                    //    entityLogistic.SaveChanges();
                     //    return entryStation.Id;
                     //}
                     //else return null;
@@ -169,10 +169,10 @@ namespace RailSiteDataGrabber.PWS0
 
         public void sb_saveToDB()
         {
-            using (var entityLogestic = new Model.logesticEntities())
+            using (var entityLogistic = new Model.logisticEntities())
             {
                 bool add = false;
-                Model.PWS0Stations entryPWS0Station = entityLogestic.PWS0Stations.FirstOrDefault(o => o.stcode == this.properties.stcode
+                Model.PWS0Stations entryPWS0Station = entityLogistic.PWS0Stations.FirstOrDefault(o => o.stcode == this.properties.stcode
                   && o.name == this.properties.name && o.name2 == this.properties.name2
                   && o.areaid == this.properties.areaid
                   && o.cityid == this.properties.cityid
@@ -237,15 +237,15 @@ namespace RailSiteDataGrabber.PWS0
                 entryPWS0Station.FetchTime = DateTime.Now;
                 if (add)
                 {
-                    entityLogestic.PWS0Stations.Add(entryPWS0Station);
+                    entityLogistic.PWS0Stations.Add(entryPWS0Station);
                 }
 
-                entityLogestic.SaveChanges();
+                entityLogistic.SaveChanges();
                 //to get id of stationid
                 int StationId = entryPWS0Station.Id;
 
                 add = false;
-                Model.PWS0StationsGeos entryPWS0StationsGeos = entityLogestic.PWS0StationsGeos.FirstOrDefault(o => o.StationId == StationId
+                Model.PWS0StationsGeos entryPWS0StationsGeos = entityLogistic.PWS0StationsGeos.FirstOrDefault(o => o.StationId == StationId
                     && o.id == this.id);
                 if (entryPWS0StationsGeos == null)
                 {
@@ -265,9 +265,9 @@ namespace RailSiteDataGrabber.PWS0
 
                 if (add)
                 {
-                    entityLogestic.PWS0StationsGeos.Add(entryPWS0StationsGeos);
+                    entityLogistic.PWS0StationsGeos.Add(entryPWS0StationsGeos);
                 }
-                entityLogestic.SaveChanges();
+                entityLogistic.SaveChanges();
             }
         }
     }

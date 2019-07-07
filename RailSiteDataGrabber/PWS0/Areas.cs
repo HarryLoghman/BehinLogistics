@@ -12,9 +12,9 @@ namespace RailSiteDataGrabber.PWS0
         {
             if (string.IsNullOrEmpty(areaName)) return null;
             //if (areaName == "واگن بدون بار") return -1;
-            using (var entityLogestic = new Model.logesticEntities())
+            using (var entityLogistic = new Model.logisticEntities())
             {
-                var entryArea = entityLogestic.Areas.FirstOrDefault(o => o.areaName == areaName);
+                var entryArea = entityLogistic.Areas.FirstOrDefault(o => o.areaName == areaName);
                 if (entryArea == null)
                 {
                     string strNotif = "";
@@ -26,8 +26,8 @@ namespace RailSiteDataGrabber.PWS0
                     {
                         entryArea = new Model.Area();
                         entryArea.areaName= areaName;
-                        entityLogestic.Areas.Add(entryArea);
-                        entityLogestic.SaveChanges();
+                        entityLogistic.Areas.Add(entryArea);
+                        entityLogistic.SaveChanges();
                         return entryArea.Id;
                     }
                     else return null;

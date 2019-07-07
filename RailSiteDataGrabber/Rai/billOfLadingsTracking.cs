@@ -181,7 +181,7 @@ namespace RailSiteDataGrabber.Rai
             int? solarTime;
             DateTime? enteranceDateTime;
             Model.raiBillOfLadingsTracking entry_raiBillOfLadingsTracking;
-            using (var entityLogestic = new Model.logesticEntities())
+            using (var entityLogistic = new Model.logisticEntities())
             {
                 for (i = 0; i <= dt.Rows.Count - 1; i++)
                 {
@@ -224,8 +224,8 @@ namespace RailSiteDataGrabber.Rai
                     entry_raiBillOfLadingsTracking.wTrainNo = (Functions.IsNull(this.v_dt.Rows[i][billOfLadingsTrackingDataTable.fld_trainNo]) ? null : (int?)int.Parse(this.v_dt.Rows[i][billOfLadingsTrackingDataTable.fld_trainNo].ToString()));
                     entry_raiBillOfLadingsTracking.wWagonNo = (Functions.IsNull(this.v_dt.Rows[i][billOfLadingsTrackingDataTable.fld_wagonNo]) ? null : (long?)long.Parse(this.v_dt.Rows[i][billOfLadingsTrackingDataTable.fld_wagonNo].ToString()));
 
-                    entityLogestic.raiBillOfLadingsTrackings.Add(entry_raiBillOfLadingsTracking);
-                    entityLogestic.SaveChanges();
+                    entityLogistic.raiBillOfLadingsTrackings.Add(entry_raiBillOfLadingsTracking);
+                    entityLogistic.SaveChanges();
                 }
             }
         }

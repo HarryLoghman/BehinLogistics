@@ -99,7 +99,7 @@ namespace RailSiteDataGrabber.rwmms
             int rowIndex;
             string html;
 
-            using (var entityLogestic = new Model.logesticEntities())
+            using (var entityLogistic = new Model.logisticEntities())
             {
                 for (pageIndex = 1; pageIndex <= this.v_pageCount; pageIndex++)
                 {
@@ -144,11 +144,11 @@ namespace RailSiteDataGrabber.rwmms
                             var queryString = HttpUtility.ParseQueryString(this.v_webBrowser.Url);
                             if (!Functions.IsNull(queryString["psid"]))
                             {
-                                var entryPartGroup = entityLogestic.rwmmsWagonPartsGroups.FirstOrDefault(o => o.Id == groupId);
+                                var entryPartGroup = entityLogistic.rwmmsWagonPartsGroups.FirstOrDefault(o => o.Id == groupId);
                                 if (entryPartGroup != null)
                                 {
                                     entryPartGroup.wPSID = queryString["psid"];
-                                    entityLogestic.SaveChanges();
+                                    entityLogistic.SaveChanges();
                                 }
                             }
                             this.sb_readAndSavePartsToDB(groupId, this.v_dt.Rows[rowIndex][wagonPartsGroupsDataTable.fld_groupName].ToString(), getAttach
@@ -407,7 +407,7 @@ namespace RailSiteDataGrabber.rwmms
             bool add;
             string groupName;
             Model.rwmmsWagonPartsGroup entry_wagonPartsGroup;
-            using (var entityLogestic = new Model.logesticEntities())
+            using (var entityLogistic = new Model.logisticEntities())
             {
                 for (i = 0; i <= dt.Rows.Count - 1; i++)
                 {
@@ -415,7 +415,7 @@ namespace RailSiteDataGrabber.rwmms
                     if (Functions.IsNull(dt.Rows[i][wagonPartsGroupsDataTable.fld_groupName]))
                         continue;
                     groupName = dt.Rows[i][wagonPartsGroupsDataTable.fld_groupName].ToString();
-                    entry_wagonPartsGroup = entityLogestic.rwmmsWagonPartsGroups.FirstOrDefault(o => o.IdGroupParent == idGroupParent
+                    entry_wagonPartsGroup = entityLogistic.rwmmsWagonPartsGroups.FirstOrDefault(o => o.IdGroupParent == idGroupParent
                     && o.wGroupName == groupName);
                     if (entry_wagonPartsGroup == null)
                     {
@@ -430,11 +430,11 @@ namespace RailSiteDataGrabber.rwmms
                     entry_wagonPartsGroup.wSerialNo = Functions.IsNull(dt.Rows[i][wagonPartsGroupsDataTable.fld_serialNo]) ? null : dt.Rows[i][wagonPartsGroupsDataTable.fld_serialNo].ToString().Replace(" ", "").Replace("\r\n", "");
 
                     if (add)
-                        entityLogestic.rwmmsWagonPartsGroups.Add(entry_wagonPartsGroup);
-                    else entityLogestic.Entry(entry_wagonPartsGroup).State = System.Data.Entity.EntityState.Modified;
+                        entityLogistic.rwmmsWagonPartsGroups.Add(entry_wagonPartsGroup);
+                    else entityLogistic.Entry(entry_wagonPartsGroup).State = System.Data.Entity.EntityState.Modified;
                     try
                     {
-                        entityLogestic.SaveChanges();
+                        entityLogistic.SaveChanges();
                         dt.Rows[i][wagonPartsGroupsDataTable.fld_id] = entry_wagonPartsGroup.Id;
                     }
                     catch (Exception ex)
@@ -457,7 +457,7 @@ namespace RailSiteDataGrabber.rwmms
             bool add;
             string partName;
             Model.rwmmsWagonPart entry_wagonParts;
-            using (var entityLogestic = new Model.logesticEntities())
+            using (var entityLogistic = new Model.logisticEntities())
             {
                 for (i = 0; i <= dt.Rows.Count - 1; i++)
                 {
@@ -466,7 +466,7 @@ namespace RailSiteDataGrabber.rwmms
                          && idGroup.HasValue)
                     {
                         partName = dt.Rows[i][wagonPartsDataTable.fld_partName].ToString();
-                        entry_wagonParts = entityLogestic.rwmmsWagonParts.FirstOrDefault(o => o.IdGroup == idGroup
+                        entry_wagonParts = entityLogistic.rwmmsWagonParts.FirstOrDefault(o => o.IdGroup == idGroup
                         && o.wPartName == partName);
                         if (entry_wagonParts == null)
                         {
@@ -495,11 +495,11 @@ namespace RailSiteDataGrabber.rwmms
                     entry_wagonParts.wPartNameLatin = Functions.IsNull(dt.Rows[i][wagonPartsDataTable.fld_partNameLatin]) ? null : dt.Rows[i][wagonPartsDataTable.fld_partNameLatin].ToString();
                     entry_wagonParts.wWeight = Functions.IsNull(dt.Rows[i][wagonPartsDataTable.fld_weight]) ? null : (decimal?)decimal.Parse(dt.Rows[i][wagonPartsDataTable.fld_weight].ToString());
                     if (add)
-                        entityLogestic.rwmmsWagonParts.Add(entry_wagonParts);
-                    else entityLogestic.Entry(entry_wagonParts).State = System.Data.Entity.EntityState.Modified;
+                        entityLogistic.rwmmsWagonParts.Add(entry_wagonParts);
+                    else entityLogistic.Entry(entry_wagonParts).State = System.Data.Entity.EntityState.Modified;
                     try
                     {
-                        entityLogestic.SaveChanges();
+                        entityLogistic.SaveChanges();
                     }
                     catch (Exception ex)
                     {

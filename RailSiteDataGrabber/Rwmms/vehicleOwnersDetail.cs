@@ -189,7 +189,7 @@ namespace RailSiteDataGrabber.rwmms
                 var rows = table.FindElements(By.TagName("tr"));
                 if (rows != null && rows.Count > 0 && rowIndex <= rows.Count - 2)
                 {//first and last row are header and footer
-                    using (var entityLogestic = new Model.logesticEntities())
+                    using (var entityLogistic = new Model.logisticEntities())
                     {
                         var columns = rows[rowIndex].FindElements(By.TagName("td"));
                         if (columns.Count >= 6)
@@ -215,7 +215,7 @@ namespace RailSiteDataGrabber.rwmms
 
                                 if (!string.IsNullOrEmpty(meliNo))
                                 {
-                                    var entryOwnerExtraDetail = entityLogestic.rwmmsVehicleOwnersDetails.FirstOrDefault(o => o.wMeliNo == meliNo);
+                                    var entryOwnerExtraDetail = entityLogistic.rwmmsVehicleOwnersDetails.FirstOrDefault(o => o.wMeliNo == meliNo);
                                     if (entryOwnerExtraDetail != null)
                                     {
                                         //entryOwnerExtraDetail.companyId
@@ -233,8 +233,8 @@ namespace RailSiteDataGrabber.rwmms
                                         entryOwnerExtraDetail.wMobileNumber = (Functions.IsNull(mobileNumber) ? null : mobileNumber);
                                         entryOwnerExtraDetail.wPostalCode = (Functions.IsNull(postalCode) ? null : postalCode);
                                         entryOwnerExtraDetail.wRegisterCity = (Functions.IsNull(registerCity) ? null : registerCity);
-                                        entityLogestic.Entry(entryOwnerExtraDetail).State = System.Data.Entity.EntityState.Modified;
-                                        entityLogestic.SaveChanges();
+                                        entityLogistic.Entry(entryOwnerExtraDetail).State = System.Data.Entity.EntityState.Modified;
+                                        entityLogistic.SaveChanges();
                                     }
                                 }
 
@@ -259,7 +259,7 @@ namespace RailSiteDataGrabber.rwmms
             Model.rwmmsVehicleOwnersDetail entry_vehicleOwnersDetail;
             bool add;
             string meliNo;
-            using (var entityLogestic = new Model.logesticEntities())
+            using (var entityLogistic = new Model.logisticEntities())
             {
                 for (i = 0; i <= dt.Rows.Count - 1; i++)
                 {
@@ -267,7 +267,7 @@ namespace RailSiteDataGrabber.rwmms
                     if (!Functions.IsNull(dt.Rows[i][vehicleOwnersDetailDataTable.fld_meliNo]))
                     {
                         meliNo = dt.Rows[i][vehicleOwnersDetailDataTable.fld_meliNo].ToString();
-                        entry_vehicleOwnersDetail = entityLogestic.rwmmsVehicleOwnersDetails.FirstOrDefault(o => o.wMeliNo == meliNo);
+                        entry_vehicleOwnersDetail = entityLogistic.rwmmsVehicleOwnersDetails.FirstOrDefault(o => o.wMeliNo == meliNo);
                         if (entry_vehicleOwnersDetail == null)
                         {
                             add = true;
@@ -289,9 +289,9 @@ namespace RailSiteDataGrabber.rwmms
                     entry_vehicleOwnersDetail.wMeliNo = Functions.IsNull(dt.Rows[i][vehicleOwnersDetailDataTable.fld_meliNo]) ? null : dt.Rows[i][vehicleOwnersDetailDataTable.fld_meliNo].ToString();
                     entry_vehicleOwnersDetail.wMobileNumber = Functions.IsNull(dt.Rows[i][vehicleOwnersDetailDataTable.fld_mobileNumber]) ? null : dt.Rows[i][vehicleOwnersDetailDataTable.fld_mobileNumber].ToString();
                     if (add)
-                        entityLogestic.rwmmsVehicleOwnersDetails.Add(entry_vehicleOwnersDetail);
-                    else entityLogestic.Entry(entry_vehicleOwnersDetail).State = System.Data.Entity.EntityState.Modified;
-                    entityLogestic.SaveChanges();
+                        entityLogistic.rwmmsVehicleOwnersDetails.Add(entry_vehicleOwnersDetail);
+                    else entityLogistic.Entry(entry_vehicleOwnersDetail).State = System.Data.Entity.EntityState.Modified;
+                    entityLogistic.SaveChanges();
                 }
             }
         }

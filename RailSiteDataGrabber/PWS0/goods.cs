@@ -12,9 +12,9 @@ namespace RailSiteDataGrabber.PWS0
         {
             if (string.IsNullOrEmpty(goodsName)) return null;
             if (goodsName == "واگن بدون بار") return -1;
-            using (var entityLogestic = new Model.logesticEntities())
+            using (var entityLogistic = new Model.logisticEntities())
             {
-                var entryGoods = entityLogestic.PWS0Goods.FirstOrDefault(o => o.goodsName == goodsName);
+                var entryGoods = entityLogistic.PWS0Goods.FirstOrDefault(o => o.goodsName == goodsName);
                 if (entryGoods == null)
                 {
                     string strNotif = "";
@@ -26,8 +26,8 @@ namespace RailSiteDataGrabber.PWS0
                     {
                         entryGoods = new Model.PWS0Goods();
                         entryGoods.goodsName = goodsName;
-                        entityLogestic.PWS0Goods.Add(entryGoods);
-                        entityLogestic.SaveChanges();
+                        entityLogistic.PWS0Goods.Add(entryGoods);
+                        entityLogistic.SaveChanges();
                         return entryGoods.Id;
                     }
                     else return null;

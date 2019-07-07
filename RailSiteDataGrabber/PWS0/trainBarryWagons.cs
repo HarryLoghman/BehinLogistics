@@ -19,10 +19,10 @@ namespace RailSiteDataGrabber.PWS0
             List<long?> wagonsLst = new List<long?>();
             if (!wagonNo.HasValue)
             {
-                using (var entityLogestic = new Model.logesticEntities())
+                using (var entityLogistic = new Model.logisticEntities())
                 {
-                    wagonsLst = (from w in entityLogestic.Wagons
-                                 where !(from b in entityLogestic.PWS0BillOfLadings
+                    wagonsLst = (from w in entityLogistic.Wagons
+                                 where !(from b in entityLogistic.PWS0BillOfLadings
                                          where b.CycleNumber == cycleNumber &&
                                          DbFunctions.TruncateTime(b.FetchTime) == DbFunctions.TruncateTime(DateTime.Now)
                                          select b.jWagon_NO
@@ -80,7 +80,7 @@ namespace RailSiteDataGrabber.PWS0
                         trainBillOfLadingsListJson = Newtonsoft.Json.JsonConvert.DeserializeObject<trainBillOfLadingsJsonModel[]>(result);
                         if (trainBillOfLadingsListJson != null)
                         {
-                            using (var entityLogestic = new Model.logesticEntities())
+                            using (var entityLogistic = new Model.logisticEntities())
                             {
                                 foreach (trainBillOfLadingsJsonModel billOfLading in trainBillOfLadingsListJson)
                                 {
@@ -147,7 +147,7 @@ namespace RailSiteDataGrabber.PWS0
                     trainBillOfLadingsListJson = Newtonsoft.Json.JsonConvert.DeserializeObject<trainBillOfLadingsJsonModel[]>(result);
                     if (trainBillOfLadingsListJson != null)
                     {
-                        using (var entityLogestic = new Model.logesticEntities())
+                        using (var entityLogistic = new Model.logisticEntities())
                         {
                             foreach (trainBillOfLadingsJsonModel billOfLading in trainBillOfLadingsListJson)
                             {
@@ -175,9 +175,9 @@ namespace RailSiteDataGrabber.PWS0
         public static int? fnc_getWagonIdCheckWithControlNo(long? wagonNo/*,bool add*/, bool notifNotExist)
         {
             if (!wagonNo.HasValue) return null;
-            using (var entityLogestic = new Model.logesticEntities())
+            using (var entityLogistic = new Model.logisticEntities())
             {
-                var entryWagon = entityLogestic.Wagons.FirstOrDefault(o => o.wagonControlNo == wagonNo.ToString());
+                var entryWagon = entityLogistic.Wagons.FirstOrDefault(o => o.wagonControlNo == wagonNo.ToString());
                 if (entryWagon == null)
                 {
                     string strNotif = "";
@@ -189,8 +189,8 @@ namespace RailSiteDataGrabber.PWS0
                     //{
                     //    entryWagon = new Model.Wagon();
                     //    entryWagon.wagonNo = wagonNo;
-                    //    entityLogestic.Wagons.Add(entryWagon);
-                    //    entityLogestic.SaveChanges();
+                    //    entityLogistic.Wagons.Add(entryWagon);
+                    //    entityLogistic.SaveChanges();
                     //    return entryWagon.Id;
                     //}
                     //else return null;
@@ -203,9 +203,9 @@ namespace RailSiteDataGrabber.PWS0
         public static int? fnc_getWagonTypeName(string wagonTypeName, bool add, bool notifNotExist)
         {
             if (string.IsNullOrEmpty(wagonTypeName)) return null;
-            using (var entityLogestic = new Model.logesticEntities())
+            using (var entityLogistic = new Model.logisticEntities())
             {
-                var entryWagonType = entityLogestic.WagonsTypes.FirstOrDefault(o => o.typeName == wagonTypeName.ToString()
+                var entryWagonType = entityLogistic.WagonsTypes.FirstOrDefault(o => o.typeName == wagonTypeName.ToString()
                || o.alternateNames.Contains(wagonTypeName + ";"));
                 if (entryWagonType == null)
                 {
@@ -218,8 +218,8 @@ namespace RailSiteDataGrabber.PWS0
                     {
                         entryWagonType = new Model.WagonsType();
                         entryWagonType.typeName = wagonTypeName;
-                        entityLogestic.WagonsTypes.Add(entryWagonType);
-                        entityLogestic.SaveChanges();
+                        entityLogistic.WagonsTypes.Add(entryWagonType);
+                        entityLogistic.SaveChanges();
                         return entryWagonType.Id;
                     }
                     else return null;
@@ -237,10 +237,10 @@ namespace RailSiteDataGrabber.PWS0
             long wagonNo = long.Parse(dr[rwmms.declerationListDataTable.fld_wagonNo].ToString());
             try
             {
-                using (var entityLogestic = new Model.logesticEntities())
+                using (var entityLogistic = new Model.logisticEntities())
                 {
                     bool add = false;
-                    var entryWagon = entityLogestic.Wagons.FirstOrDefault(o => o.wagonNo == wagonNo);
+                    var entryWagon = entityLogistic.Wagons.FirstOrDefault(o => o.wagonNo == wagonNo);
 
                     if (entryWagon == null)
                     {
@@ -266,10 +266,10 @@ namespace RailSiteDataGrabber.PWS0
 
                     if (add)
                     {
-                        entityLogestic.Wagons.Add(entryWagon);
+                        entityLogistic.Wagons.Add(entryWagon);
                     }
-                    else entityLogestic.Entry(entryWagon).State = EntityState.Modified;
-                    entityLogestic.SaveChanges();
+                    else entityLogistic.Entry(entryWagon).State = EntityState.Modified;
+                    entityLogistic.SaveChanges();
                 }
                 return true;
             }

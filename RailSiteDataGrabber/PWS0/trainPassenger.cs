@@ -16,10 +16,10 @@ namespace RailSiteDataGrabber.PWS0
         public void sb_readAndSaveToDB(int cycleNo)
         {
             DateTime? lastUpdateTime = null;
-            using (var entityLogestic = new Model.logesticEntities())
+            using (var entityLogistic = new Model.logisticEntities())
             {
                 //get the last updatetime for today    
-                var entryTrainPassenger = entityLogestic.PWS0TrainsPassengers.OrderByDescending(o => o.jUpdate_DateTime).FirstOrDefault(o => DbFunctions.TruncateTime(o.jUpdate_DateTime) == DbFunctions.TruncateTime(DateTime.Now));
+                var entryTrainPassenger = entityLogistic.PWS0TrainsPassengers.OrderByDescending(o => o.jUpdate_DateTime).FirstOrDefault(o => DbFunctions.TruncateTime(o.jUpdate_DateTime) == DbFunctions.TruncateTime(DateTime.Now));
                 if (entryTrainPassenger == null)
                     //we dont get any information for today
                     lastUpdateTime = null;
@@ -82,7 +82,7 @@ namespace RailSiteDataGrabber.PWS0
 
                     if (trainPassengersListJson != null)
                     {
-                        using (var entityLogestic = new Model.logesticEntities())
+                        using (var entityLogistic = new Model.logisticEntities())
                         {
                             foreach (trainPassengerJsonModel train in trainPassengersListJson)
                             {
@@ -102,10 +102,10 @@ namespace RailSiteDataGrabber.PWS0
 
         private void sb_saveToDB(trainPassengerJsonModel jmodel, int cycleNumber)
         {
-            using (var entityLogestic = new Model.logesticEntities())
+            using (var entityLogistic = new Model.logisticEntities())
             {
                 bool add = false;
-                Model.PWS0TrainsPassengers entryPWS0TrainPassenger = entityLogestic.PWS0TrainsPassengers.FirstOrDefault(
+                Model.PWS0TrainsPassengers entryPWS0TrainPassenger = entityLogistic.PWS0TrainsPassengers.FirstOrDefault(
                     o => o.jTrain_No == jmodel.Train_No
                   && o.jCurrent_Station_Code == jmodel.Current_Station_Code
                   //&& o.jEntrance_Date == this.Entrance_Date
@@ -160,10 +160,10 @@ namespace RailSiteDataGrabber.PWS0
 
                     if (add)
                     {
-                        entityLogestic.PWS0TrainsPassengers.Add(entryPWS0TrainPassenger);
+                        entityLogistic.PWS0TrainsPassengers.Add(entryPWS0TrainPassenger);
                     }
 
-                    entityLogestic.SaveChanges();
+                    entityLogistic.SaveChanges();
                 }
                 catch (Exception ex)
                 {

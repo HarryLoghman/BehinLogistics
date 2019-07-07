@@ -33,7 +33,7 @@ namespace RailSiteDataGrabber.PWS0
 
                     if (statesJson != null)
                     {
-                        using (var entityLogestic = new Model.logesticEntities())
+                        using (var entityLogistic = new Model.logisticEntities())
                         {
                             foreach (StateCityJsonModel state in statesJson)
                             {
@@ -53,10 +53,10 @@ namespace RailSiteDataGrabber.PWS0
 
         private void sb_saveStateToDB(StateCityJsonModel stateJson, bool saveCitiesForEachState)
         {
-            using (var entityLogestic = new Model.logesticEntities())
+            using (var entityLogistic = new Model.logisticEntities())
             {
                 bool add = false;
-                Model.PWS0StateCities entryPWS0State = entityLogestic.PWS0StateCities.FirstOrDefault(o => o.StateId == stateJson.StateID
+                Model.PWS0StateCities entryPWS0State = entityLogistic.PWS0StateCities.FirstOrDefault(o => o.StateId == stateJson.StateID
                   && o.isState.HasValue && o.isState.Value);
 
                 if (entryPWS0State == null)
@@ -74,10 +74,10 @@ namespace RailSiteDataGrabber.PWS0
 
                 if (add)
                 {
-                    entityLogestic.PWS0StateCities.Add(entryPWS0State);
+                    entityLogistic.PWS0StateCities.Add(entryPWS0State);
                 }
 
-                entityLogestic.SaveChanges();
+                entityLogistic.SaveChanges();
                 //to get id of stationid
                 int parentIdInDB = entryPWS0State.Id;
 
@@ -128,7 +128,7 @@ namespace RailSiteDataGrabber.PWS0
 
                     if (cities != null)
                     {
-                        using (var entityLogestic = new Model.logesticEntities())
+                        using (var entityLogistic = new Model.logisticEntities())
                         {
                             foreach (StateCityJsonModel city in cities)
                             {
@@ -154,16 +154,16 @@ namespace RailSiteDataGrabber.PWS0
         /// <param name="parentStateIdInJson">refer to stateId which comes from JSON</param>
         private void sb_saveCityToDB(StateCityJsonModel cityJson, int parentStateIdInJson, int? parentIdInDB)
         {
-            using (var entityLogestic = new Model.logesticEntities())
+            using (var entityLogistic = new Model.logisticEntities())
             {
                 if (!parentIdInDB.HasValue)
                 {
-                    var entryState = entityLogestic.PWS0StateCities.FirstOrDefault(o => o.ParentStateIdInJson == parentStateIdInJson && (o.isState.HasValue && o.isState.Value));
+                    var entryState = entityLogistic.PWS0StateCities.FirstOrDefault(o => o.ParentStateIdInJson == parentStateIdInJson && (o.isState.HasValue && o.isState.Value));
                     if (entryState != null)
                         parentIdInDB = entryState.Id;
                 }
                 bool add = false;
-                Model.PWS0StateCities entryPWS0City = entityLogestic.PWS0StateCities.FirstOrDefault(o => o.CityId == cityJson.CityID
+                Model.PWS0StateCities entryPWS0City = entityLogistic.PWS0StateCities.FirstOrDefault(o => o.CityId == cityJson.CityID
                   && (!o.isState.HasValue || !o.isState.Value));
 
                 if (entryPWS0City == null)
@@ -180,10 +180,10 @@ namespace RailSiteDataGrabber.PWS0
                 entryPWS0City.StateName = null;
                 if (add)
                 {
-                    entityLogestic.PWS0StateCities.Add(entryPWS0City);
+                    entityLogistic.PWS0StateCities.Add(entryPWS0City);
                 }
 
-                entityLogestic.SaveChanges();
+                entityLogistic.SaveChanges();
 
 
             }

@@ -52,7 +52,7 @@ namespace RailSiteDataGrabber.PWS0
                     trainBillOfLadingsListJson = Newtonsoft.Json.JsonConvert.DeserializeObject<trainBillOfLadingsJsonModel[]>(result);
                     if (trainBillOfLadingsListJson != null)
                     {
-                        using (var entityLogestic = new Model.logesticEntities())
+                        using (var entityLogistic = new Model.logisticEntities())
                         {
                             foreach (trainBillOfLadingsJsonModel billOfLading in trainBillOfLadingsListJson)
                             {
@@ -119,9 +119,9 @@ namespace RailSiteDataGrabber.PWS0
         public void sb_saveToDB(trainBillOfLadingsJsonModel billOfLading, int train_no, int? trainId, int cycleNumber, string fetchUrl)
         {
             bool add = false;
-            using (var entityLogestic = new Model.logesticEntities())
+            using (var entityLogistic = new Model.logisticEntities())
             {
-                Model.PWS0BillOfLadings entryPWS0BillOfLading = entityLogestic.PWS0BillOfLadings.FirstOrDefault(o =>
+                Model.PWS0BillOfLadings entryPWS0BillOfLading = entityLogistic.PWS0BillOfLadings.FirstOrDefault(o =>
                 o.jBarnameh_NO == billOfLading.Barnameh_NO
                   && o.jBar_Type == billOfLading.Bar_Type
                   //&& o.jDestination_Station_Name == trainWagon.Destination_Station_Name
@@ -165,10 +165,10 @@ namespace RailSiteDataGrabber.PWS0
 
                     if (add)
                     {
-                        entityLogestic.PWS0BillOfLadings.Add(entryPWS0BillOfLading);
+                        entityLogistic.PWS0BillOfLadings.Add(entryPWS0BillOfLading);
                     }
 
-                    entityLogestic.SaveChanges();
+                    entityLogistic.SaveChanges();
                 }
                 catch (Exception ex)
                 {
@@ -181,9 +181,9 @@ namespace RailSiteDataGrabber.PWS0
         public static int? fnc_getBillOfLadingId(long? billOfLadingNo/*,bool add*/, bool notifNotExist)
         {
             if (!billOfLadingNo.HasValue) return null;
-            using (var entityLogestic = new Model.logesticEntities())
+            using (var entityLogistic = new Model.logisticEntities())
             {
-                var entryBillOfLading = entityLogestic.PWS0BillOfLadings.FirstOrDefault(o => o.jBarnameh_NO == billOfLadingNo.ToString());
+                var entryBillOfLading = entityLogistic.PWS0BillOfLadings.FirstOrDefault(o => o.jBarnameh_NO == billOfLadingNo.ToString());
                 if (entryBillOfLading == null)
                 {
                     string strNotif = "";
@@ -195,8 +195,8 @@ namespace RailSiteDataGrabber.PWS0
                     //{
                     //    entryWagon = new Model.Wagon();
                     //    entryWagon.wagonNo = wagonNo;
-                    //    entityLogestic.Wagons.Add(entryWagon);
-                    //    entityLogestic.SaveChanges();
+                    //    entityLogistic.Wagons.Add(entryWagon);
+                    //    entityLogistic.SaveChanges();
                     //    return entryWagon.Id;
                     //}
                     //else return null;

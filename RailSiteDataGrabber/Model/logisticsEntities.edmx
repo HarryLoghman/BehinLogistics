@@ -1,0 +1,1464 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+    <Schema Namespace="logisticModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="Areas">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="areaName" Type="nvarchar" MaxLength="50" />
+          <Property Name="alternateNames" Type="nvarchar" MaxLength="500" />
+        </EntityType>
+        <EntityType Name="PWS0Agencies">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="AgencyCode" Type="nvarchar" MaxLength="100" />
+          <Property Name="AgencyName" Type="nvarchar" MaxLength="100" />
+          <Property Name="AgencyStreet" Type="nvarchar" MaxLength="500" />
+          <Property Name="AgencyTel" Type="nvarchar" MaxLength="50" />
+          <Property Name="CountryCode" Type="nvarchar" MaxLength="50" />
+          <Property Name="CountryName" Type="nvarchar" MaxLength="50" />
+          <Property Name="Lat" Type="nvarchar" MaxLength="50" />
+          <Property Name="Lng" Type="nvarchar" MaxLength="50" />
+          <Property Name="ProvinceCode" Type="nvarchar" MaxLength="50" />
+          <Property Name="cityCode" Type="nvarchar" MaxLength="50" />
+          <Property Name="cityName" Type="nvarchar" MaxLength="50" />
+          <Property Name="provinceName" Type="nvarchar" MaxLength="50" />
+          <Property Name="FetchTime" Type="datetime" />
+        </EntityType>
+        <EntityType Name="PWS0AgenciesGeos">
+          <Key>
+            <PropertyRef Name="AgencyId" />
+          </Key>
+          <Property Name="type" Type="nvarchar" MaxLength="50" />
+          <Property Name="id" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="geometryType" Type="nvarchar" MaxLength="50" />
+          <Property Name="geometryCoordinates" Type="nvarchar" MaxLength="50" />
+          <Property Name="geometry_name" Type="nvarchar" MaxLength="50" />
+          <Property Name="AgencyId" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="PWS0BillOfLadings">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="jTrain_No" Type="int" />
+          <Property Name="jWagon_NO" Type="bigint" />
+          <Property Name="jBarnameh_NO" Type="nvarchar" MaxLength="50" />
+          <Property Name="jSource_Station_Name" Type="nvarchar" MaxLength="50" />
+          <Property Name="jDestination_Station_Name" Type="nvarchar" MaxLength="50" />
+          <Property Name="jBar_Type" Type="nvarchar" MaxLength="50" />
+          <Property Name="jCurrent_Station_Code" Type="int" />
+          <Property Name="jCurrent_Station_Name" Type="nvarchar" MaxLength="50" />
+          <Property Name="jSource_Station_Code" Type="int" />
+          <Property Name="jEntrance_Date" Type="nvarchar" MaxLength="50" />
+          <Property Name="jEntrance_Date_M" Type="datetime" />
+          <Property Name="jEntrance_Time" Type="nvarchar" MaxLength="50" />
+          <Property Name="jTashkil_Date" Type="nvarchar" MaxLength="50" />
+          <Property Name="jTashkil_Time" Type="nvarchar" MaxLength="50" />
+          <Property Name="jF15Rec_ID" Type="int" />
+          <Property Name="WagonId" Type="bigint" />
+          <Property Name="TrainId" Type="bigint" />
+          <Property Name="SourceStationId" Type="int" />
+          <Property Name="DestinationStationId" Type="int" />
+          <Property Name="CurrentStationId" Type="int" />
+          <Property Name="goodsId" Type="int" />
+          <Property Name="TashkilDateTime" Type="datetime" />
+          <Property Name="FetchTime" Type="datetime" />
+          <Property Name="FetchUrl" Type="nvarchar" MaxLength="100" />
+          <Property Name="CycleNumber" Type="int" />
+        </EntityType>
+        <EntityType Name="PWS0Goods">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="goodsName" Type="nvarchar" MaxLength="500" />
+          <Property Name="AlternateNames" Type="nvarchar" MaxLength="500" />
+        </EntityType>
+        <EntityType Name="PWS0StateCities">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="StateId" Type="int" />
+          <Property Name="StateName" Type="nvarchar" MaxLength="50" />
+          <Property Name="CityId" Type="int" />
+          <Property Name="CityName" Type="nvarchar" MaxLength="50" />
+          <Property Name="ParentStateIdInJson" Type="int" />
+          <Property Name="ParentIdInDB" Type="int" />
+          <Property Name="isState" Type="bit" />
+        </EntityType>
+        <EntityType Name="PWS0Stations">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="lat" Type="float" />
+          <Property Name="lon" Type="float" />
+          <Property Name="alt" Type="float" />
+          <Property Name="name" Type="nvarchar" MaxLength="100" />
+          <Property Name="name2" Type="nvarchar" MaxLength="100" />
+          <Property Name="stcode" Type="int" />
+          <Property Name="bus" Type="nvarchar" MaxLength="50" />
+          <Property Name="metro" Type="nvarchar" MaxLength="50" />
+          <Property Name="taxi" Type="nvarchar" MaxLength="50" />
+          <Property Name="other" Type="nvarchar" MaxLength="50" />
+          <Property Name="cellOffice" Type="nvarchar" MaxLength="50" />
+          <Property Name="parkingtim" Type="nvarchar" MaxLength="50" />
+          <Property Name="sakohamlkh" Type="nvarchar" MaxLength="50" />
+          <Property Name="daftarforo" Type="nvarchar" MaxLength="50" />
+          <Property Name="kioskkhari" Type="nvarchar" MaxLength="50" />
+          <Property Name="khodpardaz" Type="nvarchar" MaxLength="50" />
+          <Property Name="telephonom" Type="nvarchar" MaxLength="50" />
+          <Property Name="internetbi" Type="nvarchar" MaxLength="50" />
+          <Property Name="balabar" Type="nvarchar" MaxLength="50" />
+          <Property Name="ramp" Type="nvarchar" MaxLength="50" />
+          <Property Name="postbehdas" Type="nvarchar" MaxLength="50" />
+          <Property Name="ambolans" Type="nvarchar" MaxLength="50" />
+          <Property Name="vilcher" Type="nvarchar" MaxLength="50" />
+          <Property Name="masirnabin" Type="nvarchar" MaxLength="50" />
+          <Property Name="amanatketa" Type="nvarchar" MaxLength="50" />
+          <Property Name="tanaqolat" Type="nvarchar" MaxLength="50" />
+          <Property Name="soqat" Type="nvarchar" MaxLength="50" />
+          <Property Name="mobile" Type="nvarchar" MaxLength="50" />
+          <Property Name="sanayedast" Type="nvarchar" MaxLength="50" />
+          <Property Name="reservhote" Type="nvarchar" MaxLength="50" />
+          <Property Name="irani" Type="nvarchar" MaxLength="50" />
+          <Property Name="farangi" Type="nvarchar" MaxLength="50" />
+          <Property Name="bajetahvil" Type="nvarchar" MaxLength="50" />
+          <Property Name="salonentez" Type="nvarchar" MaxLength="50" />
+          <Property Name="salontashr" Type="nvarchar" MaxLength="50" />
+          <Property Name="namazkhone" Type="nvarchar" MaxLength="50" />
+          <Property Name="restoran" Type="nvarchar" MaxLength="50" />
+          <Property Name="vahedetela" Type="nvarchar" MaxLength="50" />
+          <Property Name="ashia" Type="nvarchar" MaxLength="50" />
+          <Property Name="sandoq" Type="nvarchar" MaxLength="50" />
+          <Property Name="saatkaranb" Type="nvarchar" MaxLength="50" />
+          <Property Name="saatkarbaj" Type="nvarchar" MaxLength="50" />
+          <Property Name="agency" Type="nvarchar" MaxLength="50" />
+          <Property Name="areaid" Type="int" />
+          <Property Name="cityid" Type="int" />
+          <Property Name="cityname" Type="nvarchar" MaxLength="50" />
+          <Property Name="statename" Type="nvarchar" MaxLength="50" />
+          <Property Name="stateid" Type="int" />
+          <Property Name="TaghlilStationID" Type="int" />
+          <Property Name="taghlilid" Type="int" />
+          <Property Name="FetchTime" Type="datetime" />
+          <Property Name="alternateNames" Type="nvarchar" MaxLength="500" />
+        </EntityType>
+        <EntityType Name="PWS0StationsGeos">
+          <Key>
+            <PropertyRef Name="StationId" />
+          </Key>
+          <Property Name="type" Type="nvarchar" MaxLength="50" />
+          <Property Name="id" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="geometryType" Type="nvarchar" MaxLength="50" />
+          <Property Name="geometryCoordinates" Type="nvarchar" MaxLength="50" />
+          <Property Name="geometry_name" Type="nvarchar" MaxLength="50" />
+          <Property Name="StationId" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="PWS0TrainsBarry">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="jTrain_No" Type="int" />
+          <Property Name="jF15Rec_ID" Type="int" />
+          <Property Name="jTashkil_Date" Type="nvarchar" MaxLength="50" />
+          <Property Name="jTashkil_Time" Type="nvarchar" MaxLength="50" />
+          <Property Name="jCurrent_Station_Code" Type="int" />
+          <Property Name="jSource_Station_Code" Type="int" />
+          <Property Name="jDestination_Station_Code" Type="int" />
+          <Property Name="jEntrance_Date" Type="nvarchar" MaxLength="50" />
+          <Property Name="jEntrance_DateTime" Type="datetime" />
+          <Property Name="jEntrance_Time" Type="nvarchar" MaxLength="50" />
+          <Property Name="jUpdate_DateTime" Type="datetime" />
+          <Property Name="jLocomotiveNumbers" Type="nvarchar" MaxLength="50" />
+          <Property Name="TashkilDateTime" Type="datetime" />
+          <Property Name="CurrentStationId" Type="int" />
+          <Property Name="DestinationStationId" Type="int" />
+          <Property Name="SourceStationId" Type="int" />
+          <Property Name="FetchTime" Type="datetime" />
+          <Property Name="CycleNumber" Type="int" />
+        </EntityType>
+        <EntityType Name="PWS0TrainsPassengers">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="jTrain_No" Type="int" />
+          <Property Name="jCurrent_Station_Code" Type="int" />
+          <Property Name="jEntrance_Date" Type="nvarchar" MaxLength="50" />
+          <Property Name="jEntrance_Time" Type="nvarchar" MaxLength="50" />
+          <Property Name="jExit_Date" Type="nvarchar" MaxLength="50" />
+          <Property Name="jExit_Time" Type="nvarchar" MaxLength="50" />
+          <Property Name="jDeparture_Date" Type="nvarchar" MaxLength="50" />
+          <Property Name="jDeparture_Time" Type="nvarchar" MaxLength="50" />
+          <Property Name="jSource_Station_Code" Type="int" />
+          <Property Name="jDestination_Station_Code" Type="int" />
+          <Property Name="jDestination_Program_Time_In" Type="nvarchar" MaxLength="50" />
+          <Property Name="jCurrent_Program_Time_In" Type="nvarchar" MaxLength="50" />
+          <Property Name="jDeparture_Program_Time_Out" Type="nvarchar" MaxLength="50" />
+          <Property Name="jUpdate_DateTime" Type="datetime" />
+          <Property Name="jDelayMinute" Type="int" />
+          <Property Name="jArivalHours" Type="int" />
+          <Property Name="CurrentStationId" Type="int" />
+          <Property Name="EntranceDateTime" Type="datetime" />
+          <Property Name="ExitDateTime" Type="datetime" />
+          <Property Name="DepartureDateTime" Type="datetime" />
+          <Property Name="SourceStationId" Type="int" />
+          <Property Name="DestinationStationId" Type="int" />
+          <Property Name="DestinationProgramTimeIn" Type="time" Precision="7" />
+          <Property Name="CurrentProgramTimeIn" Type="time" Precision="7" />
+          <Property Name="DepartureProgramTimeOut" Type="time" Precision="7" />
+          <Property Name="SourceURL" Type="nvarchar" MaxLength="50" />
+          <Property Name="FetchTime" Type="datetime" />
+          <Property Name="CycleNumber" Type="int" />
+        </EntityType>
+        <EntityType Name="raiBillOfLadingsTracking">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="wRowNo" Type="int" />
+          <Property Name="wBillOfLadingNo" Type="bigint" />
+          <Property Name="wWagonNo" Type="bigint" />
+          <Property Name="wCurrentStationName" Type="nvarchar" MaxLength="50" />
+          <Property Name="wEnteranceDate" Type="nvarchar" MaxLength="50" />
+          <Property Name="wEnteranceTime" Type="nvarchar" MaxLength="50" />
+          <Property Name="wTrainNo" Type="int" />
+          <Property Name="wSourceStationName" Type="nvarchar" MaxLength="50" />
+          <Property Name="wDestinationStationName" Type="nvarchar" MaxLength="50" />
+          <Property Name="wDistance" Type="int" />
+          <Property Name="billOfLadingId" Type="int" />
+          <Property Name="wagonId" Type="int" />
+          <Property Name="currentStationId" Type="int" />
+          <Property Name="enteranceDateTime" Type="datetime" />
+          <Property Name="trainId" Type="int" />
+          <Property Name="sourceStationId" Type="int" />
+          <Property Name="destinationStationId" Type="int" />
+          <Property Name="FetchTime" Type="datetime" />
+          <Property Name="CycleNumber" Type="int" />
+        </EntityType>
+        <EntityType Name="raiTrainPassengersLastStatus">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="wRowNo" Type="int" />
+          <Property Name="wTrainNo" Type="int" />
+          <Property Name="wTrainType" Type="nvarchar" MaxLength="50" />
+          <Property Name="wSourceStationName" Type="nvarchar" MaxLength="50" />
+          <Property Name="wDestinationStationName" Type="nvarchar" MaxLength="50" />
+          <Property Name="wTrainBossName" Type="nvarchar" MaxLength="50" />
+          <Property Name="wCurrentStationName" Type="nvarchar" MaxLength="50" />
+          <Property Name="wEnteranceDateTime" Type="nvarchar" MaxLength="50" />
+          <Property Name="wExitDateTime" Type="nvarchar" MaxLength="50" />
+          <Property Name="wAreaName" Type="nvarchar" MaxLength="50" />
+          <Property Name="trainId" Type="int" />
+          <Property Name="sourceStationId" Type="int" />
+          <Property Name="destinationStationId" Type="int" />
+          <Property Name="currentStationId" Type="int" />
+          <Property Name="enteranceDateTime" Type="datetime" />
+          <Property Name="exitDateTime" Type="datetime" />
+          <Property Name="areaId" Type="int" />
+          <Property Name="FetchTime" Type="datetime" />
+          <Property Name="CycleNumber" Type="int" />
+        </EntityType>
+        <EntityType Name="raiWagon_Info_Tracking">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="wRowNo" Type="int" />
+          <Property Name="wWagonNo" Type="bigint" />
+          <Property Name="wTrainNo" Type="int" />
+          <Property Name="wAreaName" Type="nvarchar" MaxLength="50" />
+          <Property Name="wCurrentStationName" Type="nvarchar" MaxLength="50" />
+          <Property Name="wEnteranceDate" Type="nvarchar" MaxLength="50" />
+          <Property Name="wEnteranceTime" Type="nvarchar" MaxLength="50" />
+          <Property Name="wExitDate" Type="nvarchar" MaxLength="50" />
+          <Property Name="wExitTime" Type="nvarchar" MaxLength="50" />
+          <Property Name="wSourceStationName" Type="nvarchar" MaxLength="50" />
+          <Property Name="wDestinationStationName" Type="nvarchar" MaxLength="50" />
+          <Property Name="wDistance" Type="int" />
+          <Property Name="wBarType" Type="nvarchar" MaxLength="50" />
+          <Property Name="wBillOfLadingNo" Type="bigint" />
+          <Property Name="wTrainSourceStationName" Type="nvarchar" MaxLength="50" />
+          <Property Name="wTrainDestinationStationName" Type="nvarchar" MaxLength="50" />
+          <Property Name="wagonId" Type="int" />
+          <Property Name="trainId" Type="int" />
+          <Property Name="currentStationId" Type="int" />
+          <Property Name="enteranceDateTime" Type="datetime" />
+          <Property Name="exitDateTime" Type="datetime" />
+          <Property Name="sourceStationId" Type="int" />
+          <Property Name="destinationStationId" Type="int" />
+          <Property Name="goodsID" Type="int" />
+          <Property Name="FetchTime" Type="datetime" />
+          <Property Name="CycleNumber" Type="int" />
+          <Property Name="Source" Type="nvarchar" MaxLength="100" />
+        </EntityType>
+        <EntityType Name="rwmmsDeclerationList">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="wRowNo" Type="int" />
+          <Property Name="wWagonNo" Type="bigint" />
+          <Property Name="wTypeName" Type="nvarchar" MaxLength="50" />
+          <Property Name="wDeclerationNo" Type="nvarchar" MaxLength="50" />
+          <Property Name="wOwnerName" Type="nvarchar" MaxLength="50" />
+          <Property Name="wOwnerRepresentativeName" Type="nvarchar" MaxLength="50" />
+          <Property Name="wStatus" Type="nvarchar" MaxLength="50" />
+          <Property Name="wIssueDate" Type="nvarchar" MaxLength="50" />
+          <Property Name="wNoteNo" Type="nvarchar" MaxLength="50" />
+          <Property Name="wRegisterNo" Type="nvarchar" MaxLength="50" />
+          <Property Name="wPageNo" Type="nvarchar" MaxLength="50" />
+          <Property Name="wDocStatus" Type="nvarchar" MaxLength="50" />
+          <Property Name="wOtherRights" Type="nvarchar" MaxLength="1000" />
+          <Property Name="wOwnerDocuments" Type="nvarchar" MaxLength="1000" />
+          <Property Name="wDescription" Type="nvarchar" MaxLength="1000" />
+          <Property Name="wConfirmOwner" Type="bit" />
+          <Property Name="wConfirmOwnerDescription" Type="nvarchar" MaxLength="100" />
+          <Property Name="wConfirmMali" Type="bit" />
+          <Property Name="wConfirmMaliDescription" Type="nvarchar" MaxLength="100" />
+          <Property Name="wConfirmEdareWagon" Type="bit" />
+          <Property Name="wConfirmEdareWagonDescription" Type="nvarchar" MaxLength="100" />
+          <Property Name="wConfirmEdareBazargani" Type="bit" />
+          <Property Name="wConfirmEdareBazarganiDescription" Type="nvarchar" MaxLength="100" />
+          <Property Name="wConfirmEdareSeir" Type="bit" />
+          <Property Name="wConfirmEdareSeirDescription" Type="nvarchar" MaxLength="100" />
+          <Property Name="wConfirmSarmaye" Type="bit" />
+          <Property Name="wConfirmSarmayeDescription" Type="nvarchar" MaxLength="100" />
+          <Property Name="wConfirmTajhiz" Type="bit" />
+          <Property Name="wConfirmTajhizDescription" Type="nvarchar" MaxLength="100" />
+          <Property Name="wConfirmHoghoghi" Type="bit" />
+          <Property Name="wConfirmHoghoghiDescription" Type="nvarchar" MaxLength="100" />
+          <Property Name="wConfirmFinal" Type="bit" />
+          <Property Name="wConfirmFinalDescription" Type="nvarchar" MaxLength="100" />
+          <Property Name="wAttachmentPath" Type="nvarchar" MaxLength="500" />
+          <Property Name="PageIndex" Type="int" />
+          <Property Name="vehicleOwnerId" Type="int" />
+          <Property Name="issueDate" Type="datetime" />
+          <Property Name="FetchTime" Type="datetime" />
+          <Property Name="CycleNumber" Type="int" />
+          <Property Name="Source" Type="nvarchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="rwmmsVehicleOwners">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="wCompanyName" Type="nvarchar" MaxLength="50" />
+          <Property Name="wCompanyId" Type="nvarchar" MaxLength="50" />
+          <Property Name="wRegisterNo" Type="nvarchar" MaxLength="50" />
+          <Property Name="wRegisterCityName" Type="nvarchar" MaxLength="50" />
+          <Property Name="wRegsiterPersianDate" Type="nvarchar" MaxLength="50" />
+          <Property Name="wIntroductionFile" Type="nvarchar" MaxLength="1000" />
+          <Property Name="companyName" Type="nvarchar" MaxLength="100" />
+          <Property Name="ShenaseMeli" Type="nvarchar" MaxLength="50" />
+          <Property Name="PostalCode" Type="nvarchar" MaxLength="50" />
+          <Property Name="registerDate" Type="datetime" />
+          <Property Name="AlternateNames" Type="nvarchar" MaxLength="500" />
+          <Property Name="Description" Type="nvarchar" MaxLength="50" />
+          <Property Name="FetchTime" Type="datetime" />
+          <Property Name="CycleNumber" Type="int" />
+          <Property Name="Source" Type="nvarchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="rwmmsVehicleOwnersDetail">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="wFName" Type="nvarchar" MaxLength="50" />
+          <Property Name="wLName" Type="nvarchar" MaxLength="50" />
+          <Property Name="wFatherName" Type="nvarchar" MaxLength="50" />
+          <Property Name="wCertNo" Type="nvarchar" MaxLength="50" />
+          <Property Name="wRegisterCity" Type="nvarchar" MaxLength="50" />
+          <Property Name="wMeliNo" Type="nvarchar" MaxLength="50" />
+          <Property Name="wPostalCode" Type="nvarchar" MaxLength="50" />
+          <Property Name="wEmail" Type="nvarchar" MaxLength="50" />
+          <Property Name="wMobileNumber" Type="nvarchar" MaxLength="50" />
+          <Property Name="wBirthDate" Type="nvarchar" MaxLength="50" />
+          <Property Name="wAddress" Type="nvarchar" MaxLength="500" />
+          <Property Name="vehicleOwnerId" Type="int" />
+          <Property Name="FetchTime" Type="datetime" />
+          <Property Name="CycleNumber" Type="int" />
+          <Property Name="Source" Type="nvarchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="rwmmsWagonParts">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="IdGroup" Type="int" />
+          <Property Name="wPartName" Type="nvarchar" MaxLength="50" />
+          <Property Name="wPartNameLatin" Type="nvarchar" MaxLength="50" />
+          <Property Name="wCountInGroup" Type="int" />
+          <Property Name="wCountInWagon" Type="int" />
+          <Property Name="wWeight" Type="numeric" Precision="18" Scale="4" />
+          <Property Name="wMapNumber" Type="nvarchar" MaxLength="50" />
+          <Property Name="wMapPicPath" Type="nvarchar" MaxLength="500" />
+          <Property Name="wMapPic1Path" Type="nvarchar" MaxLength="500" />
+          <Property Name="wMapPic2Path" Type="nvarchar" MaxLength="500" />
+          <Property Name="wMapPic3Path" Type="nvarchar" MaxLength="500" />
+          <Property Name="wMapPic4Path" Type="nvarchar" MaxLength="500" />
+          <Property Name="FetchTime" Type="datetime" />
+        </EntityType>
+        <EntityType Name="rwmmsWagonPartsGroups">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="IdGroupParent" Type="int" />
+          <Property Name="wGroupName" Type="nvarchar" MaxLength="50" />
+          <Property Name="wSerialNo" Type="nvarchar" MaxLength="50" />
+          <Property Name="wPSID" Type="nvarchar" MaxLength="50" />
+          <Property Name="FetchTime" Type="datetime" />
+        </EntityType>
+        <EntityType Name="Wagons">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="wagonNo" Type="bigint" />
+          <Property Name="wagonTypeId" Type="int" />
+          <Property Name="companyId" Type="int" />
+          <Property Name="capacity" Type="int" />
+          <Property Name="wagonControlNo" Type="nvarchar" MaxLength="100" StoreGeneratedPattern="Computed" />
+          <Property Name="wrWagonTypeName" Type="nvarchar" MaxLength="50" />
+          <Property Name="wrBrakeType" Type="nvarchar" MaxLength="50" />
+          <Property Name="wrChassisSerial" Type="nvarchar" MaxLength="50" />
+          <Property Name="wrRivNo" Type="nvarchar" MaxLength="50" />
+          <Property Name="wrCountry" Type="nvarchar" MaxLength="50" />
+          <Property Name="wrBoogieType" Type="nvarchar" MaxLength="50" />
+          <Property Name="wrCompanyManufacturer" Type="nvarchar" MaxLength="50" />
+          <Property Name="wrCapacity" Type="float" />
+          <Property Name="wrProductionYear" Type="int" />
+          <Property Name="wrAxisCount" Type="int" />
+          <Property Name="wrHookType" Type="nvarchar" MaxLength="50" />
+          <Property Name="wrNetWeight" Type="float" />
+          <Property Name="wrControlDigit" Type="int" />
+          <Property Name="wrDaysRemainToRepair" Type="int" />
+          <Property Name="wrOwnerName" Type="nvarchar" MaxLength="50" />
+          <Property Name="wrOwnershipType" Type="nvarchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="WagonsTypes">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="typeName" Type="nvarchar" MaxLength="50" />
+          <Property Name="alternateNames" Type="nvarchar" MaxLength="100" />
+        </EntityType>
+        <EntityContainer Name="logisticModelStoreContainer">
+          <EntitySet Name="Areas" EntityType="Self.Areas" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="PWS0Agencies" EntityType="Self.PWS0Agencies" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="PWS0AgenciesGeos" EntityType="Self.PWS0AgenciesGeos" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="PWS0BillOfLadings" EntityType="Self.PWS0BillOfLadings" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="PWS0Goods" EntityType="Self.PWS0Goods" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="PWS0StateCities" EntityType="Self.PWS0StateCities" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="PWS0Stations" EntityType="Self.PWS0Stations" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="PWS0StationsGeos" EntityType="Self.PWS0StationsGeos" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="PWS0TrainsBarry" EntityType="Self.PWS0TrainsBarry" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="PWS0TrainsPassengers" EntityType="Self.PWS0TrainsPassengers" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="raiBillOfLadingsTracking" EntityType="Self.raiBillOfLadingsTracking" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="raiTrainPassengersLastStatus" EntityType="Self.raiTrainPassengersLastStatus" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="raiWagon_Info_Tracking" EntityType="Self.raiWagon_Info_Tracking" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="rwmmsDeclerationList" EntityType="Self.rwmmsDeclerationList" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="rwmmsVehicleOwners" EntityType="Self.rwmmsVehicleOwners" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="rwmmsVehicleOwnersDetail" EntityType="Self.rwmmsVehicleOwnersDetail" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="rwmmsWagonParts" EntityType="Self.rwmmsWagonParts" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="rwmmsWagonPartsGroups" EntityType="Self.rwmmsWagonPartsGroups" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Wagons" EntityType="Self.Wagons" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="WagonsTypes" EntityType="Self.WagonsTypes" Schema="dbo" store:Type="Tables" />
+        </EntityContainer>
+      </Schema></edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="logisticModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="Area">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="areaName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="alternateNames" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="PWS0Agencies">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="AgencyCode" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="AgencyName" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="AgencyStreet" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+          <Property Name="AgencyTel" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="CountryCode" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="CountryName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Lat" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Lng" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="ProvinceCode" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="cityCode" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="cityName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="provinceName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="FetchTime" Type="DateTime" Precision="3" />
+        </EntityType>
+        <EntityType Name="PWS0AgenciesGeos">
+          <Key>
+            <PropertyRef Name="AgencyId" />
+          </Key>
+          <Property Name="type" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="id" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="geometryType" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="geometryCoordinates" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="geometry_name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="AgencyId" Type="Int32" Nullable="false" />
+        </EntityType>
+        <EntityType Name="PWS0BillOfLadings">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="jTrain_No" Type="Int32" />
+          <Property Name="jWagon_NO" Type="Int64" />
+          <Property Name="jBarnameh_NO" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="jSource_Station_Name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="jDestination_Station_Name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="jBar_Type" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="jCurrent_Station_Code" Type="Int32" />
+          <Property Name="jCurrent_Station_Name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="jSource_Station_Code" Type="Int32" />
+          <Property Name="jEntrance_Date" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="jEntrance_Date_M" Type="DateTime" Precision="3" />
+          <Property Name="jEntrance_Time" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="jTashkil_Date" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="jTashkil_Time" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="jF15Rec_ID" Type="Int32" />
+          <Property Name="WagonId" Type="Int64" />
+          <Property Name="TrainId" Type="Int64" />
+          <Property Name="SourceStationId" Type="Int32" />
+          <Property Name="DestinationStationId" Type="Int32" />
+          <Property Name="CurrentStationId" Type="Int32" />
+          <Property Name="goodsId" Type="Int32" />
+          <Property Name="TashkilDateTime" Type="DateTime" Precision="3" />
+          <Property Name="FetchTime" Type="DateTime" Precision="3" />
+          <Property Name="FetchUrl" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="CycleNumber" Type="Int32" />
+        </EntityType>
+        <EntityType Name="PWS0Goods">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="goodsName" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+          <Property Name="AlternateNames" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="PWS0StateCities">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="StateId" Type="Int32" />
+          <Property Name="StateName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="CityId" Type="Int32" />
+          <Property Name="CityName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="ParentStateIdInJson" Type="Int32" />
+          <Property Name="ParentIdInDB" Type="Int32" />
+          <Property Name="isState" Type="Boolean" />
+        </EntityType>
+        <EntityType Name="PWS0Stations">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="lat" Type="Double" />
+          <Property Name="lon" Type="Double" />
+          <Property Name="alt" Type="Double" />
+          <Property Name="name" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="name2" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="stcode" Type="Int32" />
+          <Property Name="bus" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="metro" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="taxi" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="other" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="cellOffice" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="parkingtim" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="sakohamlkh" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="daftarforo" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="kioskkhari" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="khodpardaz" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="telephonom" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="internetbi" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="balabar" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="ramp" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="postbehdas" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="ambolans" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="vilcher" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="masirnabin" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="amanatketa" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="tanaqolat" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="soqat" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="mobile" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="sanayedast" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="reservhote" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="irani" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="farangi" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="bajetahvil" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="salonentez" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="salontashr" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="namazkhone" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="restoran" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="vahedetela" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="ashia" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="sandoq" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="saatkaranb" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="saatkarbaj" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="agency" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="areaid" Type="Int32" />
+          <Property Name="cityid" Type="Int32" />
+          <Property Name="cityname" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="statename" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="stateid" Type="Int32" />
+          <Property Name="TaghlilStationID" Type="Int32" />
+          <Property Name="taghlilid" Type="Int32" />
+          <Property Name="FetchTime" Type="DateTime" Precision="3" />
+          <Property Name="alternateNames" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="PWS0StationsGeos">
+          <Key>
+            <PropertyRef Name="StationId" />
+          </Key>
+          <Property Name="type" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="id" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="geometryType" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="geometryCoordinates" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="geometry_name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="StationId" Type="Int32" Nullable="false" />
+        </EntityType>
+        <EntityType Name="PWS0TrainsBarry">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="jTrain_No" Type="Int32" />
+          <Property Name="jF15Rec_ID" Type="Int32" />
+          <Property Name="jTashkil_Date" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="jTashkil_Time" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="jCurrent_Station_Code" Type="Int32" />
+          <Property Name="jSource_Station_Code" Type="Int32" />
+          <Property Name="jDestination_Station_Code" Type="Int32" />
+          <Property Name="jEntrance_Date" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="jEntrance_DateTime" Type="DateTime" Precision="3" />
+          <Property Name="jEntrance_Time" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="jUpdate_DateTime" Type="DateTime" Precision="3" />
+          <Property Name="jLocomotiveNumbers" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="TashkilDateTime" Type="DateTime" Precision="3" />
+          <Property Name="CurrentStationId" Type="Int32" />
+          <Property Name="DestinationStationId" Type="Int32" />
+          <Property Name="SourceStationId" Type="Int32" />
+          <Property Name="FetchTime" Type="DateTime" Precision="3" />
+          <Property Name="CycleNumber" Type="Int32" />
+        </EntityType>
+        <EntityType Name="PWS0TrainsPassengers">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="jTrain_No" Type="Int32" />
+          <Property Name="jCurrent_Station_Code" Type="Int32" />
+          <Property Name="jEntrance_Date" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="jEntrance_Time" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="jExit_Date" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="jExit_Time" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="jDeparture_Date" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="jDeparture_Time" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="jSource_Station_Code" Type="Int32" />
+          <Property Name="jDestination_Station_Code" Type="Int32" />
+          <Property Name="jDestination_Program_Time_In" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="jCurrent_Program_Time_In" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="jDeparture_Program_Time_Out" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="jUpdate_DateTime" Type="DateTime" Precision="3" />
+          <Property Name="jDelayMinute" Type="Int32" />
+          <Property Name="jArivalHours" Type="Int32" />
+          <Property Name="CurrentStationId" Type="Int32" />
+          <Property Name="EntranceDateTime" Type="DateTime" Precision="3" />
+          <Property Name="ExitDateTime" Type="DateTime" Precision="3" />
+          <Property Name="DepartureDateTime" Type="DateTime" Precision="3" />
+          <Property Name="SourceStationId" Type="Int32" />
+          <Property Name="DestinationStationId" Type="Int32" />
+          <Property Name="DestinationProgramTimeIn" Type="Time" Precision="7" />
+          <Property Name="CurrentProgramTimeIn" Type="Time" Precision="7" />
+          <Property Name="DepartureProgramTimeOut" Type="Time" Precision="7" />
+          <Property Name="SourceURL" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="FetchTime" Type="DateTime" Precision="3" />
+          <Property Name="CycleNumber" Type="Int32" />
+        </EntityType>
+        <EntityType Name="raiBillOfLadingsTracking">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="wRowNo" Type="Int32" />
+          <Property Name="wBillOfLadingNo" Type="Int64" />
+          <Property Name="wWagonNo" Type="Int64" />
+          <Property Name="wCurrentStationName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="wEnteranceDate" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="wEnteranceTime" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="wTrainNo" Type="Int32" />
+          <Property Name="wSourceStationName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="wDestinationStationName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="wDistance" Type="Int32" />
+          <Property Name="billOfLadingId" Type="Int32" />
+          <Property Name="wagonId" Type="Int32" />
+          <Property Name="currentStationId" Type="Int32" />
+          <Property Name="enteranceDateTime" Type="DateTime" Precision="3" />
+          <Property Name="trainId" Type="Int32" />
+          <Property Name="sourceStationId" Type="Int32" />
+          <Property Name="destinationStationId" Type="Int32" />
+          <Property Name="FetchTime" Type="DateTime" Precision="3" />
+          <Property Name="CycleNumber" Type="Int32" />
+        </EntityType>
+        <EntityType Name="raiTrainPassengersLastStatu">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="wRowNo" Type="Int32" />
+          <Property Name="wTrainNo" Type="Int32" />
+          <Property Name="wTrainType" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="wSourceStationName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="wDestinationStationName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="wTrainBossName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="wCurrentStationName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="wEnteranceDateTime" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="wExitDateTime" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="wAreaName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="trainId" Type="Int32" />
+          <Property Name="sourceStationId" Type="Int32" />
+          <Property Name="destinationStationId" Type="Int32" />
+          <Property Name="currentStationId" Type="Int32" />
+          <Property Name="enteranceDateTime" Type="DateTime" Precision="3" />
+          <Property Name="exitDateTime" Type="DateTime" Precision="3" />
+          <Property Name="areaId" Type="Int32" />
+          <Property Name="FetchTime" Type="DateTime" Precision="3" />
+          <Property Name="CycleNumber" Type="Int32" />
+        </EntityType>
+        <EntityType Name="raiWagon_Info_Tracking">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="wRowNo" Type="Int32" />
+          <Property Name="wWagonNo" Type="Int64" />
+          <Property Name="wTrainNo" Type="Int32" />
+          <Property Name="wAreaName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="wCurrentStationName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="wEnteranceDate" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="wEnteranceTime" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="wExitDate" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="wExitTime" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="wSourceStationName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="wDestinationStationName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="wDistance" Type="Int32" />
+          <Property Name="wBarType" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="wBillOfLadingNo" Type="Int64" />
+          <Property Name="wTrainSourceStationName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="wTrainDestinationStationName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="wagonId" Type="Int32" />
+          <Property Name="trainId" Type="Int32" />
+          <Property Name="currentStationId" Type="Int32" />
+          <Property Name="enteranceDateTime" Type="DateTime" Precision="3" />
+          <Property Name="exitDateTime" Type="DateTime" Precision="3" />
+          <Property Name="sourceStationId" Type="Int32" />
+          <Property Name="destinationStationId" Type="Int32" />
+          <Property Name="goodsID" Type="Int32" />
+          <Property Name="FetchTime" Type="DateTime" Precision="3" />
+          <Property Name="CycleNumber" Type="Int32" />
+          <Property Name="Source" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="Wagon">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="wagonNo" Type="Int64" />
+          <Property Name="wagonTypeId" Type="Int32" />
+          <Property Name="companyId" Type="Int32" />
+          <Property Name="capacity" Type="Int32" />
+          <Property Name="wagonControlNo" Type="String" MaxLength="100" FixedLength="false" Unicode="true" annotation:StoreGeneratedPattern="Computed" />
+          <Property Name="wrWagonTypeName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="wrBrakeType" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="wrChassisSerial" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="wrRivNo" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="wrCountry" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="wrBoogieType" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="wrCompanyManufacturer" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="wrCapacity" Type="Double" />
+          <Property Name="wrProductionYear" Type="Int32" />
+          <Property Name="wrAxisCount" Type="Int32" />
+          <Property Name="wrHookType" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="wrNetWeight" Type="Double" />
+          <Property Name="wrControlDigit" Type="Int32" />
+          <Property Name="wrDaysRemainToRepair" Type="Int32" />
+          <Property Name="wrOwnerName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="wrOwnershipType" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="WagonsType">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="typeName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="alternateNames" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityContainer Name="logisticEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="Areas" EntityType="Self.Area" />
+          <EntitySet Name="PWS0Agencies" EntityType="Self.PWS0Agencies" />
+          <EntitySet Name="PWS0AgenciesGeos" EntityType="Self.PWS0AgenciesGeos" />
+          <EntitySet Name="PWS0BillOfLadings" EntityType="Self.PWS0BillOfLadings" />
+          <EntitySet Name="PWS0Goods" EntityType="Self.PWS0Goods" />
+          <EntitySet Name="PWS0StateCities" EntityType="Self.PWS0StateCities" />
+          <EntitySet Name="PWS0Stations" EntityType="Self.PWS0Stations" />
+          <EntitySet Name="PWS0StationsGeos" EntityType="Self.PWS0StationsGeos" />
+          <EntitySet Name="PWS0TrainsBarry" EntityType="Self.PWS0TrainsBarry" />
+          <EntitySet Name="PWS0TrainsPassengers" EntityType="Self.PWS0TrainsPassengers" />
+          <EntitySet Name="raiBillOfLadingsTrackings" EntityType="Self.raiBillOfLadingsTracking" />
+          <EntitySet Name="raiTrainPassengersLastStatus" EntityType="Self.raiTrainPassengersLastStatu" />
+          <EntitySet Name="raiWagon_Info_Tracking" EntityType="Self.raiWagon_Info_Tracking" />
+          <EntitySet Name="Wagons" EntityType="Self.Wagon" />
+          <EntitySet Name="WagonsTypes" EntityType="Self.WagonsType" />
+          <EntitySet Name="rwmmsVehicleOwners" EntityType="logisticModel.rwmmsVehicleOwner" />
+          <EntitySet Name="rwmmsDeclerationLists" EntityType="logisticModel.rwmmsDeclerationList" />
+          <EntitySet Name="rwmmsWagonParts" EntityType="logisticModel.rwmmsWagonPart" />
+          <EntitySet Name="rwmmsWagonPartsGroups" EntityType="logisticModel.rwmmsWagonPartsGroup" />
+          <EntitySet Name="rwmmsVehicleOwnersDetails" EntityType="logisticModel.rwmmsVehicleOwnersDetail" />
+        </EntityContainer>
+        <EntityType Name="rwmmsVehicleOwner">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="wCompanyName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="wCompanyId" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="wRegisterNo" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="wRegisterCityName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="wRegsiterPersianDate" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="wIntroductionFile" Type="String" MaxLength="1000" FixedLength="false" Unicode="true" />
+          <Property Name="companyName" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="ShenaseMeli" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="PostalCode" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="registerDate" Type="DateTime" Precision="3" />
+          <Property Name="AlternateNames" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+          <Property Name="Description" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="FetchTime" Type="DateTime" Precision="3" />
+          <Property Name="CycleNumber" Type="Int32" />
+          <Property Name="Source" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="rwmmsDeclerationList">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="wRowNo" Type="Int32" />
+          <Property Name="wWagonNo" Type="Int64" />
+          <Property Name="wTypeName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="wDeclerationNo" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="wOwnerName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="wOwnerRepresentativeName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="wStatus" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="wIssueDate" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="wNoteNo" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="wRegisterNo" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="wPageNo" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="wDocStatus" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="wOtherRights" Type="String" MaxLength="1000" FixedLength="false" Unicode="true" />
+          <Property Name="wOwnerDocuments" Type="String" MaxLength="1000" FixedLength="false" Unicode="true" />
+          <Property Name="wDescription" Type="String" MaxLength="1000" FixedLength="false" Unicode="true" />
+          <Property Name="wConfirmOwner" Type="Boolean" />
+          <Property Name="wConfirmOwnerDescription" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="wConfirmMali" Type="Boolean" />
+          <Property Name="wConfirmMaliDescription" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="wConfirmEdareWagon" Type="Boolean" />
+          <Property Name="wConfirmEdareWagonDescription" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="wConfirmEdareBazargani" Type="Boolean" />
+          <Property Name="wConfirmEdareBazarganiDescription" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="wConfirmEdareSeir" Type="Boolean" />
+          <Property Name="wConfirmEdareSeirDescription" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="wConfirmSarmaye" Type="Boolean" />
+          <Property Name="wConfirmSarmayeDescription" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="wConfirmTajhiz" Type="Boolean" />
+          <Property Name="wConfirmTajhizDescription" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="wConfirmHoghoghi" Type="Boolean" />
+          <Property Name="wConfirmHoghoghiDescription" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="wConfirmFinal" Type="Boolean" />
+          <Property Name="wConfirmFinalDescription" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="wAttachmentPath" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+          <Property Name="PageIndex" Type="Int32" />
+          <Property Name="vehicleOwnerId" Type="Int32" />
+          <Property Name="issueDate" Type="DateTime" Precision="3" />
+          <Property Name="FetchTime" Type="DateTime" Precision="3" />
+          <Property Name="CycleNumber" Type="Int32" />
+          <Property Name="Source" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="rwmmsWagonPart">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="IdGroup" Type="Int32" />
+          <Property Name="wPartName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="wPartNameLatin" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="wCountInGroup" Type="Int32" />
+          <Property Name="wCountInWagon" Type="Int32" />
+          <Property Name="wWeight" Type="Decimal" Precision="18" Scale="4" />
+          <Property Name="wMapNumber" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="wMapPicPath" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+          <Property Name="wMapPic1Path" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+          <Property Name="wMapPic2Path" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+          <Property Name="wMapPic3Path" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+          <Property Name="wMapPic4Path" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+          <Property Name="FetchTime" Type="DateTime" Precision="3" />
+        </EntityType>
+        <EntityType Name="rwmmsWagonPartsGroup">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="IdGroupParent" Type="Int32" />
+          <Property Name="wGroupName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="wSerialNo" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="wPSID" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="FetchTime" Type="DateTime" Precision="3" />
+        </EntityType>
+        <EntityType Name="rwmmsVehicleOwnersDetail">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="wFName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="wLName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="wFatherName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="wCertNo" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="wRegisterCity" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="wMeliNo" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="wPostalCode" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="wEmail" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="wMobileNumber" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="wBirthDate" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="wAddress" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+          <Property Name="vehicleOwnerId" Type="Int32" />
+          <Property Name="FetchTime" Type="DateTime" Precision="3" />
+          <Property Name="CycleNumber" Type="Int32" />
+          <Property Name="Source" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+        </EntityType>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="logisticModelStoreContainer" CdmEntityContainer="logisticEntities">
+          <EntitySetMapping Name="Areas">
+            <EntityTypeMapping TypeName="logisticModel.Area">
+              <MappingFragment StoreEntitySet="Areas">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="areaName" ColumnName="areaName" />
+                <ScalarProperty Name="alternateNames" ColumnName="alternateNames" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="PWS0Agencies">
+            <EntityTypeMapping TypeName="logisticModel.PWS0Agencies">
+              <MappingFragment StoreEntitySet="PWS0Agencies">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="AgencyCode" ColumnName="AgencyCode" />
+                <ScalarProperty Name="AgencyName" ColumnName="AgencyName" />
+                <ScalarProperty Name="AgencyStreet" ColumnName="AgencyStreet" />
+                <ScalarProperty Name="AgencyTel" ColumnName="AgencyTel" />
+                <ScalarProperty Name="CountryCode" ColumnName="CountryCode" />
+                <ScalarProperty Name="CountryName" ColumnName="CountryName" />
+                <ScalarProperty Name="Lat" ColumnName="Lat" />
+                <ScalarProperty Name="Lng" ColumnName="Lng" />
+                <ScalarProperty Name="ProvinceCode" ColumnName="ProvinceCode" />
+                <ScalarProperty Name="cityCode" ColumnName="cityCode" />
+                <ScalarProperty Name="cityName" ColumnName="cityName" />
+                <ScalarProperty Name="provinceName" ColumnName="provinceName" />
+                <ScalarProperty Name="FetchTime" ColumnName="FetchTime" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="PWS0AgenciesGeos">
+            <EntityTypeMapping TypeName="logisticModel.PWS0AgenciesGeos">
+              <MappingFragment StoreEntitySet="PWS0AgenciesGeos">
+                <ScalarProperty Name="type" ColumnName="type" />
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="geometryType" ColumnName="geometryType" />
+                <ScalarProperty Name="geometryCoordinates" ColumnName="geometryCoordinates" />
+                <ScalarProperty Name="geometry_name" ColumnName="geometry_name" />
+                <ScalarProperty Name="AgencyId" ColumnName="AgencyId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="PWS0BillOfLadings">
+            <EntityTypeMapping TypeName="logisticModel.PWS0BillOfLadings">
+              <MappingFragment StoreEntitySet="PWS0BillOfLadings">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="jTrain_No" ColumnName="jTrain_No" />
+                <ScalarProperty Name="jWagon_NO" ColumnName="jWagon_NO" />
+                <ScalarProperty Name="jBarnameh_NO" ColumnName="jBarnameh_NO" />
+                <ScalarProperty Name="jSource_Station_Name" ColumnName="jSource_Station_Name" />
+                <ScalarProperty Name="jDestination_Station_Name" ColumnName="jDestination_Station_Name" />
+                <ScalarProperty Name="jBar_Type" ColumnName="jBar_Type" />
+                <ScalarProperty Name="jCurrent_Station_Code" ColumnName="jCurrent_Station_Code" />
+                <ScalarProperty Name="jCurrent_Station_Name" ColumnName="jCurrent_Station_Name" />
+                <ScalarProperty Name="jSource_Station_Code" ColumnName="jSource_Station_Code" />
+                <ScalarProperty Name="jEntrance_Date" ColumnName="jEntrance_Date" />
+                <ScalarProperty Name="jEntrance_Date_M" ColumnName="jEntrance_Date_M" />
+                <ScalarProperty Name="jEntrance_Time" ColumnName="jEntrance_Time" />
+                <ScalarProperty Name="jTashkil_Date" ColumnName="jTashkil_Date" />
+                <ScalarProperty Name="jTashkil_Time" ColumnName="jTashkil_Time" />
+                <ScalarProperty Name="jF15Rec_ID" ColumnName="jF15Rec_ID" />
+                <ScalarProperty Name="WagonId" ColumnName="WagonId" />
+                <ScalarProperty Name="TrainId" ColumnName="TrainId" />
+                <ScalarProperty Name="SourceStationId" ColumnName="SourceStationId" />
+                <ScalarProperty Name="DestinationStationId" ColumnName="DestinationStationId" />
+                <ScalarProperty Name="CurrentStationId" ColumnName="CurrentStationId" />
+                <ScalarProperty Name="goodsId" ColumnName="goodsId" />
+                <ScalarProperty Name="TashkilDateTime" ColumnName="TashkilDateTime" />
+                <ScalarProperty Name="FetchTime" ColumnName="FetchTime" />
+                <ScalarProperty Name="FetchUrl" ColumnName="FetchUrl" />
+                <ScalarProperty Name="CycleNumber" ColumnName="CycleNumber" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="PWS0Goods">
+            <EntityTypeMapping TypeName="logisticModel.PWS0Goods">
+              <MappingFragment StoreEntitySet="PWS0Goods">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="goodsName" ColumnName="goodsName" />
+                <ScalarProperty Name="AlternateNames" ColumnName="AlternateNames" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="PWS0StateCities">
+            <EntityTypeMapping TypeName="logisticModel.PWS0StateCities">
+              <MappingFragment StoreEntitySet="PWS0StateCities">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="StateId" ColumnName="StateId" />
+                <ScalarProperty Name="StateName" ColumnName="StateName" />
+                <ScalarProperty Name="CityId" ColumnName="CityId" />
+                <ScalarProperty Name="CityName" ColumnName="CityName" />
+                <ScalarProperty Name="ParentStateIdInJson" ColumnName="ParentStateIdInJson" />
+                <ScalarProperty Name="ParentIdInDB" ColumnName="ParentIdInDB" />
+                <ScalarProperty Name="isState" ColumnName="isState" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="PWS0Stations">
+            <EntityTypeMapping TypeName="logisticModel.PWS0Stations">
+              <MappingFragment StoreEntitySet="PWS0Stations">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="lat" ColumnName="lat" />
+                <ScalarProperty Name="lon" ColumnName="lon" />
+                <ScalarProperty Name="alt" ColumnName="alt" />
+                <ScalarProperty Name="name" ColumnName="name" />
+                <ScalarProperty Name="name2" ColumnName="name2" />
+                <ScalarProperty Name="stcode" ColumnName="stcode" />
+                <ScalarProperty Name="bus" ColumnName="bus" />
+                <ScalarProperty Name="metro" ColumnName="metro" />
+                <ScalarProperty Name="taxi" ColumnName="taxi" />
+                <ScalarProperty Name="other" ColumnName="other" />
+                <ScalarProperty Name="cellOffice" ColumnName="cellOffice" />
+                <ScalarProperty Name="parkingtim" ColumnName="parkingtim" />
+                <ScalarProperty Name="sakohamlkh" ColumnName="sakohamlkh" />
+                <ScalarProperty Name="daftarforo" ColumnName="daftarforo" />
+                <ScalarProperty Name="kioskkhari" ColumnName="kioskkhari" />
+                <ScalarProperty Name="khodpardaz" ColumnName="khodpardaz" />
+                <ScalarProperty Name="telephonom" ColumnName="telephonom" />
+                <ScalarProperty Name="internetbi" ColumnName="internetbi" />
+                <ScalarProperty Name="balabar" ColumnName="balabar" />
+                <ScalarProperty Name="ramp" ColumnName="ramp" />
+                <ScalarProperty Name="postbehdas" ColumnName="postbehdas" />
+                <ScalarProperty Name="ambolans" ColumnName="ambolans" />
+                <ScalarProperty Name="vilcher" ColumnName="vilcher" />
+                <ScalarProperty Name="masirnabin" ColumnName="masirnabin" />
+                <ScalarProperty Name="amanatketa" ColumnName="amanatketa" />
+                <ScalarProperty Name="tanaqolat" ColumnName="tanaqolat" />
+                <ScalarProperty Name="soqat" ColumnName="soqat" />
+                <ScalarProperty Name="mobile" ColumnName="mobile" />
+                <ScalarProperty Name="sanayedast" ColumnName="sanayedast" />
+                <ScalarProperty Name="reservhote" ColumnName="reservhote" />
+                <ScalarProperty Name="irani" ColumnName="irani" />
+                <ScalarProperty Name="farangi" ColumnName="farangi" />
+                <ScalarProperty Name="bajetahvil" ColumnName="bajetahvil" />
+                <ScalarProperty Name="salonentez" ColumnName="salonentez" />
+                <ScalarProperty Name="salontashr" ColumnName="salontashr" />
+                <ScalarProperty Name="namazkhone" ColumnName="namazkhone" />
+                <ScalarProperty Name="restoran" ColumnName="restoran" />
+                <ScalarProperty Name="vahedetela" ColumnName="vahedetela" />
+                <ScalarProperty Name="ashia" ColumnName="ashia" />
+                <ScalarProperty Name="sandoq" ColumnName="sandoq" />
+                <ScalarProperty Name="saatkaranb" ColumnName="saatkaranb" />
+                <ScalarProperty Name="saatkarbaj" ColumnName="saatkarbaj" />
+                <ScalarProperty Name="agency" ColumnName="agency" />
+                <ScalarProperty Name="areaid" ColumnName="areaid" />
+                <ScalarProperty Name="cityid" ColumnName="cityid" />
+                <ScalarProperty Name="cityname" ColumnName="cityname" />
+                <ScalarProperty Name="statename" ColumnName="statename" />
+                <ScalarProperty Name="stateid" ColumnName="stateid" />
+                <ScalarProperty Name="TaghlilStationID" ColumnName="TaghlilStationID" />
+                <ScalarProperty Name="taghlilid" ColumnName="taghlilid" />
+                <ScalarProperty Name="FetchTime" ColumnName="FetchTime" />
+                <ScalarProperty Name="alternateNames" ColumnName="alternateNames" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="PWS0StationsGeos">
+            <EntityTypeMapping TypeName="logisticModel.PWS0StationsGeos">
+              <MappingFragment StoreEntitySet="PWS0StationsGeos">
+                <ScalarProperty Name="type" ColumnName="type" />
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="geometryType" ColumnName="geometryType" />
+                <ScalarProperty Name="geometryCoordinates" ColumnName="geometryCoordinates" />
+                <ScalarProperty Name="geometry_name" ColumnName="geometry_name" />
+                <ScalarProperty Name="StationId" ColumnName="StationId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="PWS0TrainsBarry">
+            <EntityTypeMapping TypeName="logisticModel.PWS0TrainsBarry">
+              <MappingFragment StoreEntitySet="PWS0TrainsBarry">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="jTrain_No" ColumnName="jTrain_No" />
+                <ScalarProperty Name="jF15Rec_ID" ColumnName="jF15Rec_ID" />
+                <ScalarProperty Name="jTashkil_Date" ColumnName="jTashkil_Date" />
+                <ScalarProperty Name="jTashkil_Time" ColumnName="jTashkil_Time" />
+                <ScalarProperty Name="jCurrent_Station_Code" ColumnName="jCurrent_Station_Code" />
+                <ScalarProperty Name="jSource_Station_Code" ColumnName="jSource_Station_Code" />
+                <ScalarProperty Name="jDestination_Station_Code" ColumnName="jDestination_Station_Code" />
+                <ScalarProperty Name="jEntrance_Date" ColumnName="jEntrance_Date" />
+                <ScalarProperty Name="jEntrance_DateTime" ColumnName="jEntrance_DateTime" />
+                <ScalarProperty Name="jEntrance_Time" ColumnName="jEntrance_Time" />
+                <ScalarProperty Name="jUpdate_DateTime" ColumnName="jUpdate_DateTime" />
+                <ScalarProperty Name="jLocomotiveNumbers" ColumnName="jLocomotiveNumbers" />
+                <ScalarProperty Name="TashkilDateTime" ColumnName="TashkilDateTime" />
+                <ScalarProperty Name="CurrentStationId" ColumnName="CurrentStationId" />
+                <ScalarProperty Name="DestinationStationId" ColumnName="DestinationStationId" />
+                <ScalarProperty Name="SourceStationId" ColumnName="SourceStationId" />
+                <ScalarProperty Name="FetchTime" ColumnName="FetchTime" />
+                <ScalarProperty Name="CycleNumber" ColumnName="CycleNumber" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="PWS0TrainsPassengers">
+            <EntityTypeMapping TypeName="logisticModel.PWS0TrainsPassengers">
+              <MappingFragment StoreEntitySet="PWS0TrainsPassengers">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="jTrain_No" ColumnName="jTrain_No" />
+                <ScalarProperty Name="jCurrent_Station_Code" ColumnName="jCurrent_Station_Code" />
+                <ScalarProperty Name="jEntrance_Date" ColumnName="jEntrance_Date" />
+                <ScalarProperty Name="jEntrance_Time" ColumnName="jEntrance_Time" />
+                <ScalarProperty Name="jExit_Date" ColumnName="jExit_Date" />
+                <ScalarProperty Name="jExit_Time" ColumnName="jExit_Time" />
+                <ScalarProperty Name="jDeparture_Date" ColumnName="jDeparture_Date" />
+                <ScalarProperty Name="jDeparture_Time" ColumnName="jDeparture_Time" />
+                <ScalarProperty Name="jSource_Station_Code" ColumnName="jSource_Station_Code" />
+                <ScalarProperty Name="jDestination_Station_Code" ColumnName="jDestination_Station_Code" />
+                <ScalarProperty Name="jDestination_Program_Time_In" ColumnName="jDestination_Program_Time_In" />
+                <ScalarProperty Name="jCurrent_Program_Time_In" ColumnName="jCurrent_Program_Time_In" />
+                <ScalarProperty Name="jDeparture_Program_Time_Out" ColumnName="jDeparture_Program_Time_Out" />
+                <ScalarProperty Name="jUpdate_DateTime" ColumnName="jUpdate_DateTime" />
+                <ScalarProperty Name="jDelayMinute" ColumnName="jDelayMinute" />
+                <ScalarProperty Name="jArivalHours" ColumnName="jArivalHours" />
+                <ScalarProperty Name="CurrentStationId" ColumnName="CurrentStationId" />
+                <ScalarProperty Name="EntranceDateTime" ColumnName="EntranceDateTime" />
+                <ScalarProperty Name="ExitDateTime" ColumnName="ExitDateTime" />
+                <ScalarProperty Name="DepartureDateTime" ColumnName="DepartureDateTime" />
+                <ScalarProperty Name="SourceStationId" ColumnName="SourceStationId" />
+                <ScalarProperty Name="DestinationStationId" ColumnName="DestinationStationId" />
+                <ScalarProperty Name="DestinationProgramTimeIn" ColumnName="DestinationProgramTimeIn" />
+                <ScalarProperty Name="CurrentProgramTimeIn" ColumnName="CurrentProgramTimeIn" />
+                <ScalarProperty Name="DepartureProgramTimeOut" ColumnName="DepartureProgramTimeOut" />
+                <ScalarProperty Name="SourceURL" ColumnName="SourceURL" />
+                <ScalarProperty Name="FetchTime" ColumnName="FetchTime" />
+                <ScalarProperty Name="CycleNumber" ColumnName="CycleNumber" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="raiBillOfLadingsTrackings">
+            <EntityTypeMapping TypeName="logisticModel.raiBillOfLadingsTracking">
+              <MappingFragment StoreEntitySet="raiBillOfLadingsTracking">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="wRowNo" ColumnName="wRowNo" />
+                <ScalarProperty Name="wBillOfLadingNo" ColumnName="wBillOfLadingNo" />
+                <ScalarProperty Name="wWagonNo" ColumnName="wWagonNo" />
+                <ScalarProperty Name="wCurrentStationName" ColumnName="wCurrentStationName" />
+                <ScalarProperty Name="wEnteranceDate" ColumnName="wEnteranceDate" />
+                <ScalarProperty Name="wEnteranceTime" ColumnName="wEnteranceTime" />
+                <ScalarProperty Name="wTrainNo" ColumnName="wTrainNo" />
+                <ScalarProperty Name="wSourceStationName" ColumnName="wSourceStationName" />
+                <ScalarProperty Name="wDestinationStationName" ColumnName="wDestinationStationName" />
+                <ScalarProperty Name="wDistance" ColumnName="wDistance" />
+                <ScalarProperty Name="billOfLadingId" ColumnName="billOfLadingId" />
+                <ScalarProperty Name="wagonId" ColumnName="wagonId" />
+                <ScalarProperty Name="currentStationId" ColumnName="currentStationId" />
+                <ScalarProperty Name="enteranceDateTime" ColumnName="enteranceDateTime" />
+                <ScalarProperty Name="trainId" ColumnName="trainId" />
+                <ScalarProperty Name="sourceStationId" ColumnName="sourceStationId" />
+                <ScalarProperty Name="destinationStationId" ColumnName="destinationStationId" />
+                <ScalarProperty Name="FetchTime" ColumnName="FetchTime" />
+                <ScalarProperty Name="CycleNumber" ColumnName="CycleNumber" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="raiTrainPassengersLastStatus">
+            <EntityTypeMapping TypeName="logisticModel.raiTrainPassengersLastStatu">
+              <MappingFragment StoreEntitySet="raiTrainPassengersLastStatus">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="wRowNo" ColumnName="wRowNo" />
+                <ScalarProperty Name="wTrainNo" ColumnName="wTrainNo" />
+                <ScalarProperty Name="wTrainType" ColumnName="wTrainType" />
+                <ScalarProperty Name="wSourceStationName" ColumnName="wSourceStationName" />
+                <ScalarProperty Name="wDestinationStationName" ColumnName="wDestinationStationName" />
+                <ScalarProperty Name="wTrainBossName" ColumnName="wTrainBossName" />
+                <ScalarProperty Name="wCurrentStationName" ColumnName="wCurrentStationName" />
+                <ScalarProperty Name="wEnteranceDateTime" ColumnName="wEnteranceDateTime" />
+                <ScalarProperty Name="wExitDateTime" ColumnName="wExitDateTime" />
+                <ScalarProperty Name="wAreaName" ColumnName="wAreaName" />
+                <ScalarProperty Name="trainId" ColumnName="trainId" />
+                <ScalarProperty Name="sourceStationId" ColumnName="sourceStationId" />
+                <ScalarProperty Name="destinationStationId" ColumnName="destinationStationId" />
+                <ScalarProperty Name="currentStationId" ColumnName="currentStationId" />
+                <ScalarProperty Name="enteranceDateTime" ColumnName="enteranceDateTime" />
+                <ScalarProperty Name="exitDateTime" ColumnName="exitDateTime" />
+                <ScalarProperty Name="areaId" ColumnName="areaId" />
+                <ScalarProperty Name="FetchTime" ColumnName="FetchTime" />
+                <ScalarProperty Name="CycleNumber" ColumnName="CycleNumber" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="raiWagon_Info_Tracking">
+            <EntityTypeMapping TypeName="logisticModel.raiWagon_Info_Tracking">
+              <MappingFragment StoreEntitySet="raiWagon_Info_Tracking">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="wRowNo" ColumnName="wRowNo" />
+                <ScalarProperty Name="wWagonNo" ColumnName="wWagonNo" />
+                <ScalarProperty Name="wTrainNo" ColumnName="wTrainNo" />
+                <ScalarProperty Name="wAreaName" ColumnName="wAreaName" />
+                <ScalarProperty Name="wCurrentStationName" ColumnName="wCurrentStationName" />
+                <ScalarProperty Name="wEnteranceDate" ColumnName="wEnteranceDate" />
+                <ScalarProperty Name="wEnteranceTime" ColumnName="wEnteranceTime" />
+                <ScalarProperty Name="wExitDate" ColumnName="wExitDate" />
+                <ScalarProperty Name="wExitTime" ColumnName="wExitTime" />
+                <ScalarProperty Name="wSourceStationName" ColumnName="wSourceStationName" />
+                <ScalarProperty Name="wDestinationStationName" ColumnName="wDestinationStationName" />
+                <ScalarProperty Name="wDistance" ColumnName="wDistance" />
+                <ScalarProperty Name="wBarType" ColumnName="wBarType" />
+                <ScalarProperty Name="wBillOfLadingNo" ColumnName="wBillOfLadingNo" />
+                <ScalarProperty Name="wTrainSourceStationName" ColumnName="wTrainSourceStationName" />
+                <ScalarProperty Name="wTrainDestinationStationName" ColumnName="wTrainDestinationStationName" />
+                <ScalarProperty Name="wagonId" ColumnName="wagonId" />
+                <ScalarProperty Name="trainId" ColumnName="trainId" />
+                <ScalarProperty Name="currentStationId" ColumnName="currentStationId" />
+                <ScalarProperty Name="enteranceDateTime" ColumnName="enteranceDateTime" />
+                <ScalarProperty Name="exitDateTime" ColumnName="exitDateTime" />
+                <ScalarProperty Name="sourceStationId" ColumnName="sourceStationId" />
+                <ScalarProperty Name="destinationStationId" ColumnName="destinationStationId" />
+                <ScalarProperty Name="goodsID" ColumnName="goodsID" />
+                <ScalarProperty Name="FetchTime" ColumnName="FetchTime" />
+                <ScalarProperty Name="CycleNumber" ColumnName="CycleNumber" />
+                <ScalarProperty Name="Source" ColumnName="Source" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Wagons">
+            <EntityTypeMapping TypeName="logisticModel.Wagon">
+              <MappingFragment StoreEntitySet="Wagons">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="wagonNo" ColumnName="wagonNo" />
+                <ScalarProperty Name="wagonTypeId" ColumnName="wagonTypeId" />
+                <ScalarProperty Name="companyId" ColumnName="companyId" />
+                <ScalarProperty Name="capacity" ColumnName="capacity" />
+                <ScalarProperty Name="wagonControlNo" ColumnName="wagonControlNo" />
+                <ScalarProperty Name="wrWagonTypeName" ColumnName="wrWagonTypeName" />
+                <ScalarProperty Name="wrBrakeType" ColumnName="wrBrakeType" />
+                <ScalarProperty Name="wrChassisSerial" ColumnName="wrChassisSerial" />
+                <ScalarProperty Name="wrRivNo" ColumnName="wrRivNo" />
+                <ScalarProperty Name="wrCountry" ColumnName="wrCountry" />
+                <ScalarProperty Name="wrBoogieType" ColumnName="wrBoogieType" />
+                <ScalarProperty Name="wrCompanyManufacturer" ColumnName="wrCompanyManufacturer" />
+                <ScalarProperty Name="wrCapacity" ColumnName="wrCapacity" />
+                <ScalarProperty Name="wrProductionYear" ColumnName="wrProductionYear" />
+                <ScalarProperty Name="wrAxisCount" ColumnName="wrAxisCount" />
+                <ScalarProperty Name="wrHookType" ColumnName="wrHookType" />
+                <ScalarProperty Name="wrNetWeight" ColumnName="wrNetWeight" />
+                <ScalarProperty Name="wrControlDigit" ColumnName="wrControlDigit" />
+                <ScalarProperty Name="wrDaysRemainToRepair" ColumnName="wrDaysRemainToRepair" />
+                <ScalarProperty Name="wrOwnerName" ColumnName="wrOwnerName" />
+                <ScalarProperty Name="wrOwnershipType" ColumnName="wrOwnershipType" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="WagonsTypes">
+            <EntityTypeMapping TypeName="logisticModel.WagonsType">
+              <MappingFragment StoreEntitySet="WagonsTypes">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="typeName" ColumnName="typeName" />
+                <ScalarProperty Name="alternateNames" ColumnName="alternateNames" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="rwmmsVehicleOwners">
+            <EntityTypeMapping TypeName="logisticModel.rwmmsVehicleOwner">
+              <MappingFragment StoreEntitySet="rwmmsVehicleOwners">
+                <ScalarProperty Name="Source" ColumnName="Source" />
+                <ScalarProperty Name="CycleNumber" ColumnName="CycleNumber" />
+                <ScalarProperty Name="FetchTime" ColumnName="FetchTime" />
+                <ScalarProperty Name="Description" ColumnName="Description" />
+                <ScalarProperty Name="AlternateNames" ColumnName="AlternateNames" />
+                <ScalarProperty Name="registerDate" ColumnName="registerDate" />
+                <ScalarProperty Name="PostalCode" ColumnName="PostalCode" />
+                <ScalarProperty Name="ShenaseMeli" ColumnName="ShenaseMeli" />
+                <ScalarProperty Name="companyName" ColumnName="companyName" />
+                <ScalarProperty Name="wIntroductionFile" ColumnName="wIntroductionFile" />
+                <ScalarProperty Name="wRegsiterPersianDate" ColumnName="wRegsiterPersianDate" />
+                <ScalarProperty Name="wRegisterCityName" ColumnName="wRegisterCityName" />
+                <ScalarProperty Name="wRegisterNo" ColumnName="wRegisterNo" />
+                <ScalarProperty Name="wCompanyId" ColumnName="wCompanyId" />
+                <ScalarProperty Name="wCompanyName" ColumnName="wCompanyName" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="rwmmsDeclerationLists">
+            <EntityTypeMapping TypeName="logisticModel.rwmmsDeclerationList">
+              <MappingFragment StoreEntitySet="rwmmsDeclerationList">
+                <ScalarProperty Name="Source" ColumnName="Source" />
+                <ScalarProperty Name="CycleNumber" ColumnName="CycleNumber" />
+                <ScalarProperty Name="FetchTime" ColumnName="FetchTime" />
+                <ScalarProperty Name="issueDate" ColumnName="issueDate" />
+                <ScalarProperty Name="vehicleOwnerId" ColumnName="vehicleOwnerId" />
+                <ScalarProperty Name="PageIndex" ColumnName="PageIndex" />
+                <ScalarProperty Name="wAttachmentPath" ColumnName="wAttachmentPath" />
+                <ScalarProperty Name="wConfirmFinalDescription" ColumnName="wConfirmFinalDescription" />
+                <ScalarProperty Name="wConfirmFinal" ColumnName="wConfirmFinal" />
+                <ScalarProperty Name="wConfirmHoghoghiDescription" ColumnName="wConfirmHoghoghiDescription" />
+                <ScalarProperty Name="wConfirmHoghoghi" ColumnName="wConfirmHoghoghi" />
+                <ScalarProperty Name="wConfirmTajhizDescription" ColumnName="wConfirmTajhizDescription" />
+                <ScalarProperty Name="wConfirmTajhiz" ColumnName="wConfirmTajhiz" />
+                <ScalarProperty Name="wConfirmSarmayeDescription" ColumnName="wConfirmSarmayeDescription" />
+                <ScalarProperty Name="wConfirmSarmaye" ColumnName="wConfirmSarmaye" />
+                <ScalarProperty Name="wConfirmEdareSeirDescription" ColumnName="wConfirmEdareSeirDescription" />
+                <ScalarProperty Name="wConfirmEdareSeir" ColumnName="wConfirmEdareSeir" />
+                <ScalarProperty Name="wConfirmEdareBazarganiDescription" ColumnName="wConfirmEdareBazarganiDescription" />
+                <ScalarProperty Name="wConfirmEdareBazargani" ColumnName="wConfirmEdareBazargani" />
+                <ScalarProperty Name="wConfirmEdareWagonDescription" ColumnName="wConfirmEdareWagonDescription" />
+                <ScalarProperty Name="wConfirmEdareWagon" ColumnName="wConfirmEdareWagon" />
+                <ScalarProperty Name="wConfirmMaliDescription" ColumnName="wConfirmMaliDescription" />
+                <ScalarProperty Name="wConfirmMali" ColumnName="wConfirmMali" />
+                <ScalarProperty Name="wConfirmOwnerDescription" ColumnName="wConfirmOwnerDescription" />
+                <ScalarProperty Name="wConfirmOwner" ColumnName="wConfirmOwner" />
+                <ScalarProperty Name="wDescription" ColumnName="wDescription" />
+                <ScalarProperty Name="wOwnerDocuments" ColumnName="wOwnerDocuments" />
+                <ScalarProperty Name="wOtherRights" ColumnName="wOtherRights" />
+                <ScalarProperty Name="wDocStatus" ColumnName="wDocStatus" />
+                <ScalarProperty Name="wPageNo" ColumnName="wPageNo" />
+                <ScalarProperty Name="wRegisterNo" ColumnName="wRegisterNo" />
+                <ScalarProperty Name="wNoteNo" ColumnName="wNoteNo" />
+                <ScalarProperty Name="wIssueDate" ColumnName="wIssueDate" />
+                <ScalarProperty Name="wStatus" ColumnName="wStatus" />
+                <ScalarProperty Name="wOwnerRepresentativeName" ColumnName="wOwnerRepresentativeName" />
+                <ScalarProperty Name="wOwnerName" ColumnName="wOwnerName" />
+                <ScalarProperty Name="wDeclerationNo" ColumnName="wDeclerationNo" />
+                <ScalarProperty Name="wTypeName" ColumnName="wTypeName" />
+                <ScalarProperty Name="wWagonNo" ColumnName="wWagonNo" />
+                <ScalarProperty Name="wRowNo" ColumnName="wRowNo" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="rwmmsWagonParts">
+            <EntityTypeMapping TypeName="logisticModel.rwmmsWagonPart">
+              <MappingFragment StoreEntitySet="rwmmsWagonParts">
+                <ScalarProperty Name="FetchTime" ColumnName="FetchTime" />
+                <ScalarProperty Name="wMapPic4Path" ColumnName="wMapPic4Path" />
+                <ScalarProperty Name="wMapPic3Path" ColumnName="wMapPic3Path" />
+                <ScalarProperty Name="wMapPic2Path" ColumnName="wMapPic2Path" />
+                <ScalarProperty Name="wMapPic1Path" ColumnName="wMapPic1Path" />
+                <ScalarProperty Name="wMapPicPath" ColumnName="wMapPicPath" />
+                <ScalarProperty Name="wMapNumber" ColumnName="wMapNumber" />
+                <ScalarProperty Name="wWeight" ColumnName="wWeight" />
+                <ScalarProperty Name="wCountInWagon" ColumnName="wCountInWagon" />
+                <ScalarProperty Name="wCountInGroup" ColumnName="wCountInGroup" />
+                <ScalarProperty Name="wPartNameLatin" ColumnName="wPartNameLatin" />
+                <ScalarProperty Name="wPartName" ColumnName="wPartName" />
+                <ScalarProperty Name="IdGroup" ColumnName="IdGroup" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="rwmmsWagonPartsGroups">
+            <EntityTypeMapping TypeName="logisticModel.rwmmsWagonPartsGroup">
+              <MappingFragment StoreEntitySet="rwmmsWagonPartsGroups">
+                <ScalarProperty Name="FetchTime" ColumnName="FetchTime" />
+                <ScalarProperty Name="wPSID" ColumnName="wPSID" />
+                <ScalarProperty Name="wSerialNo" ColumnName="wSerialNo" />
+                <ScalarProperty Name="wGroupName" ColumnName="wGroupName" />
+                <ScalarProperty Name="IdGroupParent" ColumnName="IdGroupParent" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="rwmmsVehicleOwnersDetails">
+            <EntityTypeMapping TypeName="logisticModel.rwmmsVehicleOwnersDetail">
+              <MappingFragment StoreEntitySet="rwmmsVehicleOwnersDetail">
+                <ScalarProperty Name="Source" ColumnName="Source" />
+                <ScalarProperty Name="CycleNumber" ColumnName="CycleNumber" />
+                <ScalarProperty Name="FetchTime" ColumnName="FetchTime" />
+                <ScalarProperty Name="vehicleOwnerId" ColumnName="vehicleOwnerId" />
+                <ScalarProperty Name="wAddress" ColumnName="wAddress" />
+                <ScalarProperty Name="wBirthDate" ColumnName="wBirthDate" />
+                <ScalarProperty Name="wMobileNumber" ColumnName="wMobileNumber" />
+                <ScalarProperty Name="wEmail" ColumnName="wEmail" />
+                <ScalarProperty Name="wPostalCode" ColumnName="wPostalCode" />
+                <ScalarProperty Name="wMeliNo" ColumnName="wMeliNo" />
+                <ScalarProperty Name="wRegisterCity" ColumnName="wRegisterCity" />
+                <ScalarProperty Name="wCertNo" ColumnName="wCertNo" />
+                <ScalarProperty Name="wFatherName" ColumnName="wFatherName" />
+                <ScalarProperty Name="wLName" ColumnName="wLName" />
+                <ScalarProperty Name="wFName" ColumnName="wFName" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="true" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

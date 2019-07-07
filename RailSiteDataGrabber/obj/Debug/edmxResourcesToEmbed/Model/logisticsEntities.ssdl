@@ -1,0 +1,478 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="logisticModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="Areas">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="areaName" Type="nvarchar" MaxLength="50" />
+    <Property Name="alternateNames" Type="nvarchar" MaxLength="500" />
+  </EntityType>
+  <EntityType Name="PWS0Agencies">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="AgencyCode" Type="nvarchar" MaxLength="100" />
+    <Property Name="AgencyName" Type="nvarchar" MaxLength="100" />
+    <Property Name="AgencyStreet" Type="nvarchar" MaxLength="500" />
+    <Property Name="AgencyTel" Type="nvarchar" MaxLength="50" />
+    <Property Name="CountryCode" Type="nvarchar" MaxLength="50" />
+    <Property Name="CountryName" Type="nvarchar" MaxLength="50" />
+    <Property Name="Lat" Type="nvarchar" MaxLength="50" />
+    <Property Name="Lng" Type="nvarchar" MaxLength="50" />
+    <Property Name="ProvinceCode" Type="nvarchar" MaxLength="50" />
+    <Property Name="cityCode" Type="nvarchar" MaxLength="50" />
+    <Property Name="cityName" Type="nvarchar" MaxLength="50" />
+    <Property Name="provinceName" Type="nvarchar" MaxLength="50" />
+    <Property Name="FetchTime" Type="datetime" />
+  </EntityType>
+  <EntityType Name="PWS0AgenciesGeos">
+    <Key>
+      <PropertyRef Name="AgencyId" />
+    </Key>
+    <Property Name="type" Type="nvarchar" MaxLength="50" />
+    <Property Name="id" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="geometryType" Type="nvarchar" MaxLength="50" />
+    <Property Name="geometryCoordinates" Type="nvarchar" MaxLength="50" />
+    <Property Name="geometry_name" Type="nvarchar" MaxLength="50" />
+    <Property Name="AgencyId" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="PWS0BillOfLadings">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="jTrain_No" Type="int" />
+    <Property Name="jWagon_NO" Type="bigint" />
+    <Property Name="jBarnameh_NO" Type="nvarchar" MaxLength="50" />
+    <Property Name="jSource_Station_Name" Type="nvarchar" MaxLength="50" />
+    <Property Name="jDestination_Station_Name" Type="nvarchar" MaxLength="50" />
+    <Property Name="jBar_Type" Type="nvarchar" MaxLength="50" />
+    <Property Name="jCurrent_Station_Code" Type="int" />
+    <Property Name="jCurrent_Station_Name" Type="nvarchar" MaxLength="50" />
+    <Property Name="jSource_Station_Code" Type="int" />
+    <Property Name="jEntrance_Date" Type="nvarchar" MaxLength="50" />
+    <Property Name="jEntrance_Date_M" Type="datetime" />
+    <Property Name="jEntrance_Time" Type="nvarchar" MaxLength="50" />
+    <Property Name="jTashkil_Date" Type="nvarchar" MaxLength="50" />
+    <Property Name="jTashkil_Time" Type="nvarchar" MaxLength="50" />
+    <Property Name="jF15Rec_ID" Type="int" />
+    <Property Name="WagonId" Type="bigint" />
+    <Property Name="TrainId" Type="bigint" />
+    <Property Name="SourceStationId" Type="int" />
+    <Property Name="DestinationStationId" Type="int" />
+    <Property Name="CurrentStationId" Type="int" />
+    <Property Name="goodsId" Type="int" />
+    <Property Name="TashkilDateTime" Type="datetime" />
+    <Property Name="FetchTime" Type="datetime" />
+    <Property Name="FetchUrl" Type="nvarchar" MaxLength="100" />
+    <Property Name="CycleNumber" Type="int" />
+  </EntityType>
+  <EntityType Name="PWS0Goods">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="goodsName" Type="nvarchar" MaxLength="500" />
+    <Property Name="AlternateNames" Type="nvarchar" MaxLength="500" />
+  </EntityType>
+  <EntityType Name="PWS0StateCities">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="StateId" Type="int" />
+    <Property Name="StateName" Type="nvarchar" MaxLength="50" />
+    <Property Name="CityId" Type="int" />
+    <Property Name="CityName" Type="nvarchar" MaxLength="50" />
+    <Property Name="ParentStateIdInJson" Type="int" />
+    <Property Name="ParentIdInDB" Type="int" />
+    <Property Name="isState" Type="bit" />
+  </EntityType>
+  <EntityType Name="PWS0Stations">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="lat" Type="float" />
+    <Property Name="lon" Type="float" />
+    <Property Name="alt" Type="float" />
+    <Property Name="name" Type="nvarchar" MaxLength="100" />
+    <Property Name="name2" Type="nvarchar" MaxLength="100" />
+    <Property Name="stcode" Type="int" />
+    <Property Name="bus" Type="nvarchar" MaxLength="50" />
+    <Property Name="metro" Type="nvarchar" MaxLength="50" />
+    <Property Name="taxi" Type="nvarchar" MaxLength="50" />
+    <Property Name="other" Type="nvarchar" MaxLength="50" />
+    <Property Name="cellOffice" Type="nvarchar" MaxLength="50" />
+    <Property Name="parkingtim" Type="nvarchar" MaxLength="50" />
+    <Property Name="sakohamlkh" Type="nvarchar" MaxLength="50" />
+    <Property Name="daftarforo" Type="nvarchar" MaxLength="50" />
+    <Property Name="kioskkhari" Type="nvarchar" MaxLength="50" />
+    <Property Name="khodpardaz" Type="nvarchar" MaxLength="50" />
+    <Property Name="telephonom" Type="nvarchar" MaxLength="50" />
+    <Property Name="internetbi" Type="nvarchar" MaxLength="50" />
+    <Property Name="balabar" Type="nvarchar" MaxLength="50" />
+    <Property Name="ramp" Type="nvarchar" MaxLength="50" />
+    <Property Name="postbehdas" Type="nvarchar" MaxLength="50" />
+    <Property Name="ambolans" Type="nvarchar" MaxLength="50" />
+    <Property Name="vilcher" Type="nvarchar" MaxLength="50" />
+    <Property Name="masirnabin" Type="nvarchar" MaxLength="50" />
+    <Property Name="amanatketa" Type="nvarchar" MaxLength="50" />
+    <Property Name="tanaqolat" Type="nvarchar" MaxLength="50" />
+    <Property Name="soqat" Type="nvarchar" MaxLength="50" />
+    <Property Name="mobile" Type="nvarchar" MaxLength="50" />
+    <Property Name="sanayedast" Type="nvarchar" MaxLength="50" />
+    <Property Name="reservhote" Type="nvarchar" MaxLength="50" />
+    <Property Name="irani" Type="nvarchar" MaxLength="50" />
+    <Property Name="farangi" Type="nvarchar" MaxLength="50" />
+    <Property Name="bajetahvil" Type="nvarchar" MaxLength="50" />
+    <Property Name="salonentez" Type="nvarchar" MaxLength="50" />
+    <Property Name="salontashr" Type="nvarchar" MaxLength="50" />
+    <Property Name="namazkhone" Type="nvarchar" MaxLength="50" />
+    <Property Name="restoran" Type="nvarchar" MaxLength="50" />
+    <Property Name="vahedetela" Type="nvarchar" MaxLength="50" />
+    <Property Name="ashia" Type="nvarchar" MaxLength="50" />
+    <Property Name="sandoq" Type="nvarchar" MaxLength="50" />
+    <Property Name="saatkaranb" Type="nvarchar" MaxLength="50" />
+    <Property Name="saatkarbaj" Type="nvarchar" MaxLength="50" />
+    <Property Name="agency" Type="nvarchar" MaxLength="50" />
+    <Property Name="areaid" Type="int" />
+    <Property Name="cityid" Type="int" />
+    <Property Name="cityname" Type="nvarchar" MaxLength="50" />
+    <Property Name="statename" Type="nvarchar" MaxLength="50" />
+    <Property Name="stateid" Type="int" />
+    <Property Name="TaghlilStationID" Type="int" />
+    <Property Name="taghlilid" Type="int" />
+    <Property Name="FetchTime" Type="datetime" />
+    <Property Name="alternateNames" Type="nvarchar" MaxLength="500" />
+  </EntityType>
+  <EntityType Name="PWS0StationsGeos">
+    <Key>
+      <PropertyRef Name="StationId" />
+    </Key>
+    <Property Name="type" Type="nvarchar" MaxLength="50" />
+    <Property Name="id" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="geometryType" Type="nvarchar" MaxLength="50" />
+    <Property Name="geometryCoordinates" Type="nvarchar" MaxLength="50" />
+    <Property Name="geometry_name" Type="nvarchar" MaxLength="50" />
+    <Property Name="StationId" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="PWS0TrainsBarry">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="jTrain_No" Type="int" />
+    <Property Name="jF15Rec_ID" Type="int" />
+    <Property Name="jTashkil_Date" Type="nvarchar" MaxLength="50" />
+    <Property Name="jTashkil_Time" Type="nvarchar" MaxLength="50" />
+    <Property Name="jCurrent_Station_Code" Type="int" />
+    <Property Name="jSource_Station_Code" Type="int" />
+    <Property Name="jDestination_Station_Code" Type="int" />
+    <Property Name="jEntrance_Date" Type="nvarchar" MaxLength="50" />
+    <Property Name="jEntrance_DateTime" Type="datetime" />
+    <Property Name="jEntrance_Time" Type="nvarchar" MaxLength="50" />
+    <Property Name="jUpdate_DateTime" Type="datetime" />
+    <Property Name="jLocomotiveNumbers" Type="nvarchar" MaxLength="50" />
+    <Property Name="TashkilDateTime" Type="datetime" />
+    <Property Name="CurrentStationId" Type="int" />
+    <Property Name="DestinationStationId" Type="int" />
+    <Property Name="SourceStationId" Type="int" />
+    <Property Name="FetchTime" Type="datetime" />
+    <Property Name="CycleNumber" Type="int" />
+  </EntityType>
+  <EntityType Name="PWS0TrainsPassengers">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="jTrain_No" Type="int" />
+    <Property Name="jCurrent_Station_Code" Type="int" />
+    <Property Name="jEntrance_Date" Type="nvarchar" MaxLength="50" />
+    <Property Name="jEntrance_Time" Type="nvarchar" MaxLength="50" />
+    <Property Name="jExit_Date" Type="nvarchar" MaxLength="50" />
+    <Property Name="jExit_Time" Type="nvarchar" MaxLength="50" />
+    <Property Name="jDeparture_Date" Type="nvarchar" MaxLength="50" />
+    <Property Name="jDeparture_Time" Type="nvarchar" MaxLength="50" />
+    <Property Name="jSource_Station_Code" Type="int" />
+    <Property Name="jDestination_Station_Code" Type="int" />
+    <Property Name="jDestination_Program_Time_In" Type="nvarchar" MaxLength="50" />
+    <Property Name="jCurrent_Program_Time_In" Type="nvarchar" MaxLength="50" />
+    <Property Name="jDeparture_Program_Time_Out" Type="nvarchar" MaxLength="50" />
+    <Property Name="jUpdate_DateTime" Type="datetime" />
+    <Property Name="jDelayMinute" Type="int" />
+    <Property Name="jArivalHours" Type="int" />
+    <Property Name="CurrentStationId" Type="int" />
+    <Property Name="EntranceDateTime" Type="datetime" />
+    <Property Name="ExitDateTime" Type="datetime" />
+    <Property Name="DepartureDateTime" Type="datetime" />
+    <Property Name="SourceStationId" Type="int" />
+    <Property Name="DestinationStationId" Type="int" />
+    <Property Name="DestinationProgramTimeIn" Type="time" Precision="7" />
+    <Property Name="CurrentProgramTimeIn" Type="time" Precision="7" />
+    <Property Name="DepartureProgramTimeOut" Type="time" Precision="7" />
+    <Property Name="SourceURL" Type="nvarchar" MaxLength="50" />
+    <Property Name="FetchTime" Type="datetime" />
+    <Property Name="CycleNumber" Type="int" />
+  </EntityType>
+  <EntityType Name="raiBillOfLadingsTracking">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="wRowNo" Type="int" />
+    <Property Name="wBillOfLadingNo" Type="bigint" />
+    <Property Name="wWagonNo" Type="bigint" />
+    <Property Name="wCurrentStationName" Type="nvarchar" MaxLength="50" />
+    <Property Name="wEnteranceDate" Type="nvarchar" MaxLength="50" />
+    <Property Name="wEnteranceTime" Type="nvarchar" MaxLength="50" />
+    <Property Name="wTrainNo" Type="int" />
+    <Property Name="wSourceStationName" Type="nvarchar" MaxLength="50" />
+    <Property Name="wDestinationStationName" Type="nvarchar" MaxLength="50" />
+    <Property Name="wDistance" Type="int" />
+    <Property Name="billOfLadingId" Type="int" />
+    <Property Name="wagonId" Type="int" />
+    <Property Name="currentStationId" Type="int" />
+    <Property Name="enteranceDateTime" Type="datetime" />
+    <Property Name="trainId" Type="int" />
+    <Property Name="sourceStationId" Type="int" />
+    <Property Name="destinationStationId" Type="int" />
+    <Property Name="FetchTime" Type="datetime" />
+    <Property Name="CycleNumber" Type="int" />
+  </EntityType>
+  <EntityType Name="raiTrainPassengersLastStatus">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="wRowNo" Type="int" />
+    <Property Name="wTrainNo" Type="int" />
+    <Property Name="wTrainType" Type="nvarchar" MaxLength="50" />
+    <Property Name="wSourceStationName" Type="nvarchar" MaxLength="50" />
+    <Property Name="wDestinationStationName" Type="nvarchar" MaxLength="50" />
+    <Property Name="wTrainBossName" Type="nvarchar" MaxLength="50" />
+    <Property Name="wCurrentStationName" Type="nvarchar" MaxLength="50" />
+    <Property Name="wEnteranceDateTime" Type="nvarchar" MaxLength="50" />
+    <Property Name="wExitDateTime" Type="nvarchar" MaxLength="50" />
+    <Property Name="wAreaName" Type="nvarchar" MaxLength="50" />
+    <Property Name="trainId" Type="int" />
+    <Property Name="sourceStationId" Type="int" />
+    <Property Name="destinationStationId" Type="int" />
+    <Property Name="currentStationId" Type="int" />
+    <Property Name="enteranceDateTime" Type="datetime" />
+    <Property Name="exitDateTime" Type="datetime" />
+    <Property Name="areaId" Type="int" />
+    <Property Name="FetchTime" Type="datetime" />
+    <Property Name="CycleNumber" Type="int" />
+  </EntityType>
+  <EntityType Name="raiWagon_Info_Tracking">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="wRowNo" Type="int" />
+    <Property Name="wWagonNo" Type="bigint" />
+    <Property Name="wTrainNo" Type="int" />
+    <Property Name="wAreaName" Type="nvarchar" MaxLength="50" />
+    <Property Name="wCurrentStationName" Type="nvarchar" MaxLength="50" />
+    <Property Name="wEnteranceDate" Type="nvarchar" MaxLength="50" />
+    <Property Name="wEnteranceTime" Type="nvarchar" MaxLength="50" />
+    <Property Name="wExitDate" Type="nvarchar" MaxLength="50" />
+    <Property Name="wExitTime" Type="nvarchar" MaxLength="50" />
+    <Property Name="wSourceStationName" Type="nvarchar" MaxLength="50" />
+    <Property Name="wDestinationStationName" Type="nvarchar" MaxLength="50" />
+    <Property Name="wDistance" Type="int" />
+    <Property Name="wBarType" Type="nvarchar" MaxLength="50" />
+    <Property Name="wBillOfLadingNo" Type="bigint" />
+    <Property Name="wTrainSourceStationName" Type="nvarchar" MaxLength="50" />
+    <Property Name="wTrainDestinationStationName" Type="nvarchar" MaxLength="50" />
+    <Property Name="wagonId" Type="int" />
+    <Property Name="trainId" Type="int" />
+    <Property Name="currentStationId" Type="int" />
+    <Property Name="enteranceDateTime" Type="datetime" />
+    <Property Name="exitDateTime" Type="datetime" />
+    <Property Name="sourceStationId" Type="int" />
+    <Property Name="destinationStationId" Type="int" />
+    <Property Name="goodsID" Type="int" />
+    <Property Name="FetchTime" Type="datetime" />
+    <Property Name="CycleNumber" Type="int" />
+    <Property Name="Source" Type="nvarchar" MaxLength="100" />
+  </EntityType>
+  <EntityType Name="rwmmsDeclerationList">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="wRowNo" Type="int" />
+    <Property Name="wWagonNo" Type="bigint" />
+    <Property Name="wTypeName" Type="nvarchar" MaxLength="50" />
+    <Property Name="wDeclerationNo" Type="nvarchar" MaxLength="50" />
+    <Property Name="wOwnerName" Type="nvarchar" MaxLength="50" />
+    <Property Name="wOwnerRepresentativeName" Type="nvarchar" MaxLength="50" />
+    <Property Name="wStatus" Type="nvarchar" MaxLength="50" />
+    <Property Name="wIssueDate" Type="nvarchar" MaxLength="50" />
+    <Property Name="wNoteNo" Type="nvarchar" MaxLength="50" />
+    <Property Name="wRegisterNo" Type="nvarchar" MaxLength="50" />
+    <Property Name="wPageNo" Type="nvarchar" MaxLength="50" />
+    <Property Name="wDocStatus" Type="nvarchar" MaxLength="50" />
+    <Property Name="wOtherRights" Type="nvarchar" MaxLength="1000" />
+    <Property Name="wOwnerDocuments" Type="nvarchar" MaxLength="1000" />
+    <Property Name="wDescription" Type="nvarchar" MaxLength="1000" />
+    <Property Name="wConfirmOwner" Type="bit" />
+    <Property Name="wConfirmOwnerDescription" Type="nvarchar" MaxLength="100" />
+    <Property Name="wConfirmMali" Type="bit" />
+    <Property Name="wConfirmMaliDescription" Type="nvarchar" MaxLength="100" />
+    <Property Name="wConfirmEdareWagon" Type="bit" />
+    <Property Name="wConfirmEdareWagonDescription" Type="nvarchar" MaxLength="100" />
+    <Property Name="wConfirmEdareBazargani" Type="bit" />
+    <Property Name="wConfirmEdareBazarganiDescription" Type="nvarchar" MaxLength="100" />
+    <Property Name="wConfirmEdareSeir" Type="bit" />
+    <Property Name="wConfirmEdareSeirDescription" Type="nvarchar" MaxLength="100" />
+    <Property Name="wConfirmSarmaye" Type="bit" />
+    <Property Name="wConfirmSarmayeDescription" Type="nvarchar" MaxLength="100" />
+    <Property Name="wConfirmTajhiz" Type="bit" />
+    <Property Name="wConfirmTajhizDescription" Type="nvarchar" MaxLength="100" />
+    <Property Name="wConfirmHoghoghi" Type="bit" />
+    <Property Name="wConfirmHoghoghiDescription" Type="nvarchar" MaxLength="100" />
+    <Property Name="wConfirmFinal" Type="bit" />
+    <Property Name="wConfirmFinalDescription" Type="nvarchar" MaxLength="100" />
+    <Property Name="wAttachmentPath" Type="nvarchar" MaxLength="500" />
+    <Property Name="PageIndex" Type="int" />
+    <Property Name="vehicleOwnerId" Type="int" />
+    <Property Name="issueDate" Type="datetime" />
+    <Property Name="FetchTime" Type="datetime" />
+    <Property Name="CycleNumber" Type="int" />
+    <Property Name="Source" Type="nvarchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="rwmmsVehicleOwners">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="wCompanyName" Type="nvarchar" MaxLength="50" />
+    <Property Name="wCompanyId" Type="nvarchar" MaxLength="50" />
+    <Property Name="wRegisterNo" Type="nvarchar" MaxLength="50" />
+    <Property Name="wRegisterCityName" Type="nvarchar" MaxLength="50" />
+    <Property Name="wRegsiterPersianDate" Type="nvarchar" MaxLength="50" />
+    <Property Name="wIntroductionFile" Type="nvarchar" MaxLength="1000" />
+    <Property Name="companyName" Type="nvarchar" MaxLength="100" />
+    <Property Name="ShenaseMeli" Type="nvarchar" MaxLength="50" />
+    <Property Name="PostalCode" Type="nvarchar" MaxLength="50" />
+    <Property Name="registerDate" Type="datetime" />
+    <Property Name="AlternateNames" Type="nvarchar" MaxLength="500" />
+    <Property Name="Description" Type="nvarchar" MaxLength="50" />
+    <Property Name="FetchTime" Type="datetime" />
+    <Property Name="CycleNumber" Type="int" />
+    <Property Name="Source" Type="nvarchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="rwmmsVehicleOwnersDetail">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="wFName" Type="nvarchar" MaxLength="50" />
+    <Property Name="wLName" Type="nvarchar" MaxLength="50" />
+    <Property Name="wFatherName" Type="nvarchar" MaxLength="50" />
+    <Property Name="wCertNo" Type="nvarchar" MaxLength="50" />
+    <Property Name="wRegisterCity" Type="nvarchar" MaxLength="50" />
+    <Property Name="wMeliNo" Type="nvarchar" MaxLength="50" />
+    <Property Name="wPostalCode" Type="nvarchar" MaxLength="50" />
+    <Property Name="wEmail" Type="nvarchar" MaxLength="50" />
+    <Property Name="wMobileNumber" Type="nvarchar" MaxLength="50" />
+    <Property Name="wBirthDate" Type="nvarchar" MaxLength="50" />
+    <Property Name="wAddress" Type="nvarchar" MaxLength="500" />
+    <Property Name="vehicleOwnerId" Type="int" />
+    <Property Name="FetchTime" Type="datetime" />
+    <Property Name="CycleNumber" Type="int" />
+    <Property Name="Source" Type="nvarchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="rwmmsWagonParts">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="IdGroup" Type="int" />
+    <Property Name="wPartName" Type="nvarchar" MaxLength="50" />
+    <Property Name="wPartNameLatin" Type="nvarchar" MaxLength="50" />
+    <Property Name="wCountInGroup" Type="int" />
+    <Property Name="wCountInWagon" Type="int" />
+    <Property Name="wWeight" Type="numeric" Precision="18" Scale="4" />
+    <Property Name="wMapNumber" Type="nvarchar" MaxLength="50" />
+    <Property Name="wMapPicPath" Type="nvarchar" MaxLength="500" />
+    <Property Name="wMapPic1Path" Type="nvarchar" MaxLength="500" />
+    <Property Name="wMapPic2Path" Type="nvarchar" MaxLength="500" />
+    <Property Name="wMapPic3Path" Type="nvarchar" MaxLength="500" />
+    <Property Name="wMapPic4Path" Type="nvarchar" MaxLength="500" />
+    <Property Name="FetchTime" Type="datetime" />
+  </EntityType>
+  <EntityType Name="rwmmsWagonPartsGroups">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="IdGroupParent" Type="int" />
+    <Property Name="wGroupName" Type="nvarchar" MaxLength="50" />
+    <Property Name="wSerialNo" Type="nvarchar" MaxLength="50" />
+    <Property Name="wPSID" Type="nvarchar" MaxLength="50" />
+    <Property Name="FetchTime" Type="datetime" />
+  </EntityType>
+  <EntityType Name="Wagons">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="wagonNo" Type="bigint" />
+    <Property Name="wagonTypeId" Type="int" />
+    <Property Name="companyId" Type="int" />
+    <Property Name="capacity" Type="int" />
+    <Property Name="wagonControlNo" Type="nvarchar" MaxLength="100" StoreGeneratedPattern="Computed" />
+    <Property Name="wrWagonTypeName" Type="nvarchar" MaxLength="50" />
+    <Property Name="wrBrakeType" Type="nvarchar" MaxLength="50" />
+    <Property Name="wrChassisSerial" Type="nvarchar" MaxLength="50" />
+    <Property Name="wrRivNo" Type="nvarchar" MaxLength="50" />
+    <Property Name="wrCountry" Type="nvarchar" MaxLength="50" />
+    <Property Name="wrBoogieType" Type="nvarchar" MaxLength="50" />
+    <Property Name="wrCompanyManufacturer" Type="nvarchar" MaxLength="50" />
+    <Property Name="wrCapacity" Type="float" />
+    <Property Name="wrProductionYear" Type="int" />
+    <Property Name="wrAxisCount" Type="int" />
+    <Property Name="wrHookType" Type="nvarchar" MaxLength="50" />
+    <Property Name="wrNetWeight" Type="float" />
+    <Property Name="wrControlDigit" Type="int" />
+    <Property Name="wrDaysRemainToRepair" Type="int" />
+    <Property Name="wrOwnerName" Type="nvarchar" MaxLength="50" />
+    <Property Name="wrOwnershipType" Type="nvarchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="WagonsTypes">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="typeName" Type="nvarchar" MaxLength="50" />
+    <Property Name="alternateNames" Type="nvarchar" MaxLength="100" />
+  </EntityType>
+  <EntityContainer Name="logisticModelStoreContainer">
+    <EntitySet Name="Areas" EntityType="Self.Areas" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="PWS0Agencies" EntityType="Self.PWS0Agencies" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="PWS0AgenciesGeos" EntityType="Self.PWS0AgenciesGeos" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="PWS0BillOfLadings" EntityType="Self.PWS0BillOfLadings" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="PWS0Goods" EntityType="Self.PWS0Goods" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="PWS0StateCities" EntityType="Self.PWS0StateCities" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="PWS0Stations" EntityType="Self.PWS0Stations" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="PWS0StationsGeos" EntityType="Self.PWS0StationsGeos" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="PWS0TrainsBarry" EntityType="Self.PWS0TrainsBarry" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="PWS0TrainsPassengers" EntityType="Self.PWS0TrainsPassengers" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="raiBillOfLadingsTracking" EntityType="Self.raiBillOfLadingsTracking" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="raiTrainPassengersLastStatus" EntityType="Self.raiTrainPassengersLastStatus" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="raiWagon_Info_Tracking" EntityType="Self.raiWagon_Info_Tracking" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="rwmmsDeclerationList" EntityType="Self.rwmmsDeclerationList" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="rwmmsVehicleOwners" EntityType="Self.rwmmsVehicleOwners" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="rwmmsVehicleOwnersDetail" EntityType="Self.rwmmsVehicleOwnersDetail" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="rwmmsWagonParts" EntityType="Self.rwmmsWagonParts" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="rwmmsWagonPartsGroups" EntityType="Self.rwmmsWagonPartsGroups" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Wagons" EntityType="Self.Wagons" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="WagonsTypes" EntityType="Self.WagonsTypes" Schema="dbo" store:Type="Tables" />
+  </EntityContainer>
+</Schema>

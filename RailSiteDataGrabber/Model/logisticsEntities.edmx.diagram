@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="c519985f08fa45e48319c7fcb68c4f13" Name="Diagram1">
+        <EntityTypeShape EntityType="logisticModel.Area" Width="1.5" PointX="0.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="logisticModel.PWS0Agencies" Width="1.5" PointX="2.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="logisticModel.PWS0AgenciesGeos" Width="1.5" PointX="4.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="logisticModel.PWS0BillOfLadings" Width="1.5" PointX="4.75" PointY="3.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="logisticModel.PWS0Goods" Width="1.5" PointX="0.75" PointY="5.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="logisticModel.PWS0StateCities" Width="1.5" PointX="6.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="logisticModel.PWS0Stations" Width="1.5" PointX="6.75" PointY="4.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="logisticModel.PWS0StationsGeos" Width="1.5" PointX="8.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="logisticModel.PWS0TrainsBarry" Width="1.5" PointX="0.75" PointY="8.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="logisticModel.PWS0TrainsPassengers" Width="1.5" PointX="8.75" PointY="3.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="logisticModel.raiBillOfLadingsTracking" Width="1.5" PointX="10.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="logisticModel.raiTrainPassengersLastStatu" Width="1.5" PointX="2.75" PointY="10.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="logisticModel.raiWagon_Info_Tracking" Width="1.5" PointX="10.75" PointY="6.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="logisticModel.Wagon" Width="1.5" PointX="12.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="logisticModel.WagonsType" Width="1.5" PointX="12.75" PointY="6.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="logisticModel.rwmmsVehicleOwner" Width="1.5" PointX="13.375" PointY="9.75" />
+        <EntityTypeShape EntityType="logisticModel.rwmmsDeclerationList" Width="1.5" PointX="9.375" PointY="14.75" />
+        <EntityTypeShape EntityType="logisticModel.rwmmsWagonPart" Width="1.5" PointX="11.375" PointY="14.75" />
+        <EntityTypeShape EntityType="logisticModel.rwmmsWagonPartsGroup" Width="1.5" PointX="13.375" PointY="14.75" />
+        <EntityTypeShape EntityType="logisticModel.rwmmsVehicleOwnersDetail" Width="1.5" PointX="15.375" PointY="0.75" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

@@ -27,16 +27,16 @@ namespace RailSiteDataGrabber.PWS0
         public Grabber()
         {
             int? temp;
-            using (var entityLogestic = new Model.logesticEntities())
+            using (var entityLogistic = new Model.logisticEntities())
             {
                 DateTime dateTime = DateTime.Now.Date;
-                temp = entityLogestic.PWS0BillOfLadings.Where(o => DbFunctions.TruncateTime(o.FetchTime) == dateTime).Max(o => o.CycleNumber);
+                temp = entityLogistic.PWS0BillOfLadings.Where(o => DbFunctions.TruncateTime(o.FetchTime) == dateTime).Max(o => o.CycleNumber);
                 this.v_cyleNumberBillOfLadings = (temp.HasValue ? temp.Value : 0) + 1;
 
-                temp = entityLogestic.PWS0TrainsBarry.Where(o => DbFunctions.TruncateTime(o.FetchTime) == dateTime).Max(o => o.CycleNumber);
+                temp = entityLogistic.PWS0TrainsBarry.Where(o => DbFunctions.TruncateTime(o.FetchTime) == dateTime).Max(o => o.CycleNumber);
                 this.v_cyleNumberTrainsBarry = (temp.HasValue ? temp.Value : 0) + 1;
 
-                temp = entityLogestic.PWS0TrainsPassengers.Where(o => DbFunctions.TruncateTime(o.FetchTime) == dateTime).Max(o => o.CycleNumber);
+                temp = entityLogistic.PWS0TrainsPassengers.Where(o => DbFunctions.TruncateTime(o.FetchTime) == dateTime).Max(o => o.CycleNumber);
                 this.v_cyleNumberTrainsPassenger = (temp.HasValue ? temp.Value : 0) + 1;
 
             }

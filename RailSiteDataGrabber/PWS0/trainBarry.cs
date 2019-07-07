@@ -54,7 +54,7 @@ namespace RailSiteDataGrabber.PWS0
 
                     if (trainBarryListJson != null)
                     {
-                        using (var entityLogestic = new Model.logesticEntities())
+                        using (var entityLogistic = new Model.logisticEntities())
                         {
                             foreach (trainBarryJsonModel train in trainBarryListJson)
                             {
@@ -143,10 +143,10 @@ namespace RailSiteDataGrabber.PWS0
         {
             trainBarryBillOfLadings billOfLadings = new trainBarryBillOfLadings();
             trainBarryLocomotives locos = new trainBarryLocomotives();
-            using (var entityLogestic = new Model.logesticEntities())
+            using (var entityLogistic = new Model.logisticEntities())
             {
                 bool add = false;
-                Model.PWS0TrainsBarry entryPWS0Train = entityLogestic.PWS0TrainsBarry.FirstOrDefault(o =>
+                Model.PWS0TrainsBarry entryPWS0Train = entityLogistic.PWS0TrainsBarry.FirstOrDefault(o =>
                 o.jCurrent_Station_Code == train.Current_Station_Code
                   && o.jDestination_Station_Code == train.Destination_Station_Code
                   //&& o.jEntrance_Date== train.Entrance_Date
@@ -187,11 +187,11 @@ namespace RailSiteDataGrabber.PWS0
                     entryPWS0Train.CycleNumber = cycleNumber;
                     if (add)
                     {
-                        entityLogestic.PWS0TrainsBarry.Add(entryPWS0Train);
+                        entityLogistic.PWS0TrainsBarry.Add(entryPWS0Train);
                     }
 
 
-                    entityLogestic.SaveChanges();
+                    entityLogistic.SaveChanges();
                     if (train.F15Rec_ID.HasValue && train.Train_No.HasValue && getBillOfLadings)
                         billOfLadings.readAndSaveToDB(train.F15Rec_ID.Value, train.Train_No.Value, entryPWS0Train.Id, cycleNumber, train);
                 }
@@ -204,9 +204,9 @@ namespace RailSiteDataGrabber.PWS0
 
         public static int? fnc_getTrainIdFromDB(int train_no, DateTime? enteranceDateTime)
         {
-            using (var entityLogestic = new Model.logesticEntities())
+            using (var entityLogistic = new Model.logisticEntities())
             {
-                var entryTrainBarry = entityLogestic.PWS0TrainsBarry.FirstOrDefault(o => o.jTrain_No == train_no
+                var entryTrainBarry = entityLogistic.PWS0TrainsBarry.FirstOrDefault(o => o.jTrain_No == train_no
                 && o.jEntrance_DateTime == enteranceDateTime);
                 if (entryTrainBarry == null) return null;
                 return entryTrainBarry.Id;

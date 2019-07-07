@@ -70,14 +70,14 @@ namespace RailSiteDataGrabber
                 return;
             }
             wagonInfoTrackingResult trackingResult = new wagonInfoTrackingResult();
-            using (var entityLogestic = new Model.logesticEntities())
+            using (var entityLogistic = new Model.logisticEntities())
             {
                 do
                 {
-                    wagonNoStart = entityLogestic.Wagons.Where(o => !wagonNoStart.HasValue || o.wagonNo >= wagonNoStart.Value).Min(o => o.wagonNo);
+                    wagonNoStart = entityLogistic.Wagons.Where(o => !wagonNoStart.HasValue || o.wagonNo >= wagonNoStart.Value).Min(o => o.wagonNo);
                     if (wagonNoStart.HasValue)
                     {
-                        wagonNoEnd = entityLogestic.Wagons.Where(o => o.wagonNo <= wagonNoStart.Value + 50).Max(o => o.wagonNo);
+                        wagonNoEnd = entityLogistic.Wagons.Where(o => o.wagonNo <= wagonNoStart.Value + 50).Max(o => o.wagonNo);
                         if (wagonNoEnd.HasValue)
                         {
                             trackingResult.readAndSaveWagonToDB(wagonNoStart.Value, wagonNoEnd.Value
@@ -110,7 +110,7 @@ namespace RailSiteDataGrabber
             }
 
             List<long?> lstWagonNo = new List<long?>();
-            using (var entityLogestic = new Model.logesticEntities())
+            using (var entityLogistic = new Model.logisticEntities())
             {
                 if (!string.IsNullOrEmpty(this.txtbx_get30DaysBeforeWagonNo.Text))
                 {
@@ -129,7 +129,7 @@ namespace RailSiteDataGrabber
                 }
                 else
                 {
-                    lstWagonNo = entityLogestic.Wagons.Select(o => o.wagonNo).ToList();
+                    lstWagonNo = entityLogistic.Wagons.Select(o => o.wagonNo).ToList();
                 }
 
                 wagonInfoTrackingDetail trackingDetail = new wagonInfoTrackingDetail();
@@ -183,7 +183,7 @@ namespace RailSiteDataGrabber
             }
 
             List<long?> lstWagonNo = new List<long?>();
-            using (var entityLogestic = new Model.logesticEntities())
+            using (var entityLogistic = new Model.logisticEntities())
             {
                 if (!string.IsNullOrEmpty(this.txtbx_history_wagonNo.Text))
                 {
@@ -202,7 +202,7 @@ namespace RailSiteDataGrabber
                 }
                 else
                 {
-                    lstWagonNo = entityLogestic.Wagons.Select(o => o.wagonNo).ToList();
+                    lstWagonNo = entityLogistic.Wagons.Select(o => o.wagonNo).ToList();
                 }
 
                 wagonInfoSeirHistory trackingHistory = new wagonInfoSeirHistory();
