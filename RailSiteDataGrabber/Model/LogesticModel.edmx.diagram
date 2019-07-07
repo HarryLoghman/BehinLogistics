@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="5d7ba04eccfe428ca18fe8e6ca5a9c74" Name="Diagram1" ZoomLevel="60">
+        <EntityTypeShape EntityType="logesticModel.PWS0Agencies" Width="1.5" PointX="0.75" PointY="0.75" />
+        <EntityTypeShape EntityType="logesticModel.PWS0AgenciesGeos" Width="1.5" PointX="2.75" PointY="0.75" />
+        <EntityTypeShape EntityType="logesticModel.PWS0StationsGeos" Width="1.5" PointX="6.75" PointY="0.75" />
+        <EntityTypeShape EntityType="logesticModel.PWS0Goods" Width="1.5" PointX="0.75" PointY="8.75" />
+        <EntityTypeShape EntityType="logesticModel.PWS0TrainsPassengers" Width="1.5" PointX="9.375" PointY="0.75" />
+        <EntityTypeShape EntityType="logesticModel.PWS0TrainsBarry" Width="1.5" PointX="7.375" PointY="8.625" />
+        <EntityTypeShape EntityType="logesticModel.PWS0StateCities" Width="1.5" PointX="9.375" PointY="8.75" />
+        <EntityTypeShape EntityType="logesticModel.PWS0BillOfLadings" Width="1.5" PointX="11.375" PointY="0.75" />
+        <EntityTypeShape EntityType="logesticModel.Area" Width="1.5" PointX="5.375" PointY="3.75" />
+        <EntityTypeShape EntityType="logesticModel.raiWagon_Info_Tracking" Width="1.5" PointX="0.75" PointY="11.75" />
+        <EntityTypeShape EntityType="logesticModel.raiBillOfLadingsTracking" Width="1.5" PointX="11.375" PointY="7.75" />
+        <EntityTypeShape EntityType="logesticModel.raiTrainPassengersLastStatu" Width="1.5" PointX="13.375" PointY="0.75" />
+        <EntityTypeShape EntityType="logesticModel.rwmmsVehicleOwner" Width="1.5" PointX="13.375" PointY="6.75" />
+        <EntityTypeShape EntityType="logesticModel.rwmmsVehicleOwnersDetail" Width="1.5" PointX="13.375" PointY="11.75" />
+        <EntityTypeShape EntityType="logesticModel.WagonsType" Width="1.5" PointX="0.75" PointY="5.75" />
+        <EntityTypeShape EntityType="logesticModel.rwmmsDeclerationList" Width="1.5" PointX="9.375" PointY="13.75" />
+        <EntityTypeShape EntityType="logesticModel.rwmmsWagonPartsGroup" Width="1.5" PointX="15.375" PointY="0.75" />
+        <EntityTypeShape EntityType="logesticModel.rwmmsWagonPart" Width="1.5" PointX="15.375" PointY="3.75" />
+        <EntityTypeShape EntityType="logesticModel.PWS0Stations" Width="1.5" PointX="15.375" PointY="8.75" />
+        <EntityTypeShape EntityType="logesticModel.Wagon" Width="1.5" PointX="3.375" PointY="6.75" />
+        </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

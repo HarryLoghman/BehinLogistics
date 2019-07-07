@@ -1,0 +1,326 @@
+
+
+<html>
+<head>
+<Title>نتيجه جستجو</Title>
+<meta http-equiv="Content-Type" content="text/html; charset=windows-1256">
+<style>
+Body {
+	SCROLLBAR-FACE-COLOR: #65819E; 
+	SCROLLBAR-HIGHLIGHT-COLOR: #E6EAF0; 
+	SCROLLBAR-SHADOW-COLOR: #E6EAF0; 
+	SCROLLBAR-ARROW-COLOR: #E6EAF0; 
+	SCROLLBAR-BASE-COLOR: #E6EAF0; 
+	scrollbar-3d-light-color: #65819E; 
+	scrollbar-dark-shadow-color: #65819E ;
+ }
+ A {
+	TEXT-DECORATION : NONE;
+	}
+</style>
+<!-- DO MENU AND BODY SETTING -->
+<link REL="stylesheet" HREF="../../MenuScript/PageStyle.css" TYPE="text/css">
+<link REL="stylesheet" HREF="../../MenuScript/Menu.css" TYPE="text/css">
+<script src="../../MenuScript/RightAccess.asp"></script>
+<Script language=javascript>
+	//.... MASIRE IMAGE HAYE MENU RO MOSHKHAS MIKONAD
+	MenuItemsUrl = '../../' ;
+	MenuImageUrl = '../../MenuImages/' ;
+</Script>
+<script language="javascript" src="../../MenuScript/Functions.js"></script>
+<script language="javascript" src="../../MenuScript/domMenu.js"></script>
+<script language="javascript" src="../../MenuScript/domMenu_items.js"></script>
+<Script language="javascript" src="../../MenuScript/MenuImageSetting.js"></script>
+<!-- ************************************************************************* -->
+<script LANGUAGE="JavaScript">
+			var MenuItem ;
+			MenuItem = 10 ;
+			function TrList_OnmouseOver(Ent){
+				var Ele;
+				Ele = document.getElementById(Ent)
+				Ele.style.backgroundColor = "#880000" ;
+				//Ele.style.color = "#425568";
+				Ele.style.cursor = "hand";
+			}
+
+			function TrList_OnmouseOut(Ent){
+				var Ele;
+				Ele = document.getElementById(Ent)
+				Ele.style.cursor = "default";
+				Ele.style.backgroundColor = "" ;
+				Ele.style.color = "";
+			}
+			
+			function trList_onclick(EntCode,MDate){
+					window.location = "Details.asp?WagonNO=" + EntCode + "&Date=" + MDate;
+						
+			}	
+		</script>
+
+</head>			
+<body>
+
+<div id="domMenu_Mah"  style="font-weight: bold;BORDER-RIGHT:#f1f8fe 0px solid; BORDER-TOP:#f1f8fe 0px solid; BACKGROUND:url(../../MenuImages/Menu_gradient_v.gif) repeat-x; MARGIN:0px; BORDER-LEFT:#f1f8fe 0px solid; WIDTH:100%; BORDER-BOTTOM:#f1f8fe 0px solid"></div>
+<script language="javascript">
+		domMenu_activate('domMenu_Mah');
+</script>
+
+<br><br>
+
+  <div align="center">
+  <center>
+  <table border="0" cellspacing="1" style="border-collapse: collapse; font-family: Tahoma; font-size: 8pt; color: #000000" bordercolor="#111111" width="90%" id="AutoNumber1" height="133" dir="rtl">
+  <tr>
+    <td width="2%" height="5"></td>
+    <td width="97%" height="5">
+    <font color="#00FF00">کاربر 
+    گرامي ،</font></td>
+    <td width="2%" height="5"></td>
+    </tr>
+    <tr>
+    <td width="2%" height="21">&nbsp;</td>
+    <td width="97%" height="21">
+    <font color="#00FFFF">جهت مشاهده 
+    خلاصه وضعيت حرکتي واگن در 30 روز 
+    گذشته بر روي واگن مورد نظر خود 
+    کليک نماييد .</font></td>
+    <td width="2%" height="21">&nbsp;</td>
+    </tr>
+    <tr>
+    <td width="2%" height="25"></td>
+    <td width="97%" height="25">
+                                                <font color="#FFFFE0">رديفهاي 
+                                                سبز رنگ واگنهايي&nbsp; را&nbsp; که تشکيل 
+                                                شده ،ولي سير حرکتي ندارند 
+                                                نمايش مي دهند.</font><p>
+    </td>
+    <td width="2%" height="25"></td>
+    </tr>
+    <tr>
+    <td width="2%" height="4"></td>
+    <td width="97%" height="4"></td>
+    <td width="2%" height="4"></td>
+    </tr>
+    <tr>
+    <td width="2%" height="1" valign="top"></td>
+    <td width="97%" height="1" valign="top">
+    <table border="1" cellpadding="0" cellspacing="1" style="border-collapse: collapse; font-family: Tahoma; color: #425568; font-size: 8pt" bordercolor="#111111" width="100%" id="AutoNumber2" height="79" bordercolorlight="#000000" bordercolordark="#000000">
+        <tr>
+        <td width="5%" bgcolor="#E4E7E9" height="53" rowspan="2">
+        <p align="center">رديف</td>
+        <td width="15%" bgcolor="#E4E7E9" height="53" rowspan="2">
+        <p align="center">شماره واگن</td>
+        <td width="39%" bgcolor="#E4E7E9" height="24" colspan="3">
+        <p align="center">ايستگاه 
+        جاري</td>
+        <td width="12%" bgcolor="#E4E7E9" height="53" rowspan="2">
+        <p align="center">ايستگاه 
+        مبدا</td>
+        <td width="12%" bgcolor="#E4E7E9" height="53" rowspan="2">
+        <p align="center">ايستگاه 
+        مقصد </td>
+        <td width="8%" bgcolor="#E4E7E9" height="53" rowspan="2">
+        <p align="center">مسافت تا 
+        مقصد</td>
+        <td width="12%" bgcolor="#E4E7E9" height="53" rowspan="2">
+        <p align="center">محموله</td>
+        </tr>
+        <tr>
+        <td width="12%" bgcolor="#E4E7E9" height="25">
+        <p align="center">نام 
+        ايستگاه</td>
+        <td width="12%" bgcolor="#E4E7E9" height="25">
+                                                    <p align="center"> تاريخ ورود
+                                                    <font color="#006666"><br>(تاريخ 
+                                                    تشکيل)</font></td>
+        <td width="12%" bgcolor="#E4E7E9" height="25">
+                                                    <p align="center">زمان ورود<br>
+                                                    <font color="#006666">(زمان 
+                                                    تشکيل)</font></td>
+        </tr>
+
+                                                  
+	<tr id="trList1"  bgcolor="">
+	<td width="5%" height="23" align="center"  onclick="return trList_onclick('3465367','980222')" onmouseover="return TrList_OnmouseOver('trList1');" onmouseout="return TrList_OnmouseOut('trList1');">
+		<font color="#FFFFE0">1													
+	</td>
+	<td width="15%" height="23" align="center" onclick="return trList_onclick('3465367','980222')" onmouseover="return TrList_OnmouseOver('trList1');" onmouseout="return TrList_OnmouseOut('trList1');">
+	<font color="#FFFFE0">
+	3465367
+	</td>
+	<td width="12%" height="23" align="center" onclick="return trList_onclick('3465367','980222')" onmouseover="return TrList_OnmouseOver('trList1');" onmouseout="return TrList_OnmouseOut('trList1');">
+ 	<font color="#FFFFE0">
+	 مباركه                                                    
+	</td>
+	<td width="12%" height="23" Dir=rtl align="center" onclick="return trList_onclick('3465367','980222')" onmouseover="return TrList_OnmouseOver('trList1');" onmouseout="return TrList_OnmouseOut('trList1');">
+		<font color="#FFFFE0">
+		22/02/98                                                    
+	</td>
+	<td width="12%" height="23" align="center" onclick="return trList_onclick('3465367','980222')" onmouseover="return TrList_OnmouseOver('trList1');" onmouseout="return TrList_OnmouseOut('trList1');">
+		<font color="#FFFFE0">
+
+		10:00
+	
+	</td>
+	<td width="12%" height="23" align="center" onclick="return trList_onclick('3465367','980222')" onmouseover="return TrList_OnmouseOver('trList1');" onmouseout="return TrList_OnmouseOut('trList1');">
+		<font color="#FFFFE0">
+			مانوري بندرعباس                                                    
+	</td>
+	<td width="12%" height="23" align="center" onclick="return trList_onclick('3465367','980222')" onmouseover="return TrList_OnmouseOver('trList1');" onmouseout="return TrList_OnmouseOut('trList1');">
+		<font color="#FFFFE0">
+
+		خواف
+	</td>
+	<td width="8%" height="23" align="center" onclick="return trList_onclick('3465367','980222')" onmouseover="return TrList_OnmouseOver('trList1');" onmouseout="return TrList_OnmouseOut('trList1');">
+		<font color="#FFFFE0">
+
+		 </font>                                                    
+	</td>
+	<td width="12%" height="23" align="center" onclick="return trList_onclick('3465367','980222')" onmouseover="return TrList_OnmouseOver('trList1');" onmouseout="return TrList_OnmouseOut('trList1');">
+<font color="#FFFFE0">واگن بدون بار</font></td>
+	</tr>
+	                                                  
+	<tr id="trList2"  bgcolor="">
+	<td width="5%" height="23" align="center"  onclick="return trList_onclick('3465374','980221')" onmouseover="return TrList_OnmouseOver('trList2');" onmouseout="return TrList_OnmouseOut('trList2');">
+		<font color="#FFFFE0">2													
+	</td>
+	<td width="15%" height="23" align="center" onclick="return trList_onclick('3465374','980221')" onmouseover="return TrList_OnmouseOver('trList2');" onmouseout="return TrList_OnmouseOut('trList2');">
+	<font color="#FFFFE0">
+	3465374
+	</td>
+	<td width="12%" height="23" align="center" onclick="return trList_onclick('3465374','980221')" onmouseover="return TrList_OnmouseOver('trList2');" onmouseout="return TrList_OnmouseOut('trList2');">
+ 	<font color="#FFFFE0">
+	 خواف                                                    
+	</td>
+	<td width="12%" height="23" Dir=rtl align="center" onclick="return trList_onclick('3465374','980221')" onmouseover="return TrList_OnmouseOver('trList2');" onmouseout="return TrList_OnmouseOut('trList2');">
+		<font color="#FFFFE0">
+		21/02/98                                                    
+	</td>
+	<td width="12%" height="23" align="center" onclick="return trList_onclick('3465374','980221')" onmouseover="return TrList_OnmouseOver('trList2');" onmouseout="return TrList_OnmouseOut('trList2');">
+		<font color="#FFFFE0">
+
+		19:50
+	
+	</td>
+	<td width="12%" height="23" align="center" onclick="return trList_onclick('3465374','980221')" onmouseover="return TrList_OnmouseOver('trList2');" onmouseout="return TrList_OnmouseOut('trList2');">
+		<font color="#FFFFE0">
+			انشعاب(بندر)                                                    
+	</td>
+	<td width="12%" height="23" align="center" onclick="return trList_onclick('3465374','980221')" onmouseover="return TrList_OnmouseOver('trList2');" onmouseout="return TrList_OnmouseOut('trList2');">
+		<font color="#FFFFE0">
+
+		خواف
+	</td>
+	<td width="8%" height="23" align="center" onclick="return trList_onclick('3465374','980221')" onmouseover="return TrList_OnmouseOver('trList2');" onmouseout="return TrList_OnmouseOut('trList2');">
+		<font color="#FFFFE0">
+
+		 </font>                                                    
+	</td>
+	<td width="12%" height="23" align="center" onclick="return trList_onclick('3465374','980221')" onmouseover="return TrList_OnmouseOver('trList2');" onmouseout="return TrList_OnmouseOut('trList2');">
+<font color="#FFFFE0">واگن بدون بار</font></td>
+	</tr>
+	                                                  
+	<tr id="trList3"  bgcolor="">
+	<td width="5%" height="23" align="center"  onclick="return trList_onclick('3465388','971129')" onmouseover="return TrList_OnmouseOver('trList3');" onmouseout="return TrList_OnmouseOut('trList3');">
+		<font color="#FFFFE0">3													
+	</td>
+	<td width="15%" height="23" align="center" onclick="return trList_onclick('3465388','971129')" onmouseover="return TrList_OnmouseOver('trList3');" onmouseout="return TrList_OnmouseOut('trList3');">
+	<font color="#FFFFE0">
+	3465388
+	</td>
+	<td width="12%" height="23" align="center" onclick="return trList_onclick('3465388','971129')" onmouseover="return TrList_OnmouseOver('trList3');" onmouseout="return TrList_OnmouseOut('trList3');">
+ 	<font color="#FFFFE0">
+	 سنگان                                                    
+	</td>
+	<td width="12%" height="23" Dir=rtl align="center" onclick="return trList_onclick('3465388','971129')" onmouseover="return TrList_OnmouseOver('trList3');" onmouseout="return TrList_OnmouseOut('trList3');">
+		<font color="#FFFFE0">
+		29/11/97                                                    
+	</td>
+	<td width="12%" height="23" align="center" onclick="return trList_onclick('3465388','971129')" onmouseover="return TrList_OnmouseOver('trList3');" onmouseout="return TrList_OnmouseOut('trList3');">
+		<font color="#FFFFE0">
+
+		16:10
+	
+	</td>
+	<td width="12%" height="23" align="center" onclick="return trList_onclick('3465388','971129')" onmouseover="return TrList_OnmouseOver('trList3');" onmouseout="return TrList_OnmouseOut('trList3');">
+		<font color="#FFFFE0">
+			احيا                                                    
+	</td>
+	<td width="12%" height="23" align="center" onclick="return trList_onclick('3465388','971129')" onmouseover="return TrList_OnmouseOver('trList3');" onmouseout="return TrList_OnmouseOut('trList3');">
+		<font color="#FFFFE0">
+
+		سنگان
+	</td>
+	<td width="8%" height="23" align="center" onclick="return trList_onclick('3465388','971129')" onmouseover="return TrList_OnmouseOver('trList3');" onmouseout="return TrList_OnmouseOut('trList3');">
+		<font color="#FFFFE0">
+
+		 </font>                                                    
+	</td>
+	<td width="12%" height="23" align="center" onclick="return trList_onclick('3465388','971129')" onmouseover="return TrList_OnmouseOver('trList3');" onmouseout="return TrList_OnmouseOut('trList3');">
+<font color="#FFFFE0">سنگ  آهن</font></td>
+	</tr>
+	                                                  
+	<tr id="trList4"  bgcolor="">
+	<td width="5%" height="23" align="center"  onclick="return trList_onclick('3465399','980222')" onmouseover="return TrList_OnmouseOver('trList4');" onmouseout="return TrList_OnmouseOut('trList4');">
+		<font color="#FFFFE0">4													
+	</td>
+	<td width="15%" height="23" align="center" onclick="return trList_onclick('3465399','980222')" onmouseover="return TrList_OnmouseOver('trList4');" onmouseout="return TrList_OnmouseOut('trList4');">
+	<font color="#FFFFE0">
+	3465399
+	</td>
+	<td width="12%" height="23" align="center" onclick="return trList_onclick('3465399','980222')" onmouseover="return TrList_OnmouseOver('trList4');" onmouseout="return TrList_OnmouseOut('trList4');">
+ 	<font color="#FFFFE0">
+	 مباركه                                                    
+	</td>
+	<td width="12%" height="23" Dir=rtl align="center" onclick="return trList_onclick('3465399','980222')" onmouseover="return TrList_OnmouseOver('trList4');" onmouseout="return TrList_OnmouseOut('trList4');">
+		<font color="#FFFFE0">
+		22/02/98                                                    
+	</td>
+	<td width="12%" height="23" align="center" onclick="return trList_onclick('3465399','980222')" onmouseover="return TrList_OnmouseOver('trList4');" onmouseout="return TrList_OnmouseOut('trList4');">
+		<font color="#FFFFE0">
+
+		10:00
+	
+	</td>
+	<td width="12%" height="23" align="center" onclick="return trList_onclick('3465399','980222')" onmouseover="return TrList_OnmouseOver('trList4');" onmouseout="return TrList_OnmouseOut('trList4');">
+		<font color="#FFFFE0">
+			مانوري بندرعباس                                                    
+	</td>
+	<td width="12%" height="23" align="center" onclick="return trList_onclick('3465399','980222')" onmouseover="return TrList_OnmouseOver('trList4');" onmouseout="return TrList_OnmouseOut('trList4');">
+		<font color="#FFFFE0">
+
+		خواف
+	</td>
+	<td width="8%" height="23" align="center" onclick="return trList_onclick('3465399','980222')" onmouseover="return TrList_OnmouseOver('trList4');" onmouseout="return TrList_OnmouseOut('trList4');">
+		<font color="#FFFFE0">
+
+		 </font>                                                    
+	</td>
+	<td width="12%" height="23" align="center" onclick="return trList_onclick('3465399','980222')" onmouseover="return TrList_OnmouseOver('trList4');" onmouseout="return TrList_OnmouseOut('trList4');">
+<font color="#FFFFE0">واگن بدون بار</font></td>
+	</tr>
+	
+</table>
+</td>
+<td width="2%" height="1" valign="top"></td>
+</tr>
+<tr>
+<td width="2%" height="5"></td>
+<td width="97%" height="5"></td>
+<td width="2%" height="5"></td>
+</tr>
+<tr>
+<td width="2%" height="18">
+</td>
+<td width="97%" height="18">
+</td>
+<td width="2%" height="18">
+</td>
+
+ </tr>
+</table>
+    </center>
+</div>
+	
+</body>
+</html>

@@ -1,0 +1,478 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="logesticModelStoreContainer" CdmEntityContainer="logesticEntities">
+    <EntitySetMapping Name="PWS0Agencies">
+      <EntityTypeMapping TypeName="logesticModel.PWS0Agencies">
+        <MappingFragment StoreEntitySet="PWS0Agencies">
+          <ScalarProperty Name="FetchTime" ColumnName="FetchTime" />
+          <ScalarProperty Name="provinceName" ColumnName="provinceName" />
+          <ScalarProperty Name="cityName" ColumnName="cityName" />
+          <ScalarProperty Name="cityCode" ColumnName="cityCode" />
+          <ScalarProperty Name="ProvinceCode" ColumnName="ProvinceCode" />
+          <ScalarProperty Name="Lng" ColumnName="Lng" />
+          <ScalarProperty Name="Lat" ColumnName="Lat" />
+          <ScalarProperty Name="CountryName" ColumnName="CountryName" />
+          <ScalarProperty Name="CountryCode" ColumnName="CountryCode" />
+          <ScalarProperty Name="AgencyTel" ColumnName="AgencyTel" />
+          <ScalarProperty Name="AgencyStreet" ColumnName="AgencyStreet" />
+          <ScalarProperty Name="AgencyName" ColumnName="AgencyName" />
+          <ScalarProperty Name="AgencyCode" ColumnName="AgencyCode" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="PWS0AgenciesGeos">
+      <EntityTypeMapping TypeName="logesticModel.PWS0AgenciesGeos">
+        <MappingFragment StoreEntitySet="PWS0AgenciesGeos">
+          <ScalarProperty Name="AgencyId" ColumnName="AgencyId" />
+          <ScalarProperty Name="geometry_name" ColumnName="geometry_name" />
+          <ScalarProperty Name="geometryCoordinates" ColumnName="geometryCoordinates" />
+          <ScalarProperty Name="geometryType" ColumnName="geometryType" />
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="type" ColumnName="type" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="PWS0StationsGeos">
+      <EntityTypeMapping TypeName="logesticModel.PWS0StationsGeos">
+        <MappingFragment StoreEntitySet="PWS0StationsGeos">
+          <ScalarProperty Name="StationId" ColumnName="StationId" />
+          <ScalarProperty Name="geometry_name" ColumnName="geometry_name" />
+          <ScalarProperty Name="geometryCoordinates" ColumnName="geometryCoordinates" />
+          <ScalarProperty Name="geometryType" ColumnName="geometryType" />
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="type" ColumnName="type" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="PWS0Goods">
+      <EntityTypeMapping TypeName="logesticModel.PWS0Goods">
+        <MappingFragment StoreEntitySet="PWS0Goods">
+          <ScalarProperty Name="AlternateNames" ColumnName="AlternateNames" />
+          <ScalarProperty Name="goodsName" ColumnName="goodsName" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="PWS0TrainsPassengers">
+      <EntityTypeMapping TypeName="logesticModel.PWS0TrainsPassengers">
+        <MappingFragment StoreEntitySet="PWS0TrainsPassengers">
+          <ScalarProperty Name="CycleNumber" ColumnName="CycleNumber" />
+          <ScalarProperty Name="FetchTime" ColumnName="FetchTime" />
+          <ScalarProperty Name="SourceURL" ColumnName="SourceURL" />
+          <ScalarProperty Name="DepartureProgramTimeOut" ColumnName="DepartureProgramTimeOut" />
+          <ScalarProperty Name="CurrentProgramTimeIn" ColumnName="CurrentProgramTimeIn" />
+          <ScalarProperty Name="DestinationProgramTimeIn" ColumnName="DestinationProgramTimeIn" />
+          <ScalarProperty Name="DestinationStationId" ColumnName="DestinationStationId" />
+          <ScalarProperty Name="SourceStationId" ColumnName="SourceStationId" />
+          <ScalarProperty Name="DepartureDateTime" ColumnName="DepartureDateTime" />
+          <ScalarProperty Name="ExitDateTime" ColumnName="ExitDateTime" />
+          <ScalarProperty Name="EntranceDateTime" ColumnName="EntranceDateTime" />
+          <ScalarProperty Name="CurrentStationId" ColumnName="CurrentStationId" />
+          <ScalarProperty Name="jArivalHours" ColumnName="jArivalHours" />
+          <ScalarProperty Name="jDelayMinute" ColumnName="jDelayMinute" />
+          <ScalarProperty Name="jUpdate_DateTime" ColumnName="jUpdate_DateTime" />
+          <ScalarProperty Name="jDeparture_Program_Time_Out" ColumnName="jDeparture_Program_Time_Out" />
+          <ScalarProperty Name="jCurrent_Program_Time_In" ColumnName="jCurrent_Program_Time_In" />
+          <ScalarProperty Name="jDestination_Program_Time_In" ColumnName="jDestination_Program_Time_In" />
+          <ScalarProperty Name="jDestination_Station_Code" ColumnName="jDestination_Station_Code" />
+          <ScalarProperty Name="jSource_Station_Code" ColumnName="jSource_Station_Code" />
+          <ScalarProperty Name="jDeparture_Time" ColumnName="jDeparture_Time" />
+          <ScalarProperty Name="jDeparture_Date" ColumnName="jDeparture_Date" />
+          <ScalarProperty Name="jExit_Time" ColumnName="jExit_Time" />
+          <ScalarProperty Name="jExit_Date" ColumnName="jExit_Date" />
+          <ScalarProperty Name="jEntrance_Time" ColumnName="jEntrance_Time" />
+          <ScalarProperty Name="jEntrance_Date" ColumnName="jEntrance_Date" />
+          <ScalarProperty Name="jCurrent_Station_Code" ColumnName="jCurrent_Station_Code" />
+          <ScalarProperty Name="jTrain_No" ColumnName="jTrain_No" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="PWS0TrainsBarry">
+      <EntityTypeMapping TypeName="logesticModel.PWS0TrainsBarry">
+        <MappingFragment StoreEntitySet="PWS0TrainsBarry">
+          <ScalarProperty Name="CycleNumber" ColumnName="CycleNumber" />
+          <ScalarProperty Name="FetchTime" ColumnName="FetchTime" />
+          <ScalarProperty Name="SourceStationId" ColumnName="SourceStationId" />
+          <ScalarProperty Name="DestinationStationId" ColumnName="DestinationStationId" />
+          <ScalarProperty Name="CurrentStationId" ColumnName="CurrentStationId" />
+          <ScalarProperty Name="TashkilDateTime" ColumnName="TashkilDateTime" />
+          <ScalarProperty Name="jLocomotiveNumbers" ColumnName="jLocomotiveNumbers" />
+          <ScalarProperty Name="jUpdate_DateTime" ColumnName="jUpdate_DateTime" />
+          <ScalarProperty Name="jEntrance_Time" ColumnName="jEntrance_Time" />
+          <ScalarProperty Name="jEntrance_DateTime" ColumnName="jEntrance_DateTime" />
+          <ScalarProperty Name="jEntrance_Date" ColumnName="jEntrance_Date" />
+          <ScalarProperty Name="jDestination_Station_Code" ColumnName="jDestination_Station_Code" />
+          <ScalarProperty Name="jSource_Station_Code" ColumnName="jSource_Station_Code" />
+          <ScalarProperty Name="jCurrent_Station_Code" ColumnName="jCurrent_Station_Code" />
+          <ScalarProperty Name="jTashkil_Time" ColumnName="jTashkil_Time" />
+          <ScalarProperty Name="jTashkil_Date" ColumnName="jTashkil_Date" />
+          <ScalarProperty Name="jF15Rec_ID" ColumnName="jF15Rec_ID" />
+          <ScalarProperty Name="jTrain_No" ColumnName="jTrain_No" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="PWS0StateCities">
+      <EntityTypeMapping TypeName="logesticModel.PWS0StateCities">
+        <MappingFragment StoreEntitySet="PWS0StateCities">
+          <ScalarProperty Name="isState" ColumnName="isState" />
+          <ScalarProperty Name="ParentIdInDB" ColumnName="ParentIdInDB" />
+          <ScalarProperty Name="ParentStateIdInJson" ColumnName="ParentStateIdInJson" />
+          <ScalarProperty Name="CityName" ColumnName="CityName" />
+          <ScalarProperty Name="CityId" ColumnName="CityId" />
+          <ScalarProperty Name="StateName" ColumnName="StateName" />
+          <ScalarProperty Name="StateId" ColumnName="StateId" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="PWS0BillOfLadings">
+      <EntityTypeMapping TypeName="logesticModel.PWS0BillOfLadings">
+        <MappingFragment StoreEntitySet="PWS0BillOfLadings">
+          <ScalarProperty Name="CycleNumber" ColumnName="CycleNumber" />
+          <ScalarProperty Name="FetchUrl" ColumnName="FetchUrl" />
+          <ScalarProperty Name="FetchTime" ColumnName="FetchTime" />
+          <ScalarProperty Name="TashkilDateTime" ColumnName="TashkilDateTime" />
+          <ScalarProperty Name="goodsId" ColumnName="goodsId" />
+          <ScalarProperty Name="CurrentStationId" ColumnName="CurrentStationId" />
+          <ScalarProperty Name="DestinationStationId" ColumnName="DestinationStationId" />
+          <ScalarProperty Name="SourceStationId" ColumnName="SourceStationId" />
+          <ScalarProperty Name="TrainId" ColumnName="TrainId" />
+          <ScalarProperty Name="WagonId" ColumnName="WagonId" />
+          <ScalarProperty Name="jF15Rec_ID" ColumnName="jF15Rec_ID" />
+          <ScalarProperty Name="jTashkil_Time" ColumnName="jTashkil_Time" />
+          <ScalarProperty Name="jTashkil_Date" ColumnName="jTashkil_Date" />
+          <ScalarProperty Name="jEntrance_Time" ColumnName="jEntrance_Time" />
+          <ScalarProperty Name="jEntrance_Date_M" ColumnName="jEntrance_Date_M" />
+          <ScalarProperty Name="jEntrance_Date" ColumnName="jEntrance_Date" />
+          <ScalarProperty Name="jSource_Station_Code" ColumnName="jSource_Station_Code" />
+          <ScalarProperty Name="jCurrent_Station_Name" ColumnName="jCurrent_Station_Name" />
+          <ScalarProperty Name="jCurrent_Station_Code" ColumnName="jCurrent_Station_Code" />
+          <ScalarProperty Name="jBar_Type" ColumnName="jBar_Type" />
+          <ScalarProperty Name="jDestination_Station_Name" ColumnName="jDestination_Station_Name" />
+          <ScalarProperty Name="jSource_Station_Name" ColumnName="jSource_Station_Name" />
+          <ScalarProperty Name="jBarnameh_NO" ColumnName="jBarnameh_NO" />
+          <ScalarProperty Name="jWagon_NO" ColumnName="jWagon_NO" />
+          <ScalarProperty Name="jTrain_No" ColumnName="jTrain_No" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Areas">
+      <EntityTypeMapping TypeName="logesticModel.Area">
+        <MappingFragment StoreEntitySet="Areas">
+          <ScalarProperty Name="alternateNames" ColumnName="alternateNames" />
+          <ScalarProperty Name="areaName" ColumnName="areaName" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="raiWagon_Info_Tracking">
+      <EntityTypeMapping TypeName="logesticModel.raiWagon_Info_Tracking">
+        <MappingFragment StoreEntitySet="raiWagon_Info_Tracking">
+          <ScalarProperty Name="Source" ColumnName="Source" />
+          <ScalarProperty Name="CycleNumber" ColumnName="CycleNumber" />
+          <ScalarProperty Name="FetchTime" ColumnName="FetchTime" />
+          <ScalarProperty Name="goodsID" ColumnName="goodsID" />
+          <ScalarProperty Name="destinationStationId" ColumnName="destinationStationId" />
+          <ScalarProperty Name="sourceStationId" ColumnName="sourceStationId" />
+          <ScalarProperty Name="exitDateTime" ColumnName="exitDateTime" />
+          <ScalarProperty Name="enteranceDateTime" ColumnName="enteranceDateTime" />
+          <ScalarProperty Name="currentStationId" ColumnName="currentStationId" />
+          <ScalarProperty Name="trainId" ColumnName="trainId" />
+          <ScalarProperty Name="wagonId" ColumnName="wagonId" />
+          <ScalarProperty Name="wTrainDestinationStationName" ColumnName="wTrainDestinationStationName" />
+          <ScalarProperty Name="wTrainSourceStationName" ColumnName="wTrainSourceStationName" />
+          <ScalarProperty Name="wBillOfLadingNo" ColumnName="wBillOfLadingNo" />
+          <ScalarProperty Name="wBarType" ColumnName="wBarType" />
+          <ScalarProperty Name="wDistance" ColumnName="wDistance" />
+          <ScalarProperty Name="wDestinationStationName" ColumnName="wDestinationStationName" />
+          <ScalarProperty Name="wSourceStationName" ColumnName="wSourceStationName" />
+          <ScalarProperty Name="wExitTime" ColumnName="wExitTime" />
+          <ScalarProperty Name="wExitDate" ColumnName="wExitDate" />
+          <ScalarProperty Name="wEnteranceTime" ColumnName="wEnteranceTime" />
+          <ScalarProperty Name="wEnteranceDate" ColumnName="wEnteranceDate" />
+          <ScalarProperty Name="wCurrentStationName" ColumnName="wCurrentStationName" />
+          <ScalarProperty Name="wAreaName" ColumnName="wAreaName" />
+          <ScalarProperty Name="wTrainNo" ColumnName="wTrainNo" />
+          <ScalarProperty Name="wWagonNo" ColumnName="wWagonNo" />
+          <ScalarProperty Name="wRowNo" ColumnName="wRowNo" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="raiBillOfLadingsTrackings">
+      <EntityTypeMapping TypeName="logesticModel.raiBillOfLadingsTracking">
+        <MappingFragment StoreEntitySet="raiBillOfLadingsTracking">
+          <ScalarProperty Name="CycleNumber" ColumnName="CycleNumber" />
+          <ScalarProperty Name="FetchTime" ColumnName="FetchTime" />
+          <ScalarProperty Name="destinationStationId" ColumnName="destinationStationId" />
+          <ScalarProperty Name="sourceStationId" ColumnName="sourceStationId" />
+          <ScalarProperty Name="trainId" ColumnName="trainId" />
+          <ScalarProperty Name="enteranceDateTime" ColumnName="enteranceDateTime" />
+          <ScalarProperty Name="currentStationId" ColumnName="currentStationId" />
+          <ScalarProperty Name="wagonId" ColumnName="wagonId" />
+          <ScalarProperty Name="billOfLadingId" ColumnName="billOfLadingId" />
+          <ScalarProperty Name="wDistance" ColumnName="wDistance" />
+          <ScalarProperty Name="wDestinationStationName" ColumnName="wDestinationStationName" />
+          <ScalarProperty Name="wSourceStationName" ColumnName="wSourceStationName" />
+          <ScalarProperty Name="wTrainNo" ColumnName="wTrainNo" />
+          <ScalarProperty Name="wEnteranceTime" ColumnName="wEnteranceTime" />
+          <ScalarProperty Name="wEnteranceDate" ColumnName="wEnteranceDate" />
+          <ScalarProperty Name="wCurrentStationName" ColumnName="wCurrentStationName" />
+          <ScalarProperty Name="wWagonNo" ColumnName="wWagonNo" />
+          <ScalarProperty Name="wBillOfLadingNo" ColumnName="wBillOfLadingNo" />
+          <ScalarProperty Name="wRowNo" ColumnName="wRowNo" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="raiTrainPassengersLastStatus">
+      <EntityTypeMapping TypeName="logesticModel.raiTrainPassengersLastStatu">
+        <MappingFragment StoreEntitySet="raiTrainPassengersLastStatus">
+          <ScalarProperty Name="CycleNumber" ColumnName="CycleNumber" />
+          <ScalarProperty Name="FetchTime" ColumnName="FetchTime" />
+          <ScalarProperty Name="areaId" ColumnName="areaId" />
+          <ScalarProperty Name="exitDateTime" ColumnName="exitDateTime" />
+          <ScalarProperty Name="enteranceDateTime" ColumnName="enteranceDateTime" />
+          <ScalarProperty Name="currentStationId" ColumnName="currentStationId" />
+          <ScalarProperty Name="destinationStationId" ColumnName="destinationStationId" />
+          <ScalarProperty Name="sourceStationId" ColumnName="sourceStationId" />
+          <ScalarProperty Name="trainId" ColumnName="trainId" />
+          <ScalarProperty Name="wAreaName" ColumnName="wAreaName" />
+          <ScalarProperty Name="wExitDateTime" ColumnName="wExitDateTime" />
+          <ScalarProperty Name="wEnteranceDateTime" ColumnName="wEnteranceDateTime" />
+          <ScalarProperty Name="wCurrentStationName" ColumnName="wCurrentStationName" />
+          <ScalarProperty Name="wTrainBossName" ColumnName="wTrainBossName" />
+          <ScalarProperty Name="wDestinationStationName" ColumnName="wDestinationStationName" />
+          <ScalarProperty Name="wSourceStationName" ColumnName="wSourceStationName" />
+          <ScalarProperty Name="wTrainType" ColumnName="wTrainType" />
+          <ScalarProperty Name="wTrainNo" ColumnName="wTrainNo" />
+          <ScalarProperty Name="wRowNo" ColumnName="wRowNo" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="rwmmsVehicleOwners">
+      <EntityTypeMapping TypeName="logesticModel.rwmmsVehicleOwner">
+        <MappingFragment StoreEntitySet="rwmmsVehicleOwners">
+          <ScalarProperty Name="wCompanyId" ColumnName="wCompanyId" />
+          <ScalarProperty Name="Source" ColumnName="Source" />
+          <ScalarProperty Name="CycleNumber" ColumnName="CycleNumber" />
+          <ScalarProperty Name="FetchTime" ColumnName="FetchTime" />
+          <ScalarProperty Name="Description" ColumnName="Description" />
+          <ScalarProperty Name="AlternateNames" ColumnName="AlternateNames" />
+          <ScalarProperty Name="registerDate" ColumnName="registerDate" />
+          <ScalarProperty Name="PostalCode" ColumnName="PostalCode" />
+          <ScalarProperty Name="ShenaseMeli" ColumnName="ShenaseMeli" />
+          <ScalarProperty Name="companyName" ColumnName="companyName" />
+          <ScalarProperty Name="wIntroductionFile" ColumnName="wIntroductionFile" />
+          <ScalarProperty Name="wRegsiterPersianDate" ColumnName="wRegsiterPersianDate" />
+          <ScalarProperty Name="wRegisterCityName" ColumnName="wRegisterCityName" />
+          <ScalarProperty Name="wRegisterNo" ColumnName="wRegisterNo" />
+          <ScalarProperty Name="wCompanyName" ColumnName="wCompanyName" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="rwmmsVehicleOwnersDetails">
+      <EntityTypeMapping TypeName="logesticModel.rwmmsVehicleOwnersDetail">
+        <MappingFragment StoreEntitySet="rwmmsVehicleOwnersDetail">
+          <ScalarProperty Name="Source" ColumnName="Source" />
+          <ScalarProperty Name="CycleNumber" ColumnName="CycleNumber" />
+          <ScalarProperty Name="FetchTime" ColumnName="FetchTime" />
+          <ScalarProperty Name="vehicleOwnerId" ColumnName="vehicleOwnerId" />
+          <ScalarProperty Name="wAddress" ColumnName="wAddress" />
+          <ScalarProperty Name="wBirthDate" ColumnName="wBirthDate" />
+          <ScalarProperty Name="wMobileNumber" ColumnName="wMobileNumber" />
+          <ScalarProperty Name="wEmail" ColumnName="wEmail" />
+          <ScalarProperty Name="wPostalCode" ColumnName="wPostalCode" />
+          <ScalarProperty Name="wMeliNo" ColumnName="wMeliNo" />
+          <ScalarProperty Name="wRegisterCity" ColumnName="wRegisterCity" />
+          <ScalarProperty Name="wCertNo" ColumnName="wCertNo" />
+          <ScalarProperty Name="wFatherName" ColumnName="wFatherName" />
+          <ScalarProperty Name="wLName" ColumnName="wLName" />
+          <ScalarProperty Name="wFName" ColumnName="wFName" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="WagonsTypes">
+      <EntityTypeMapping TypeName="logesticModel.WagonsType">
+        <MappingFragment StoreEntitySet="WagonsTypes">
+          <ScalarProperty Name="alternateNames" ColumnName="alternateNames" />
+          <ScalarProperty Name="typeName" ColumnName="typeName" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="rwmmsDeclerationLists">
+      <EntityTypeMapping TypeName="logesticModel.rwmmsDeclerationList">
+        <MappingFragment StoreEntitySet="rwmmsDeclerationList">
+          <ScalarProperty Name="Source" ColumnName="Source" />
+          <ScalarProperty Name="CycleNumber" ColumnName="CycleNumber" />
+          <ScalarProperty Name="FetchTime" ColumnName="FetchTime" />
+          <ScalarProperty Name="issueDate" ColumnName="issueDate" />
+          <ScalarProperty Name="vehicleOwnerId" ColumnName="vehicleOwnerId" />
+          <ScalarProperty Name="PageIndex" ColumnName="PageIndex" />
+          <ScalarProperty Name="wAttachmentPath" ColumnName="wAttachmentPath" />
+          <ScalarProperty Name="wConfirmFinalDescription" ColumnName="wConfirmFinalDescription" />
+          <ScalarProperty Name="wConfirmFinal" ColumnName="wConfirmFinal" />
+          <ScalarProperty Name="wConfirmHoghoghiDescription" ColumnName="wConfirmHoghoghiDescription" />
+          <ScalarProperty Name="wConfirmHoghoghi" ColumnName="wConfirmHoghoghi" />
+          <ScalarProperty Name="wConfirmTajhizDescription" ColumnName="wConfirmTajhizDescription" />
+          <ScalarProperty Name="wConfirmTajhiz" ColumnName="wConfirmTajhiz" />
+          <ScalarProperty Name="wConfirmSarmayeDescription" ColumnName="wConfirmSarmayeDescription" />
+          <ScalarProperty Name="wConfirmSarmaye" ColumnName="wConfirmSarmaye" />
+          <ScalarProperty Name="wConfirmEdareSeirDescription" ColumnName="wConfirmEdareSeirDescription" />
+          <ScalarProperty Name="wConfirmEdareSeir" ColumnName="wConfirmEdareSeir" />
+          <ScalarProperty Name="wConfirmEdareBazarganiDescription" ColumnName="wConfirmEdareBazarganiDescription" />
+          <ScalarProperty Name="wConfirmEdareBazargani" ColumnName="wConfirmEdareBazargani" />
+          <ScalarProperty Name="wConfirmEdareWagonDescription" ColumnName="wConfirmEdareWagonDescription" />
+          <ScalarProperty Name="wConfirmEdareWagon" ColumnName="wConfirmEdareWagon" />
+          <ScalarProperty Name="wConfirmMaliDescription" ColumnName="wConfirmMaliDescription" />
+          <ScalarProperty Name="wConfirmMali" ColumnName="wConfirmMali" />
+          <ScalarProperty Name="wConfirmOwnerDescription" ColumnName="wConfirmOwnerDescription" />
+          <ScalarProperty Name="wConfirmOwner" ColumnName="wConfirmOwner" />
+          <ScalarProperty Name="wDescription" ColumnName="wDescription" />
+          <ScalarProperty Name="wOwnerDocuments" ColumnName="wOwnerDocuments" />
+          <ScalarProperty Name="wOtherRights" ColumnName="wOtherRights" />
+          <ScalarProperty Name="wDocStatus" ColumnName="wDocStatus" />
+          <ScalarProperty Name="wPageNo" ColumnName="wPageNo" />
+          <ScalarProperty Name="wRegisterNo" ColumnName="wRegisterNo" />
+          <ScalarProperty Name="wNoteNo" ColumnName="wNoteNo" />
+          <ScalarProperty Name="wIssueDate" ColumnName="wIssueDate" />
+          <ScalarProperty Name="wStatus" ColumnName="wStatus" />
+          <ScalarProperty Name="wOwnerRepresentativeName" ColumnName="wOwnerRepresentativeName" />
+          <ScalarProperty Name="wOwnerName" ColumnName="wOwnerName" />
+          <ScalarProperty Name="wDeclerationNo" ColumnName="wDeclerationNo" />
+          <ScalarProperty Name="wTypeName" ColumnName="wTypeName" />
+          <ScalarProperty Name="wWagonNo" ColumnName="wWagonNo" />
+          <ScalarProperty Name="wRowNo" ColumnName="wRowNo" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="rwmmsWagonPartsGroups">
+      <EntityTypeMapping TypeName="logesticModel.rwmmsWagonPartsGroup">
+        <MappingFragment StoreEntitySet="rwmmsWagonPartsGroups">
+          <ScalarProperty Name="FetchTime" ColumnName="FetchTime" />
+          <ScalarProperty Name="wPSID" ColumnName="wPSID" />
+          <ScalarProperty Name="wSerialNo" ColumnName="wSerialNo" />
+          <ScalarProperty Name="wGroupName" ColumnName="wGroupName" />
+          <ScalarProperty Name="IdGroupParent" ColumnName="IdGroupParent" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="rwmmsWagonParts">
+      <EntityTypeMapping TypeName="logesticModel.rwmmsWagonPart">
+        <MappingFragment StoreEntitySet="rwmmsWagonParts">
+          <ScalarProperty Name="FetchTime" ColumnName="FetchTime" />
+          <ScalarProperty Name="wMapPic4Path" ColumnName="wMapPic4Path" />
+          <ScalarProperty Name="wMapPic3Path" ColumnName="wMapPic3Path" />
+          <ScalarProperty Name="wMapPic2Path" ColumnName="wMapPic2Path" />
+          <ScalarProperty Name="wMapPic1Path" ColumnName="wMapPic1Path" />
+          <ScalarProperty Name="wMapPicPath" ColumnName="wMapPicPath" />
+          <ScalarProperty Name="wMapNumber" ColumnName="wMapNumber" />
+          <ScalarProperty Name="wWeight" ColumnName="wWeight" />
+          <ScalarProperty Name="wCountInWagon" ColumnName="wCountInWagon" />
+          <ScalarProperty Name="wCountInGroup" ColumnName="wCountInGroup" />
+          <ScalarProperty Name="wPartNameLatin" ColumnName="wPartNameLatin" />
+          <ScalarProperty Name="wPartName" ColumnName="wPartName" />
+          <ScalarProperty Name="IdGroup" ColumnName="IdGroup" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="PWS0Stations">
+      <EntityTypeMapping TypeName="logesticModel.PWS0Stations">
+        <MappingFragment StoreEntitySet="PWS0Stations">
+          <ScalarProperty Name="alternateNames" ColumnName="alternateNames" />
+          <ScalarProperty Name="FetchTime" ColumnName="FetchTime" />
+          <ScalarProperty Name="taghlilid" ColumnName="taghlilid" />
+          <ScalarProperty Name="TaghlilStationID" ColumnName="TaghlilStationID" />
+          <ScalarProperty Name="stateid" ColumnName="stateid" />
+          <ScalarProperty Name="statename" ColumnName="statename" />
+          <ScalarProperty Name="cityname" ColumnName="cityname" />
+          <ScalarProperty Name="cityid" ColumnName="cityid" />
+          <ScalarProperty Name="areaid" ColumnName="areaid" />
+          <ScalarProperty Name="agency" ColumnName="agency" />
+          <ScalarProperty Name="saatkarbaj" ColumnName="saatkarbaj" />
+          <ScalarProperty Name="saatkaranb" ColumnName="saatkaranb" />
+          <ScalarProperty Name="sandoq" ColumnName="sandoq" />
+          <ScalarProperty Name="ashia" ColumnName="ashia" />
+          <ScalarProperty Name="vahedetela" ColumnName="vahedetela" />
+          <ScalarProperty Name="restoran" ColumnName="restoran" />
+          <ScalarProperty Name="namazkhone" ColumnName="namazkhone" />
+          <ScalarProperty Name="salontashr" ColumnName="salontashr" />
+          <ScalarProperty Name="salonentez" ColumnName="salonentez" />
+          <ScalarProperty Name="bajetahvil" ColumnName="bajetahvil" />
+          <ScalarProperty Name="farangi" ColumnName="farangi" />
+          <ScalarProperty Name="irani" ColumnName="irani" />
+          <ScalarProperty Name="reservhote" ColumnName="reservhote" />
+          <ScalarProperty Name="sanayedast" ColumnName="sanayedast" />
+          <ScalarProperty Name="mobile" ColumnName="mobile" />
+          <ScalarProperty Name="soqat" ColumnName="soqat" />
+          <ScalarProperty Name="tanaqolat" ColumnName="tanaqolat" />
+          <ScalarProperty Name="amanatketa" ColumnName="amanatketa" />
+          <ScalarProperty Name="masirnabin" ColumnName="masirnabin" />
+          <ScalarProperty Name="vilcher" ColumnName="vilcher" />
+          <ScalarProperty Name="ambolans" ColumnName="ambolans" />
+          <ScalarProperty Name="postbehdas" ColumnName="postbehdas" />
+          <ScalarProperty Name="ramp" ColumnName="ramp" />
+          <ScalarProperty Name="balabar" ColumnName="balabar" />
+          <ScalarProperty Name="internetbi" ColumnName="internetbi" />
+          <ScalarProperty Name="telephonom" ColumnName="telephonom" />
+          <ScalarProperty Name="khodpardaz" ColumnName="khodpardaz" />
+          <ScalarProperty Name="kioskkhari" ColumnName="kioskkhari" />
+          <ScalarProperty Name="daftarforo" ColumnName="daftarforo" />
+          <ScalarProperty Name="sakohamlkh" ColumnName="sakohamlkh" />
+          <ScalarProperty Name="parkingtim" ColumnName="parkingtim" />
+          <ScalarProperty Name="cellOffice" ColumnName="cellOffice" />
+          <ScalarProperty Name="other" ColumnName="other" />
+          <ScalarProperty Name="taxi" ColumnName="taxi" />
+          <ScalarProperty Name="metro" ColumnName="metro" />
+          <ScalarProperty Name="bus" ColumnName="bus" />
+          <ScalarProperty Name="stcode" ColumnName="stcode" />
+          <ScalarProperty Name="name2" ColumnName="name2" />
+          <ScalarProperty Name="name" ColumnName="name" />
+          <ScalarProperty Name="alt" ColumnName="alt" />
+          <ScalarProperty Name="lon" ColumnName="lon" />
+          <ScalarProperty Name="lat" ColumnName="lat" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Wagons">
+      <EntityTypeMapping TypeName="logesticModel.Wagon">
+        <MappingFragment StoreEntitySet="Wagons">
+          <ScalarProperty Name="wrOwnershipType" ColumnName="wrOwnershipType" />
+          <ScalarProperty Name="wrOwnerName" ColumnName="wrOwnerName" />
+          <ScalarProperty Name="wrDaysRemainToRepair" ColumnName="wrDaysRemainToRepair" />
+          <ScalarProperty Name="wrControlDigit" ColumnName="wrControlDigit" />
+          <ScalarProperty Name="wrNetWeight" ColumnName="wrNetWeight" />
+          <ScalarProperty Name="wrHookType" ColumnName="wrHookType" />
+          <ScalarProperty Name="wrAxisCount" ColumnName="wrAxisCount" />
+          <ScalarProperty Name="wrProductionYear" ColumnName="wrProductionYear" />
+          <ScalarProperty Name="wrCapacity" ColumnName="wrCapacity" />
+          <ScalarProperty Name="wrCompanyManufacturer" ColumnName="wrCompanyManufacturer" />
+          <ScalarProperty Name="wrBoogieType" ColumnName="wrBoogieType" />
+          <ScalarProperty Name="wrCountry" ColumnName="wrCountry" />
+          <ScalarProperty Name="wrRivNo" ColumnName="wrRivNo" />
+          <ScalarProperty Name="wrChassisSerial" ColumnName="wrChassisSerial" />
+          <ScalarProperty Name="wrBrakeType" ColumnName="wrBrakeType" />
+          <ScalarProperty Name="wrWagonTypeName" ColumnName="wrWagonTypeName" />
+          <ScalarProperty Name="wagonControlNo" ColumnName="wagonControlNo" />
+          <ScalarProperty Name="capacity" ColumnName="capacity" />
+          <ScalarProperty Name="companyId" ColumnName="companyId" />
+          <ScalarProperty Name="wagonTypeId" ColumnName="wagonTypeId" />
+          <ScalarProperty Name="wagonNo" ColumnName="wagonNo" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

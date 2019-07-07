@@ -1,0 +1,9 @@
+D:\Application\RailSiteDataGrabber\BehinPWSGrabber\bin\Debug\BehinPWSGrabber.exe.config
+D:\Application\RailSiteDataGrabber\BehinPWSGrabber\bin\Debug\BehinPWSGrabber.exe
+D:\Application\RailSiteDataGrabber\BehinPWSGrabber\bin\Debug\BehinPWSGrabber.pdb
+D:\Application\RailSiteDataGrabber\BehinPWSGrabber\obj\Debug\BehinPWSGrabber.csprojAssemblyReference.cache
+D:\Application\RailSiteDataGrabber\BehinPWSGrabber\obj\Debug\BehinPWSGrabber.ProjectInstaller.resources
+D:\Application\RailSiteDataGrabber\BehinPWSGrabber\obj\Debug\BehinPWSGrabber.csproj.GenerateResource.cache
+D:\Application\RailSiteDataGrabber\BehinPWSGrabber\obj\Debug\BehinPWSGrabber.csproj.CoreCompileInputs.cache
+D:\Application\RailSiteDataGrabber\BehinPWSGrabber\obj\Debug\BehinPWSGrabber.exe
+D:\Application\RailSiteDataGrabber\BehinPWSGrabber\obj\Debug\BehinPWSGrabber.pdb

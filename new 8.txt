@@ -1,0 +1,40 @@
+checked for htmlcolumn
+controlindex and controlid
+
+
+
+check with ahmadzadeh
+
+add a control to another table
+fill control
+combine controls
+pagination in grid
+download in grid
+detail/edit link in grid
+
+
+
+
+
+
+**alternatecolumn
+
+**is it really need to have databasecolumnname
+
+set downloadpath for chrome in all instances
+
+columndetail
+**add htmlControlGridDetailColumn to collection
+**collectionchanged for grid and combo
+**startpageindex
+click back after detail
+is it really need to specify id column
+on exit close webdriver
+checkboxes
+notify/create if in referencecolumns we cannot find parent row
+
+pass webdriver from one page to antoher to avoid login again
+
+trycatch
+
+connection problem

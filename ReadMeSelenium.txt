@@ -1,0 +1,1 @@
+if chrome driver does not work and hangs on construction update selenium.webdriver and selenium.support in nuget
