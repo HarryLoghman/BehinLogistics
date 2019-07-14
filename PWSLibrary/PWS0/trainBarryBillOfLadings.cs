@@ -10,7 +10,7 @@ using SharedLibrary.Models;
 
 namespace PWSLibrary.PWS0
 {
-    class trainBarryBillOfLadings
+    public class trainBarryBillOfLadings
     {
         string v_url = "http://pws0.rai.ir/Bari/getBariWgonList";
         public void readAndSaveToDB(int F15Rec_ID, int train_no, int? trainId, int cycleNumber, trainBarryJsonModel trainBarryJson)

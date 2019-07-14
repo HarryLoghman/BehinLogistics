@@ -7,7 +7,7 @@ using SharedLibrary.Models;
 
 namespace PWSLibrary.PWS0
 {
-    class goods
+    public class goods
     {
         public static int? fnc_getGoodsId(string goodsName, bool add, bool notifNotExist)
         {

@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace PWSLibrary.PWS0
 {
-    class SharedJsonModel
+    public class SharedJsonModel
     {
         
     }

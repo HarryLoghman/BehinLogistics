@@ -1,4 +1,5 @@
 ﻿using OpenQA.Selenium;
+using OpenQA.Selenium.Support.UI;
 using SQLHelper.Microsoft.ApplicationBlocks.Data;
 using System;
 using System.Collections.Generic;
@@ -14,7 +15,37 @@ namespace SharedLibrary
 {
     public static class Functions
     {
+        static TimeSpan v_waitForElement = TimeSpan.FromSeconds(10);
+        public static void sb_waitForReady(IWebDriver webDriver)
+        {
+            WebDriverWait wait = new WebDriverWait(webDriver, v_waitForElement);
 
+            //wait.Until(driver =>
+            //{
+            //    bool isAjaxFinished = (bool)((IJavaScriptExecutor)driver).
+            //        ExecuteScript("return jQuery.active == 0");
+            //    /*bool isLoaderHidden = (bool)((IJavaScriptExecutor)driver).
+            //        ExecuteScript("return $('.spinner').is(':visible') == false");*/
+            //    return isAjaxFinished;// & isLoaderHidden;
+            //});
+            try
+            {
+                wait.Until(driver =>
+                {
+                    bool isAjaxFinished = (bool)((IJavaScriptExecutor)driver).
+                        ExecuteScript("return Sys.WebForms.PageRequestManager.getInstance().get_isInAsyncPostBack() == false;");
+                    /*bool isLoaderHidden = (bool)((IJavaScriptExecutor)driver).
+                        ExecuteScript("return $('.spinner').is(':visible') == false");*/
+                    return isAjaxFinished;// & isLoaderHidden;
+                });
+            }
+            catch (Exception ex)
+            {
+
+            }
+            //selenium.waitForCondition(“selenium.browserbot.getUserWindow().Sys.WebForms.PageRequestManager.getInstance().get_isInAsyncPostBack() == false;”, “10000″);
+
+        }
         public static bool IsNull(object value)
         {
             if (value == null || value == DBNull.Value || string.IsNullOrEmpty(value.ToString())

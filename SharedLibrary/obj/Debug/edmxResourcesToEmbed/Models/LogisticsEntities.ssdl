@@ -8,6 +8,39 @@
     <Property Name="areaName" Type="nvarchar" MaxLength="50" />
     <Property Name="alternateNames" Type="nvarchar" MaxLength="500" />
   </EntityType>
+  <EntityType Name="customersHistory">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="wagonControlNo" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="trainNo" Type="nvarchar" MaxLength="50" />
+    <Property Name="areaName" Type="nvarchar" MaxLength="50" />
+    <Property Name="currentStationName" Type="nvarchar" MaxLength="50" />
+    <Property Name="entranceSolarDate" Type="nvarchar" MaxLength="50" />
+    <Property Name="entranceTime" Type="nvarchar" MaxLength="50" />
+    <Property Name="distance" Type="int" />
+    <Property Name="goodsType" Type="nvarchar" MaxLength="50" />
+    <Property Name="sourceStationName" Type="nvarchar" MaxLength="50" />
+    <Property Name="destinationStationName" Type="nvarchar" MaxLength="50" />
+    <Property Name="billOfLadingNo" Type="nvarchar" MaxLength="50" />
+    <Property Name="trainSourcestationName" Type="nvarchar" MaxLength="50" />
+    <Property Name="trainDestinationStationName" Type="nvarchar" MaxLength="50" />
+    <Property Name="entranceDateTime" Type="datetime" />
+    <Property Name="fetchTime" Type="datetime" />
+  </EntityType>
+  <EntityType Name="customersHistoryFetchLog">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="wagonNo" Type="nvarchar" MaxLength="50" />
+    <Property Name="startDate" Type="nvarchar" MaxLength="50" />
+    <Property Name="endDate" Type="nvarchar" MaxLength="50" />
+    <Property Name="fetchTimeStart" Type="datetime" />
+    <Property Name="fetchTimeEnd" Type="datetime" />
+    <Property Name="state" Type="int" />
+  </EntityType>
   <EntityType Name="PWS0Agencies">
     <Key>
       <PropertyRef Name="Id" />
@@ -409,6 +442,8 @@
   </EntityType>
   <EntityContainer Name="logisticModelStoreContainer">
     <EntitySet Name="Areas" EntityType="Self.Areas" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="customersHistory" EntityType="Self.customersHistory" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="customersHistoryFetchLog" EntityType="Self.customersHistoryFetchLog" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="PWS0Agencies" EntityType="Self.PWS0Agencies" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="PWS0AgenciesGeos" EntityType="Self.PWS0AgenciesGeos" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="PWS0BillOfLadings" EntityType="Self.PWS0BillOfLadings" Schema="dbo" store:Type="Tables" />

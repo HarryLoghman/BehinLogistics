@@ -427,5 +427,40 @@
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
+    <EntitySetMapping Name="customersHistories">
+      <EntityTypeMapping TypeName="logisticModel.customersHistory">
+        <MappingFragment StoreEntitySet="customersHistory">
+          <ScalarProperty Name="fetchTime" ColumnName="fetchTime" />
+          <ScalarProperty Name="entranceDateTime" ColumnName="entranceDateTime" />
+          <ScalarProperty Name="trainDestinationStationName" ColumnName="trainDestinationStationName" />
+          <ScalarProperty Name="trainSourcestationName" ColumnName="trainSourcestationName" />
+          <ScalarProperty Name="billOfLadingNo" ColumnName="billOfLadingNo" />
+          <ScalarProperty Name="destinationStationName" ColumnName="destinationStationName" />
+          <ScalarProperty Name="sourceStationName" ColumnName="sourceStationName" />
+          <ScalarProperty Name="goodsType" ColumnName="goodsType" />
+          <ScalarProperty Name="distance" ColumnName="distance" />
+          <ScalarProperty Name="entranceTime" ColumnName="entranceTime" />
+          <ScalarProperty Name="entranceSolarDate" ColumnName="entranceSolarDate" />
+          <ScalarProperty Name="currentStationName" ColumnName="currentStationName" />
+          <ScalarProperty Name="areaName" ColumnName="areaName" />
+          <ScalarProperty Name="trainNo" ColumnName="trainNo" />
+          <ScalarProperty Name="wagonControlNo" ColumnName="wagonControlNo" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="customersHistoryFetchLogs">
+      <EntityTypeMapping TypeName="logisticModel.customersHistoryFetchLog">
+        <MappingFragment StoreEntitySet="customersHistoryFetchLog">
+          <ScalarProperty Name="state" ColumnName="state" />
+          <ScalarProperty Name="fetchTimeEnd" ColumnName="fetchTimeEnd" />
+          <ScalarProperty Name="fetchTimeStart" ColumnName="fetchTimeStart" />
+          <ScalarProperty Name="endDate" ColumnName="endDate" />
+          <ScalarProperty Name="startDate" ColumnName="startDate" />
+          <ScalarProperty Name="wagonNo" ColumnName="wagonNo" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
   </EntityContainerMapping>
 </Mapping>

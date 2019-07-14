@@ -61,13 +61,34 @@
     <Reference Include="System.Data" />
     <Reference Include="System.Net.Http" />
     <Reference Include="System.Xml" />
-    <Reference Include="WebDriver, Version=4.0.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\Selenium.WebDriver.4.0.0-alpha01\lib\net45\WebDriver.dll</HintPath>
+    <Reference Include="WebDriver, Version=0.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\Selenium.WebDriver.4.0.0-alpha02\lib\net45\WebDriver.dll</HintPath>
+    </Reference>
+    <Reference Include="WebDriver.Support, Version=0.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\Selenium.Support.4.0.0-alpha02\lib\net45\WebDriver.Support.dll</HintPath>
     </Reference>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Functions.cs" />
+    <Compile Include="htmlModel\columnComputed.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="htmlModel\htmlControl.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="htmlModel\htmlGrid.cs" />
+    <Compile Include="htmlModel\htmlTable.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="htmlModel\webpage.cs" />
+    <Compile Include="iLogin.cs" />
     <Compile Include="Models\Area.cs">
+      <DependentUpon>LogisticsEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\customersHistory.cs">
+      <DependentUpon>LogisticsEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\customersHistoryFetchLog.cs">
       <DependentUpon>LogisticsEntities.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\LogisticsEntities.Context.cs">
@@ -81,6 +102,11 @@
       <DependentUpon>LogisticsEntities.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\LogisticsEntities.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>LogisticsEntities.edmx</DependentUpon>
+    </Compile>
+    <Compile Include="Models\LogisticsEntities1.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>LogisticsEntities.edmx</DependentUpon>
@@ -149,7 +175,7 @@
     <None Include="App.config" />
     <EntityDeploy Include="Models\LogisticsEntities.edmx">
       <Generator>EntityModelCodeGenerator</Generator>
-      <LastGenOutput>LogisticsEntities.Designer.cs</LastGenOutput>
+      <LastGenOutput>LogisticsEntities1.Designer.cs</LastGenOutput>
     </EntityDeploy>
     <None Include="Models\LogisticsEntities.edmx.diagram">
       <DependentUpon>LogisticsEntities.edmx</DependentUpon>

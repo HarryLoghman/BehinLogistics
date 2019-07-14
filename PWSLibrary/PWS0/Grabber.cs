@@ -11,7 +11,7 @@ using SharedLibrary.Models;
 
 namespace PWSLibrary.PWS0
 {
-    class Grabber
+    public class Grabber
     {
         //private string v_urlStations = "http://pws0.rai.ir/mapproxy/Http/ows?service=WFS&version=1.0.0&request=GetFeature&typeName=rai:Station&outputFormat=application%2Fjson";
         //private string v_urlAgencies = "http://pws0.rai.ir/mapproxy/Http/ows?service=WFS&version=1.0.0&request=GetFeature&typeName=rai:Agency&outputFormat=application%2Fjson";

@@ -7,7 +7,7 @@ using System.Text;
 using System.Threading.Tasks;
 using SharedLibrary.Models;
 
-namespace RailSiteDataGrabber.PWS0
+namespace PWSLibrary.PWS0
 {
     public class stateCities
     {

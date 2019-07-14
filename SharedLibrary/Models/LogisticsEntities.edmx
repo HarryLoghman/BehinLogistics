@@ -4,7 +4,7 @@
   <edmx:Runtime>
     <!-- SSDL content -->
     <edmx:StorageModels>
-      <Schema Namespace="logisticModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+    <Schema Namespace="logisticModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
         <EntityType Name="Areas">
           <Key>
             <PropertyRef Name="Id" />
@@ -12,6 +12,39 @@
           <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="areaName" Type="nvarchar" MaxLength="50" />
           <Property Name="alternateNames" Type="nvarchar" MaxLength="500" />
+        </EntityType>
+        <EntityType Name="customersHistory">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="wagonControlNo" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="trainNo" Type="nvarchar" MaxLength="50" />
+          <Property Name="areaName" Type="nvarchar" MaxLength="50" />
+          <Property Name="currentStationName" Type="nvarchar" MaxLength="50" />
+          <Property Name="entranceSolarDate" Type="nvarchar" MaxLength="50" />
+          <Property Name="entranceTime" Type="nvarchar" MaxLength="50" />
+          <Property Name="distance" Type="int" />
+          <Property Name="goodsType" Type="nvarchar" MaxLength="50" />
+          <Property Name="sourceStationName" Type="nvarchar" MaxLength="50" />
+          <Property Name="destinationStationName" Type="nvarchar" MaxLength="50" />
+          <Property Name="billOfLadingNo" Type="nvarchar" MaxLength="50" />
+          <Property Name="trainSourcestationName" Type="nvarchar" MaxLength="50" />
+          <Property Name="trainDestinationStationName" Type="nvarchar" MaxLength="50" />
+          <Property Name="entranceDateTime" Type="datetime" />
+          <Property Name="fetchTime" Type="datetime" />
+        </EntityType>
+        <EntityType Name="customersHistoryFetchLog">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="wagonNo" Type="nvarchar" MaxLength="50" />
+          <Property Name="startDate" Type="nvarchar" MaxLength="50" />
+          <Property Name="endDate" Type="nvarchar" MaxLength="50" />
+          <Property Name="fetchTimeStart" Type="datetime" />
+          <Property Name="fetchTimeEnd" Type="datetime" />
+          <Property Name="state" Type="int" />
         </EntityType>
         <EntityType Name="PWS0Agencies">
           <Key>
@@ -414,6 +447,8 @@
         </EntityType>
         <EntityContainer Name="logisticModelStoreContainer">
           <EntitySet Name="Areas" EntityType="Self.Areas" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="customersHistory" EntityType="Self.customersHistory" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="customersHistoryFetchLog" EntityType="Self.customersHistoryFetchLog" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="PWS0Agencies" EntityType="Self.PWS0Agencies" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="PWS0AgenciesGeos" EntityType="Self.PWS0AgenciesGeos" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="PWS0BillOfLadings" EntityType="Self.PWS0BillOfLadings" Schema="dbo" store:Type="Tables" />
@@ -433,8 +468,7 @@
           <EntitySet Name="Wagons" EntityType="Self.Wagons" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="WagonsTypes" EntityType="Self.WagonsTypes" Schema="dbo" store:Type="Tables" />
         </EntityContainer>
-      </Schema>
-    </edmx:StorageModels>
+      </Schema></edmx:StorageModels>
     <!-- CSDL content -->
     <edmx:ConceptualModels>
       <Schema Namespace="logisticModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
@@ -865,7 +899,42 @@
           <EntitySet Name="rwmmsWagonPartsGroups" EntityType="Self.rwmmsWagonPartsGroup" />
           <EntitySet Name="Wagons" EntityType="Self.Wagon" />
           <EntitySet Name="WagonsTypes" EntityType="Self.WagonsType" />
+          <EntitySet Name="customersHistories" EntityType="logisticModel.customersHistory" />
+          <EntitySet Name="customersHistoryFetchLogs" EntityType="logisticModel.customersHistoryFetchLog" />
         </EntityContainer>
+        <EntityType Name="customersHistory">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="wagonControlNo" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="trainNo" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="areaName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="currentStationName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="entranceSolarDate" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="entranceTime" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="distance" Type="Int32" />
+          <Property Name="goodsType" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="sourceStationName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="destinationStationName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="billOfLadingNo" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="trainSourcestationName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="trainDestinationStationName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="entranceDateTime" Type="DateTime" Precision="3" />
+          <Property Name="fetchTime" Type="DateTime" Precision="3" />
+        </EntityType>
+        <EntityType Name="customersHistoryFetchLog">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="wagonNo" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="startDate" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="endDate" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="fetchTimeStart" Type="DateTime" Precision="3" />
+          <Property Name="fetchTimeEnd" Type="DateTime" Precision="3" />
+          <Property Name="state" Type="Int32" />
+        </EntityType>
       </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
@@ -1295,6 +1364,41 @@
                 <ScalarProperty Name="Id" ColumnName="Id" />
                 <ScalarProperty Name="typeName" ColumnName="typeName" />
                 <ScalarProperty Name="alternateNames" ColumnName="alternateNames" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="customersHistories">
+            <EntityTypeMapping TypeName="logisticModel.customersHistory">
+              <MappingFragment StoreEntitySet="customersHistory">
+                <ScalarProperty Name="fetchTime" ColumnName="fetchTime" />
+                <ScalarProperty Name="entranceDateTime" ColumnName="entranceDateTime" />
+                <ScalarProperty Name="trainDestinationStationName" ColumnName="trainDestinationStationName" />
+                <ScalarProperty Name="trainSourcestationName" ColumnName="trainSourcestationName" />
+                <ScalarProperty Name="billOfLadingNo" ColumnName="billOfLadingNo" />
+                <ScalarProperty Name="destinationStationName" ColumnName="destinationStationName" />
+                <ScalarProperty Name="sourceStationName" ColumnName="sourceStationName" />
+                <ScalarProperty Name="goodsType" ColumnName="goodsType" />
+                <ScalarProperty Name="distance" ColumnName="distance" />
+                <ScalarProperty Name="entranceTime" ColumnName="entranceTime" />
+                <ScalarProperty Name="entranceSolarDate" ColumnName="entranceSolarDate" />
+                <ScalarProperty Name="currentStationName" ColumnName="currentStationName" />
+                <ScalarProperty Name="areaName" ColumnName="areaName" />
+                <ScalarProperty Name="trainNo" ColumnName="trainNo" />
+                <ScalarProperty Name="wagonControlNo" ColumnName="wagonControlNo" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="customersHistoryFetchLogs">
+            <EntityTypeMapping TypeName="logisticModel.customersHistoryFetchLog">
+              <MappingFragment StoreEntitySet="customersHistoryFetchLog">
+                <ScalarProperty Name="state" ColumnName="state" />
+                <ScalarProperty Name="fetchTimeEnd" ColumnName="fetchTimeEnd" />
+                <ScalarProperty Name="fetchTimeStart" ColumnName="fetchTimeStart" />
+                <ScalarProperty Name="endDate" ColumnName="endDate" />
+                <ScalarProperty Name="startDate" ColumnName="startDate" />
+                <ScalarProperty Name="wagonNo" ColumnName="wagonNo" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>

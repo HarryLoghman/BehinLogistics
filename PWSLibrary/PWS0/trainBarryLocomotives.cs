@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace PWSLibrary.PWS0
 {
-    class trainBarryLocomotives
+    public class trainBarryLocomotives
     {
         string v_url= "http://pws0.rai.ir/Bari/GetLocomotiveList";
         public string fnc_getTrainsBarryLocomotives(int F15Rec_ID)
