@@ -96,12 +96,12 @@ namespace logisticCustomerGrabber
 
                 wagonInfoSeirHistory trackingHistory = new wagonInfoSeirHistory();
                 List<Task<bool>> lstTsk = new List<Task<bool>>();
-                int i = 0;
+                int i = 0, j;
 
 
                 while (i <= lstWagonNo.Count - 1)
                 {
-                    if (lstTsk.Count <= 50)
+                    if (lstTsk.Count <= 20)
                     {
                         SharedVariables.logs.Info(i.ToString() + "," + lstWagonNo[i].Value);
                         long wagonNoTemp = lstWagonNo[i].Value;
@@ -111,17 +111,25 @@ namespace logisticCustomerGrabber
                     }
                     else
                     {
-                        Task.WaitAll(lstTsk.ToArray());
-                        lstTsk.Clear();
+                        Task.WaitAny(lstTsk.ToArray());
+                        for (j = lstTsk.Count-1; j>=0; j--)
+                        {
+                            if(lstTsk[j].IsCanceled
+                                || lstTsk[j].IsFaulted
+                                || lstTsk[j].IsCompleted)
+                            {
+                                lstTsk.Remove(lstTsk[j]);
+                            }
+                        }
                     }
                     i++;
                 }
-                for (int j = 0; j <= lstTsk.Count - 1; j++)
+                for (j = 0; j <= lstTsk.Count - 1; j++)
                 {
                     lstTsk[j].Start();
                 }
-
-                Task.WaitAll(lstTsk.ToArray());
+                if (lstTsk.Count > 0)
+                    Task.WaitAll(lstTsk.ToArray());
                 lstTsk.Clear();
 
             }
