@@ -90,7 +90,7 @@ namespace logisticCustomerGrabber
                                   where !entityLogistic.customersHistories.Any(o => o.wagonControlNo == wagon.wagonControlNo.ToString())
                                   && !entityLogistic.customersHistoryFetchLogs.Any(o => o.wagonNo == wagon.wagonControlNo.ToString().Substring(0, 6))
                                   select wagon.wagonNo).ToList();
-                    lstWagonNo.Add(342222);
+                    //lstWagonNo.Add(342222);
                     //entityLogistic.Wagons.Select(o => o.wagonNo).ToList();
                 }
 
@@ -101,7 +101,7 @@ namespace logisticCustomerGrabber
 
                 while (i <= lstWagonNo.Count - 1)
                 {
-                    if (lstTsk.Count <= 20)
+                    if (lstTsk.Count <= 30)
                     {
                         SharedVariables.logs.Info(i.ToString() + "," + lstWagonNo[i].Value);
                         long wagonNoTemp = lstWagonNo[i].Value;
@@ -112,9 +112,9 @@ namespace logisticCustomerGrabber
                     else
                     {
                         Task.WaitAny(lstTsk.ToArray());
-                        for (j = lstTsk.Count-1; j>=0; j--)
+                        for (j = lstTsk.Count - 1; j >= 0; j--)
                         {
-                            if(lstTsk[j].IsCanceled
+                            if (lstTsk[j].IsCanceled
                                 || lstTsk[j].IsFaulted
                                 || lstTsk[j].IsCompleted)
                             {
