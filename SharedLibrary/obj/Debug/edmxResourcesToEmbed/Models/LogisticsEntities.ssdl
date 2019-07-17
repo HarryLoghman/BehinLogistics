@@ -16,16 +16,16 @@
     <Property Name="wagonControlNo" Type="nvarchar" MaxLength="50" Nullable="false" />
     <Property Name="trainNo" Type="nvarchar" MaxLength="50" />
     <Property Name="areaName" Type="nvarchar" MaxLength="50" />
-    <Property Name="currentStationName" Type="nvarchar" MaxLength="50" />
+    <Property Name="currentStationName" Type="nvarchar" MaxLength="500" />
     <Property Name="entranceSolarDate" Type="nvarchar" MaxLength="50" />
     <Property Name="entranceTime" Type="nvarchar" MaxLength="50" />
     <Property Name="distance" Type="int" />
-    <Property Name="goodsType" Type="nvarchar" MaxLength="50" />
-    <Property Name="sourceStationName" Type="nvarchar" MaxLength="50" />
-    <Property Name="destinationStationName" Type="nvarchar" MaxLength="50" />
+    <Property Name="goodsType" Type="nvarchar" MaxLength="500" />
+    <Property Name="sourceStationName" Type="nvarchar" MaxLength="500" />
+    <Property Name="destinationStationName" Type="nvarchar" MaxLength="500" />
     <Property Name="billOfLadingNo" Type="nvarchar" MaxLength="50" />
-    <Property Name="trainSourcestationName" Type="nvarchar" MaxLength="50" />
-    <Property Name="trainDestinationStationName" Type="nvarchar" MaxLength="50" />
+    <Property Name="trainSourcestationName" Type="nvarchar" MaxLength="500" />
+    <Property Name="trainDestinationStationName" Type="nvarchar" MaxLength="500" />
     <Property Name="entranceDateTime" Type="datetime" />
     <Property Name="fetchTime" Type="datetime" />
   </EntityType>
@@ -37,6 +37,7 @@
     <Property Name="wagonNo" Type="nvarchar" MaxLength="50" />
     <Property Name="startDate" Type="nvarchar" MaxLength="50" />
     <Property Name="endDate" Type="nvarchar" MaxLength="50" />
+    <Property Name="lastPageNo" Type="int" />
     <Property Name="fetchTimeStart" Type="datetime" />
     <Property Name="fetchTimeEnd" Type="datetime" />
     <Property Name="state" Type="int" />

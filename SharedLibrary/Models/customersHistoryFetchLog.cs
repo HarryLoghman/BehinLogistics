@@ -18,6 +18,7 @@ namespace SharedLibrary.Models
         public string wagonNo { get; set; }
         public string startDate { get; set; }
         public string endDate { get; set; }
+        public Nullable<int> lastPageNo { get; set; }
         public Nullable<System.DateTime> fetchTimeStart { get; set; }
         public Nullable<System.DateTime> fetchTimeEnd { get; set; }
         public Nullable<int> state { get; set; }

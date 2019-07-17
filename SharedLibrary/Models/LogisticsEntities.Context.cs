@@ -44,7 +44,7 @@ namespace SharedLibrary.Models
         public virtual DbSet<rwmmsWagonPartsGroup> rwmmsWagonPartsGroups { get; set; }
         public virtual DbSet<Wagon> Wagons { get; set; }
         public virtual DbSet<WagonsType> WagonsTypes { get; set; }
-        public virtual DbSet<customersHistory> customersHistories { get; set; }
         public virtual DbSet<customersHistoryFetchLog> customersHistoryFetchLogs { get; set; }
+        public virtual DbSet<customersHistory> customersHistories { get; set; }
     }
 }

@@ -4,6 +4,7 @@ using SharedLibrary.Models;
 using System;
 using System.Collections.Generic;
 using System.Data;
+using System.Data.Entity.Validation;
 using System.IO;
 using System.Linq;
 using System.Net;
@@ -192,6 +193,20 @@ namespace CustomerLibrary.Rai
                     entityLogistics.SaveChanges();
                     return true;
                 }
+                catch (DbEntityValidationException e)
+                {
+                    foreach (var eve in e.EntityValidationErrors)
+                    {
+                        SharedVariables.logs.Error("wagonInfoSeirHistory.readAndSaveWagonToDB.finalException   Entity of type \"" + eve.Entry.Entity.GetType().Name
+                            + "\" in state \"" + eve.Entry.State + "\" has the following validation errors:");
+                        foreach (var ve in eve.ValidationErrors)
+                        {
+                            SharedVariables.logs.Error("- Property: \"" + ve.PropertyName + "\", Error: \"" + ve.ErrorMessage + "\"");
+                        }
+                    }
+                    return false;
+                    
+                }
                 catch (Exception ex)
                 {
                     SharedVariables.logs.Error("wagonInfoSeirHistory.readAndSaveWagonToDB.finalException", ex);
@@ -282,6 +297,19 @@ namespace CustomerLibrary.Rai
                         if (add)
                             entityLogistic.customersHistories.Add(entryCustomersHistory);
                         entityLogistic.SaveChanges();
+                    }
+                    catch (DbEntityValidationException e)
+                    {
+                        foreach (var eve in e.EntityValidationErrors)
+                        {
+                            SharedVariables.logs.Error("wagonInfoSeirHistory.sb_savetoDb  Entity of type \"" + eve.Entry.Entity.GetType().Name
+                                + "\" in state \"" + eve.Entry.State + "\" has the following validation errors:");
+                            foreach (var ve in eve.ValidationErrors)
+                            {
+                                SharedVariables.logs.Error("- Property: \"" + ve.PropertyName + "\", Error: \"" + ve.ErrorMessage + "\"");
+                            }
+                        }
+
                     }
                     catch (Exception ex)
                     {

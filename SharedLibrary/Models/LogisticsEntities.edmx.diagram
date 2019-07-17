@@ -24,8 +24,8 @@
         <EntityTypeShape EntityType="logisticModel.rwmmsWagonPartsGroup" Width="1.5" PointX="14.75" PointY="0.75" IsExpanded="true" />
         <EntityTypeShape EntityType="logisticModel.Wagon" Width="1.5" PointX="14.75" PointY="3.75" IsExpanded="true" />
         <EntityTypeShape EntityType="logisticModel.WagonsType" Width="1.5" PointX="8.75" PointY="14.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="logisticModel.customersHistory" Width="1.5" PointX="15.375" PointY="9.75" />
         <EntityTypeShape EntityType="logisticModel.customersHistoryFetchLog" Width="1.5" PointX="11.375" PointY="15.75" />
+        <EntityTypeShape EntityType="logisticModel.customersHistory" Width="1.5" PointX="15.375" PointY="9.75" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

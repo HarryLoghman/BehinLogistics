@@ -20,13 +20,13 @@ namespace logisticCustomerGrabber
             InitializeComponent();
         }
 
-        private void btn_history_Click(object sender, EventArgs e)
+        private void btn_grab_Click(object sender, EventArgs e)
         {
             this.SuspendLayout();
-            this.date_history_fromDate.Text = "1387/01/01";
-            this.date_history_toDate.Text = Functions.miladiToSolar(DateTime.Now);
+            this.date_fromDate.Text = "1397/07/01";
+            this.date_toDate.Text = Functions.miladiToSolar(DateTime.Now);
             this.ResumeLayout();
-            if (Functions.IsNull(this.date_history_fromDate.Text))
+            if (Functions.IsNull(this.date_fromDate.Text))
             {
                 MessageBox.Show("تاریخ شروع مشخص نشده است", "خطا", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
@@ -36,7 +36,7 @@ namespace logisticCustomerGrabber
             toDate = DateTime.MaxValue;
             try
             {
-                fromDate = Functions.solarToMiladi(this.date_history_fromDate.Text);
+                fromDate = Functions.solarToMiladi(this.date_fromDate.Text);
             }
             catch (Exception ex)
             {
@@ -44,7 +44,7 @@ namespace logisticCustomerGrabber
                 return;
             }
 
-            if (Functions.IsNull(this.date_history_toDate.Text))
+            if (Functions.IsNull(this.date_toDate.Text))
             {
                 MessageBox.Show("تاریخ پایان مشخص نشده است", "خطا", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
@@ -52,7 +52,7 @@ namespace logisticCustomerGrabber
 
             try
             {
-                toDate = Functions.solarToMiladi(this.date_history_toDate.Text);
+                toDate = Functions.solarToMiladi(this.date_toDate.Text);
             }
             catch (Exception ex)
             {
@@ -69,10 +69,10 @@ namespace logisticCustomerGrabber
             long wagonNo;
             using (var entityLogistic = new logisticEntities())
             {
-                if (!string.IsNullOrEmpty(this.txtbx_history_wagonNo.Text))
+                if (!string.IsNullOrEmpty(this.txtbx_wagonNos.Text))
                 {
 
-                    if (!long.TryParse(this.txtbx_history_wagonNo.Text, out wagonNo))
+                    if (!long.TryParse(this.txtbx_wagonNos.Text, out wagonNo))
                     {
                         MessageBox.Show("WagonNo is not an integer value", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                         return;
@@ -98,10 +98,10 @@ namespace logisticCustomerGrabber
                 List<Task<bool>> lstTsk = new List<Task<bool>>();
                 int i = 0, j;
 
-
-                while (i <= lstWagonNo.Count - 1)
+                i = lstWagonNo.Count - 1;
+                while (i >= 10000)
                 {
-                    if (lstTsk.Count <= 30)
+                    if (lstTsk.Count <= 10)
                     {
                         SharedVariables.logs.Info(i.ToString() + "," + lstWagonNo[i].Value);
                         long wagonNoTemp = lstWagonNo[i].Value;
@@ -122,7 +122,7 @@ namespace logisticCustomerGrabber
                             }
                         }
                     }
-                    i++;
+                    i--;
                 }
                 for (j = 0; j <= lstTsk.Count - 1; j++)
                 {
@@ -133,6 +133,28 @@ namespace logisticCustomerGrabber
                 lstTsk.Clear();
 
             }
+        }
+
+        private void cmbx_fromDate_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (this.cmbx_fromDate.SelectedIndex == 0)
+                this.date_fromDate.Visible = true;
+            else this.date_fromDate.Visible = false;
+
+        }
+
+        private void cmbx_toDate_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (this.cmbx_toDate.SelectedIndex == 0)
+                this.date_toDate.Visible = true;
+            else this.date_toDate.Visible = false;
+        }
+
+        private void cmbx_wagonNos_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (this.cmbx_wagonNos.SelectedIndex == 0 || this.cmbx_wagonNos.SelectedIndex == 1)
+                this.txtbx_wagonNos.Visible = false;
+            else this.txtbx_wagonNos.Visible = true;
         }
     }
 }

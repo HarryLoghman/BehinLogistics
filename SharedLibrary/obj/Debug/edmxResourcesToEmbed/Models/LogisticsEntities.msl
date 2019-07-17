@@ -427,6 +427,20 @@
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
+    <EntitySetMapping Name="customersHistoryFetchLogs">
+      <EntityTypeMapping TypeName="logisticModel.customersHistoryFetchLog">
+        <MappingFragment StoreEntitySet="customersHistoryFetchLog">
+          <ScalarProperty Name="state" ColumnName="state" />
+          <ScalarProperty Name="fetchTimeEnd" ColumnName="fetchTimeEnd" />
+          <ScalarProperty Name="fetchTimeStart" ColumnName="fetchTimeStart" />
+          <ScalarProperty Name="lastPageNo" ColumnName="lastPageNo" />
+          <ScalarProperty Name="endDate" ColumnName="endDate" />
+          <ScalarProperty Name="startDate" ColumnName="startDate" />
+          <ScalarProperty Name="wagonNo" ColumnName="wagonNo" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
     <EntitySetMapping Name="customersHistories">
       <EntityTypeMapping TypeName="logisticModel.customersHistory">
         <MappingFragment StoreEntitySet="customersHistory">
@@ -445,19 +459,6 @@
           <ScalarProperty Name="areaName" ColumnName="areaName" />
           <ScalarProperty Name="trainNo" ColumnName="trainNo" />
           <ScalarProperty Name="wagonControlNo" ColumnName="wagonControlNo" />
-          <ScalarProperty Name="Id" ColumnName="Id" />
-        </MappingFragment>
-      </EntityTypeMapping>
-    </EntitySetMapping>
-    <EntitySetMapping Name="customersHistoryFetchLogs">
-      <EntityTypeMapping TypeName="logisticModel.customersHistoryFetchLog">
-        <MappingFragment StoreEntitySet="customersHistoryFetchLog">
-          <ScalarProperty Name="state" ColumnName="state" />
-          <ScalarProperty Name="fetchTimeEnd" ColumnName="fetchTimeEnd" />
-          <ScalarProperty Name="fetchTimeStart" ColumnName="fetchTimeStart" />
-          <ScalarProperty Name="endDate" ColumnName="endDate" />
-          <ScalarProperty Name="startDate" ColumnName="startDate" />
-          <ScalarProperty Name="wagonNo" ColumnName="wagonNo" />
           <ScalarProperty Name="Id" ColumnName="Id" />
         </MappingFragment>
       </EntityTypeMapping>
